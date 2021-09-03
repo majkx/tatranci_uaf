@@ -15,6 +15,11 @@
         "realization": "index.html",
         "httpMethod": "GET",
         "type": "UVE"
+      },
+      "article/create": {
+        "realization": "api/controllers/ArticleController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
       }
     }
   }

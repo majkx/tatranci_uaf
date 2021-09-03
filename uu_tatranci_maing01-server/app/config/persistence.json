@@ -6,6 +6,9 @@
       "schemaMap": {
         "tatranciMain": {
           "realization": "dao/TatranciMainMongo"
+        },
+        "article": {
+          "realization": "dao/ArticleMongo"
         }
       }
     }
