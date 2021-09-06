@@ -20,6 +20,126 @@
         "realization": "api/controllers/ArticleController.create",
         "httpMethod": "POST",
         "type": "CMD"
+      },
+      "article/get": {
+        "realization": "api/controllers/ArticleController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "article/list": {
+        "realization": "api/controllers/ArticleController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "article/delete": {
+        "realization": "api/controllers/ArticleController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "article/update": {
+        "realization": "api/controllers/ArticleController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "report/create": {
+        "realization": "api/controllers/ReportController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "report/get": {
+        "realization": "api/controllers/ReportController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "report/list": {
+        "realization": "api/controllers/ReportController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "report/delete": {
+        "realization": "api/controllers/ReportController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "report/update": {
+        "realization": "api/controllers/ReportController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "reservation/create": {
+        "realization": "api/controllers/ReservationController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "reservation/get": {
+        "realization": "api/controllers/ReservationController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "reservation/list": {
+        "realization": "api/controllers/ReservationController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "reservation/delete": {
+        "realization": "api/controllers/ReservationController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "reservation/update": {
+        "realization": "api/controllers/ReservationController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "item/create": {
+        "realization": "api/controllers/ItemController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "item/get": {
+        "realization": "api/controllers/ItemController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "item/list": {
+        "realization": "api/controllers/ItemController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "item/delete": {
+        "realization": "api/controllers/ItemController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "item/update": {
+        "realization": "api/controllers/ItemController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "schoolMagazine/create": {
+        "realization": "api/controllers/SchoolMagazineController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "schoolMagazine/get": {
+        "realization": "api/controllers/SchoolMagazineController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "schoolMagazine/list": {
+        "realization": "api/controllers/SchoolMagazineController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "schoolMagazine/delete": {
+        "realization": "api/controllers/SchoolMagazineController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "schoolMagazine/update": {
+        "realization": "api/controllers/SchoolMagazineController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
       }
     }
   }

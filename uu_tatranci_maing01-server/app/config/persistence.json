@@ -9,6 +9,18 @@
         },
         "article": {
           "realization": "dao/ArticleMongo"
+        },
+        "report": {
+          "realization": "dao/ReportMongo"
+        },
+        "reservation": {
+          "realization": "dao/ReservationMongo"
+        },
+        "item": {
+          "realization": "dao/ItemMongo"
+        },
+        "schoolMagazine": {
+          "realization": "dao/SchoolMagazineMongo"
         }
       }
     }

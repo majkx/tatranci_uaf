@@ -16,6 +16,22 @@ class ArticleAbl {
     this.dao = DaoFactory.getDao("article");
   }
 
+  async update(awid, dtoIn) {
+    
+  }
+
+  async delete(awid, dtoIn) {
+    
+  }
+
+  async list(awid, dtoIn) {
+    
+  }
+
+  async get(awid, dtoIn) {
+    
+  }
+
   async create(awid, dtoIn) {
     
   }
