@@ -21,6 +21,18 @@
         },
         "schoolMagazine": {
           "realization": "dao/SchoolMagazineMongo"
+        },
+        "user": {
+          "realization": "dao/UserMongo"
+        },
+        "seller": {
+          "realization": "dao/SellerMongo"
+        },
+        "admin": {
+          "realization": "dao/AdminMongo"
+        },
+        "editor": {
+          "realization": "dao/EditorMongo"
         }
       }
     }

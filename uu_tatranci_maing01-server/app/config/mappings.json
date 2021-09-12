@@ -140,6 +140,106 @@
         "realization": "api/controllers/SchoolMagazineController.update",
         "httpMethod": "POST",
         "type": "CMD"
+      },
+      "user/create": {
+        "realization": "api/controllers/UserController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "user/get": {
+        "realization": "api/controllers/UserController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "user/list": {
+        "realization": "api/controllers/UserController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "user/delete": {
+        "realization": "api/controllers/UserController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "user/update": {
+        "realization": "api/controllers/UserController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "seller/create": {
+        "realization": "api/controllers/SellerController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "seller/get": {
+        "realization": "api/controllers/SellerController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "seller/delete": {
+        "realization": "api/controllers/SellerController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "seller/list": {
+        "realization": "api/controllers/SellerController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "seller/update": {
+        "realization": "api/controllers/SellerController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "admin/create": {
+        "realization": "api/controllers/AdminController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "admin/get": {
+        "realization": "api/controllers/AdminController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "admin/list": {
+        "realization": "api/controllers/AdminController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "admin/delete": {
+        "realization": "api/controllers/AdminController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "admin/update": {
+        "realization": "api/controllers/AdminController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "editor/create": {
+        "realization": "api/controllers/EditorController.create",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "editor/get": {
+        "realization": "api/controllers/EditorController.get",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "editor/list": {
+        "realization": "api/controllers/EditorController.list",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "editor/delete": {
+        "realization": "api/controllers/EditorController.delete",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "editor/update": {
+        "realization": "api/controllers/EditorController.update",
+        "httpMethod": "POST",
+        "type": "CMD"
       }
     }
   }
