@@ -5,7 +5,6 @@ const createArticleDtoInType = shape({
   content: uu5String(16000).isRequired(),
   titleImg: uri(),
   autorsUuid: uuIdentity().isRequired(),
-  autorsName: string()
 });
 const getArticleDtoInType = shape({
   id: id().isRequired()
@@ -22,5 +21,4 @@ const updateArticleDtoInType = shape({
   content: uu5String(16000),
   autorsUuid: uuIdentity(),
   titleImg: uri(),
-  autorsName: string()
 });
