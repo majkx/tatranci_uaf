@@ -20,7 +20,7 @@ class ArticleController {
   }
 
   create(ucEnv) {
-    return ArticleAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return ArticleAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
   }
 
 }

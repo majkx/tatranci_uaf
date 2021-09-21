@@ -3,9 +3,9 @@ const createArticleDtoInType = shape({
   name : string(200).isRequired(),
   desc: uu5String(16000).isRequired(),
   content: uu5String(16000).isRequired(),
-  titleImg: uri(),
-  autorsUuid: uuIdentity().isRequired(),
+  titleImg: uri()
 });
+
 const getArticleDtoInType = shape({
   id: id().isRequired()
 });
