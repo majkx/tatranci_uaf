@@ -34,7 +34,11 @@ class TatranciMainAbl {
     );
 
     // HDS 2
-    const schemas = ["tatranciMain"];
+    const schemas = [
+      "tatranciMain","article", "report", "reservation", "item",
+      "schoolMagazine","user","seller","admin","editor"
+    ];
+
     let schemaCreateResults = schemas.map(async (schema) => {
       try {
         return await DaoFactory.getDao(schema).createSchema();
