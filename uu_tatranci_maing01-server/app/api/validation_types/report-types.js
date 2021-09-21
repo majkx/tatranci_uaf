@@ -1,7 +1,7 @@
 /* eslint-disable */
 const createReportDtoInType = shape({
   autorsUuid: uuIdentity().isRequired(),
-  titleOfPost: string(200).isRequire(),
+  titleOfPost: string(200).isRequired(),
   category: string(200),
   videoURL: uri().isRequired(),
   embedCode: string(),

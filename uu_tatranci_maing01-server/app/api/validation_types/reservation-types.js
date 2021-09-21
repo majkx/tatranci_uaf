@@ -4,16 +4,17 @@ const createReservationDtoInType = shape({
   name: string(200),
   desc: uu5String(16000),
   state: oneOf(["open","closed","tested"]),
-  image: uri()
-  count: "(value)", // (description)
-  priceIndividually: "(value)", // (description)
-  totalPrice: "(value)", // (description)
-  reservationID: "(value)", // (description)
-  personID: "(value)", // (description)
-  bookingDate: "(value)", // (description)
-  numberOfReserved: "(value)", // (description)
-  condition: "(value)", // (description)
+  image: uri(),
+  count: integer(),
+  priceIndividually: float(), // (description)
+  totalPrice: integer(), // (description)
+  reservationID: id(), // (description)
+  personID: id(), // (description)
+  bookingDate: date(), // (description)
+  numberOfReserved: integer(), // (description)
+  condition: string(), // (description)
 });
+
 const getReservationDtoInType = shape({
   id: id().isRequired()
 });
