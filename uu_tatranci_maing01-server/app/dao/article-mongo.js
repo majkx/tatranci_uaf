@@ -7,7 +7,6 @@ class ArticleMongo extends UuObjectDao {
     await super.createIndex({ awid: 1, id: 1 }, { unique: true });
     await super.createIndex({ awid: 1, author: 1 });
   }
-
   async create(uuObject) {
     return await super.insertOne(uuObject);
   }
