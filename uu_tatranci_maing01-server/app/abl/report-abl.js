@@ -5,7 +5,7 @@ const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/report-error.js");
 
-const WARNINGS = {
+const Warnings = {
   createReportUnsuportedKeys : {
     code:"createReportUnsuportedKeys",
     message:"DtoIn contains unsuported keys"
