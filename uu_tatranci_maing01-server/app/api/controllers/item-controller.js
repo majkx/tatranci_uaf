@@ -20,7 +20,7 @@ class ItemController {
   }
 
   create(ucEnv) {
-    return ItemAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return ItemAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
   }
 
 }
