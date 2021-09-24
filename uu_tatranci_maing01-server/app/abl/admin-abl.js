@@ -6,13 +6,13 @@ const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/admin-error.js");
 
 const Warnings = {
-  createArticleUnsuportedKeys : {
-    code:"createArticleUnsuportedKeys",
+  createAdminUnsuportedKeys : {
+    code:"createAdminUnsuportedKeys",
     message:"DtoIn contains unsuported keys"
   },
 
-  getArticleUnsuportedKeys: {
-    code:"getArticleUnsuportedKeys",
+  getAdminUnsuportedKeys: {
+    code:"getAdminUnsuportedKeys",
     message:"DtoIn contains unsuported keys"
   }
 };
