@@ -20,7 +20,7 @@ class SchoolMagazineController {
   }
 
   create(ucEnv) {
-    return SchoolMagazineAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return SchoolMagazineAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
   }
 
 }

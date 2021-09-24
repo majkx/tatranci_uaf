@@ -8,6 +8,17 @@ class SchoolMagazineMongo extends UuObjectDao {
     await super.createIndex({ awid: 1, 'articles.authorId': 1 });
 
   }
+  async create(uuObject) {
+    return await super.insertOne(uuObject);
+  }
+
+  async get(awid, id){
+    let filter = {
+      awid: awid,
+      id: id
+    }
+    return await super.findOne(filter);
+  }
 
 }
 
