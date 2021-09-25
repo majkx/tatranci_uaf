@@ -20,7 +20,7 @@ class SellerController {
   }
 
   create(ucEnv) {
-    return SellerAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return SellerAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
   }
 
 }
