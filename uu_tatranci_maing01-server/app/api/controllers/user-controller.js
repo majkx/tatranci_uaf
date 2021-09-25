@@ -20,7 +20,7 @@ class UserController {
   }
 
   create(ucEnv) {
-    return UserAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return UserAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
   }
 
 }
