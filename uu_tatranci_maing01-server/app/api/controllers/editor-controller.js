@@ -20,7 +20,7 @@ class EditorController {
   }
 
   create(ucEnv) {
-    return EditorAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+    return EditorAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
   }
 
 }

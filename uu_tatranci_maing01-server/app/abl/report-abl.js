@@ -36,7 +36,7 @@ class ReportAbl {
 
   }
 
-  async get(awid, dtoIn) {
+  async get(awid, dtoIn, uuAppErrorMap) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("getReportDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -59,7 +59,7 @@ class ReportAbl {
     return dtoOut;
   }
 
-  async create(awid, dtoIn) {
+  async create(awid, dtoIn, session, uuAppErrorMap) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("createReportDtoInType", dtoIn);
