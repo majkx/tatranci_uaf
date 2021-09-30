@@ -72,6 +72,7 @@ class EditorAbl {
     );
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
+    //TODO: Zjednotit s dokumentaciou
     let uuIdentity = session.getIdentity().getUuIdentity();
     let name = session.getIdentity().getName();
     dtoIn.authorUuId = uuIdentity;

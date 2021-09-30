@@ -106,7 +106,6 @@ class TatranciMainAbl {
     }
 
     // HDS 4 - HDS N
-    // TODO Implement according to application needs...
 
     // HDS N+1
     const workspace = UuAppWorkspace.get(awid);
