@@ -19,6 +19,5 @@ const updateArticleDtoInType = shape({
   id: id(),
   desc: uu5String(16000),
   content: uu5String(16000),
-  autorsUuid: uuIdentity(),
-  titleImg: uri(),
+  titleImg: uri()
 });

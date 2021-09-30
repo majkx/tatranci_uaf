@@ -24,8 +24,43 @@ class ArticleAbl {
     this.dao = DaoFactory.getDao("article");
   }
 
-  async update(awid, dtoIn) {
+  async update(awid, dtoIn, uuAppErrorMap = {}) {
 
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("updateArticleDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.createArticleUnsuportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+
+    //HDS 2 - Check if updated object exists
+    let articleObject = await this.dao.get(awid, dtoIn.id);
+
+    // A2 - throw error
+    if(Object.keys(articleObject).length === 0){
+      throw new Errors.Update.ArticleNotFound({uuAppErrorMap}, {id: dtoIn.id})
+    }
+
+    //HDS 3 - Prepare new article object
+    let newArticle = {
+      ...articleObject,
+      ...dtoIn
+    }
+
+    // HDS 4 - Update object in Database
+    let dtoOut = {};
+
+    try {
+    dtoOut = await this.dao.update(newArticle)
+    }catch(e){
+      throw e;
+    }
+
+    //HDS 5 - Return filled dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
   }
 
   async delete(awid, dtoIn) {
@@ -83,13 +118,12 @@ class ArticleAbl {
     try {
       dtoOut = await this.dao.create(dtoIn)
     } catch(e){
-      throw e;
+      throw new Errors.Create.CreateArticleDaoFailed({uuAppErrorMap}, { cause: e });
     }
 
     // HDS 4 - Return object
     dtoOut.uuAppErrorMap = uuAppErrorMap;
     return dtoOut;
-
   }
 
 }

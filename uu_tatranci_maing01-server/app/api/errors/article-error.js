@@ -13,6 +13,14 @@ const Create = {
       this.message = "DtoIn is not valid.";
     }
   },
+
+  CreateArticleDaoFailed: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Create.UC_CODE}createArticleDaoFailed`;
+      this.message = "Creation of article failed on DAO.";
+    }
+  },
 };
 
 const Get = {
@@ -39,6 +47,22 @@ const Delete = {
 
 const Update = {
   UC_CODE: `${ARTICLE_ERROR_PREFIX}update/`,
+
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  ArticleNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}articleNotFound`;
+      this.message = "Article with given ID was not found.";
+    }
+  },
 
 };
 
