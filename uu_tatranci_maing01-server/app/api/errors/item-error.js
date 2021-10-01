@@ -13,6 +13,13 @@ const Create = {
       this.message = "DtoIn is not valid.";
     }
   },
+  CreateItemDaoFailed: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Create.UC_CODE}createItemDaoFailed`;
+      this.message = "Creation of item failed on DAO.";
+    }
+  },
 };
 
 const Get = {
