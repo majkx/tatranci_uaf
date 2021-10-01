@@ -75,8 +75,8 @@ class SellerAbl {
     //TODO: Zjednotit s dokumentaciou
     let uuIdentity = session.getIdentity().getUuIdentity();
     let name = session.getIdentity().getName();
-    dtoIn.authorUuId = uuIdentity;
-    dtoIn.authorName = name;
+    dtoIn.UuId = uuIdentity;
+    dtoIn.Name = name;
     dtoIn.awid = awid;
     let dtoOut = {};
 

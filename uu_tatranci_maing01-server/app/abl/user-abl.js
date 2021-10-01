@@ -74,9 +74,11 @@ class UserAbl {
     // HDS 2 - get author uuId and Name and add it to dtoIn
     ///TODO: Zjednotit s dokumentaciou nazvy props
     let uuIdentity = session.getIdentity().getUuIdentity();
-    let name = session.getIdentity().getName();
-    dtoIn.authorUuId = uuIdentity;
-    dtoIn.authorName = name;
+    let firstName = session.getIdentity().getFirstName();
+    let lastName = session.getIdentity().getLastName();
+    dtoIn.firstName = firstName;
+    dtoIn.lastName = lastName;
+    dtoIn.UuId = uuIdentity;
     dtoIn.awid = awid;
     let dtoOut = {};
 
