@@ -74,9 +74,11 @@ class SellerAbl {
     // HDS 2 - get author uuId and Name and add it to dtoIn
     //TODO: Zjednotit s dokumentaciou
     let uuIdentity = session.getIdentity().getUuIdentity();
-    let name = session.getIdentity().getName();
+    let firstName = session.getIdentity().getFirstName();
+    let lastName = session.getIdentity().getLastName();
     dtoIn.UuId = uuIdentity;
-    dtoIn.Name = name;
+    dtoIn.firstName = firstName;
+    dtoIn.lastName = lastName;
     dtoIn.awid = awid;
     let dtoOut = {};
 
