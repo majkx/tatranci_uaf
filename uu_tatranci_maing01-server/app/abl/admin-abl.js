@@ -24,8 +24,43 @@ class AdminAbl {
     this.dao = DaoFactory.getDao("admin");
   }
 
-  async update(awid, dtoIn) {
+  async update(awid, dtoIn, uuAppErrorMap = {}) {
 
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("updateAdminDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.createAdminUnsuportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+
+    //HDS 2 - Check if updated object exists
+    let adminObject = await this.dao.get(awid, dtoIn.id);
+
+    // A2 - throw error
+    if(Object.keys(adminObject).length === 0){
+      throw new Errors.Update.AdminNotFound({uuAppErrorMap}, {id: dtoIn.id})
+    }
+
+    //HDS 3 - Prepare new article object
+    let newAdmin = {
+      ...adminObject,
+      ...dtoIn
+    }
+
+    // HDS 4 - Update object in Database
+    let dtoOut = {};
+
+    try {
+      dtoOut = await this.dao.update(newAdmin)
+    }catch(e){
+      throw e;
+    }
+
+    //HDS 5 - Return filled dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
   }
 
   async delete(awid, dtoIn) {

@@ -45,6 +45,22 @@ const Delete = {
 const Update = {
   UC_CODE: `${REPORT_ERROR_PREFIX}update/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  ReportNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}reportNotFound`;
+      this.message = "Report with given ID was not found.";
+    }
+  },
+
 };
 
 module.exports = {

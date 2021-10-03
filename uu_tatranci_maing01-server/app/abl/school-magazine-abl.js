@@ -24,8 +24,43 @@ class SchoolMagazineAbl {
     this.dao = DaoFactory.getDao("schoolMagazine");
   }
 
-  async update(awid, dtoIn) {
+  async update(awid, dtoIn, uuAppErrorMap = {}) {
 
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("updateSchoolMagazineDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.createSchoolMagazineUnsuportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+
+    //HDS 2 - Check if updated object exists
+    let schoolMagazineObject = await this.dao.get(awid, dtoIn.id);
+
+    // A2 - throw error
+    if(Object.keys(schoolMagazineObject).length === 0){
+      throw new Errors.Update.SchoolMagazineNotFound({uuAppErrorMap}, {id: dtoIn.id})
+    }
+
+    //HDS 3 - Prepare new article object
+    let newSchoolMagazine = {
+      ...schoolMagazineObject,
+      ...dtoIn
+    }
+
+    // HDS 4 - Update object in Database
+    let dtoOut = {};
+
+    try {
+      dtoOut = await this.dao.update(newSchoolMagazine)
+    }catch(e){
+      throw e;
+    }
+
+    //HDS 5 - Return filled dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
   }
 
   async delete(awid, dtoIn) {

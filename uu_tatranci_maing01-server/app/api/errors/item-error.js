@@ -47,6 +47,22 @@ const Delete = {
 const Update = {
   UC_CODE: `${ITEM_ERROR_PREFIX}update/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  ItemNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}itemNotFound`;
+      this.message = "Item with given ID was not found.";
+    }
+  },
+
 };
 
 module.exports = {

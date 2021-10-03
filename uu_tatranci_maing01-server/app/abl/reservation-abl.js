@@ -24,8 +24,43 @@ class ReservationAbl {
     this.dao = DaoFactory.getDao("reservation");
   }
 
-  async update(awid, dtoIn) {
+  async update(awid, dtoIn, uuAppErrorMap = {}) {
 
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("updateReservationDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.createReservationUnsuportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+
+    //HDS 2 - Check if updated object exists
+    let reservationObject = await this.dao.get(awid, dtoIn.id);
+
+    // A2 - throw error
+    if(Object.keys(reservationObject).length === 0){
+      throw new Errors.Update.ReservationNotFound({uuAppErrorMap}, {id: dtoIn.id})
+    }
+
+    //HDS 3 - Prepare new article object
+    let newReservation = {
+      ...reservationObject,
+      ...dtoIn
+    }
+
+    // HDS 4 - Update object in Database
+    let dtoOut = {};
+
+    try {
+      dtoOut = await this.dao.update(newReservation)
+    }catch(e){
+      throw e;
+    }
+
+    //HDS 5 - Return filled dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
   }
 
   async delete(awid, dtoIn) {

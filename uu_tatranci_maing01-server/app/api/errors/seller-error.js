@@ -47,6 +47,22 @@ const List = {
 const Update = {
   UC_CODE: `${SELLER_ERROR_PREFIX}update/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  SellerNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}sellerNotFound`;
+      this.message = "Seller with given ID was not found.";
+    }
+  },
+
 };
 
 module.exports = {

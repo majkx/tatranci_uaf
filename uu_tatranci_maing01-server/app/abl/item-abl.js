@@ -24,8 +24,43 @@ class ItemAbl {
     this.dao = DaoFactory.getDao("item");
   }
 
-  async update(awid, dtoIn) {
+  async update(awid, dtoIn, uuAppErrorMap = {}) {
 
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("updateItemDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.createItemUnsuportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+
+    //HDS 2 - Check if updated object exists
+    let itemObject = await this.dao.get(awid, dtoIn.id);
+
+    // A2 - throw error
+    if(Object.keys(itemObject).length === 0){
+      throw new Errors.Update.ItemNotFound({uuAppErrorMap}, {id: dtoIn.id})
+    }
+
+    //HDS 3 - Prepare new article object
+    let newItem = {
+      ...itemObject,
+      ...dtoIn
+    }
+
+    // HDS 4 - Update object in Database
+    let dtoOut = {};
+
+    try {
+      dtoOut = await this.dao.update(newItem)
+    }catch(e){
+      throw e;
+    }
+
+    //HDS 5 - Return filled dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
   }
 
   async delete(awid, dtoIn) {

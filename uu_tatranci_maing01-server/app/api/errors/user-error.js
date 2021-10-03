@@ -47,6 +47,22 @@ const Delete = {
 const Update = {
   UC_CODE: `${USER_ERROR_PREFIX}update/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  UserNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Update.UC_CODE}userNotFound`;
+      this.message = "User with given ID was not found.";
+    }
+  },
+
 };
 
 module.exports = {
