@@ -108,13 +108,14 @@ class AdminAbl {
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
     //TODO: Zjednotit s dokumentaciou
-    let uuIdentity = session.getIdentity().getUuIdentity();
-    let firstName = session.getIdentity().getFirstName();
-    let lastName = session.getIdentity().getLastName();
-    dtoIn.UuId = uuIdentity;
-    dtoIn.firstName = firstName;
-    dtoIn.lastName = lastName;
-    dtoIn.awid = awid;
+    // let uuIdentity = session.getIdentity().getUuIdentity();
+    // let firstName = session.getIdentity().getFirstName(); // Tvoje meno, nie administratorove !
+    // let lastName = session.getIdentity().getLastName();
+    // dtoIn.UuId = uuIdentity;
+    // dtoIn.firstName = firstName;
+    // dtoIn.lastName = lastName;
+    // dtoIn.awid = awid;
+
     let dtoOut = {};
 
     // HDS 3 - Zapis do databazi
