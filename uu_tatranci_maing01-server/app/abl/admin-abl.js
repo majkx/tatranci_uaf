@@ -119,6 +119,7 @@ class AdminAbl {
     let dtoOut = {};
 
     // HDS 3 - Zapis do databazi
+    dtoIn.awid = awid;
     try {
       dtoOut = await this.dao.create(dtoIn)
     } catch(e){
