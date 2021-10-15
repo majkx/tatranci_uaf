@@ -4,6 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/article-error.js");
+const ObjectId = require('mongodb').ObjectID;
 
 const Warnings = {
   createArticleUnsuportedKeys : {
@@ -112,6 +113,7 @@ class ArticleAbl {
     dtoIn.authorUuId = uuIdentity;
     dtoIn.authorName = name;
     dtoIn.awid = awid;
+    dtoIn.id = ObjectId();
     let dtoOut = {};
 
     // HDS 3 - Zapis do databazi
