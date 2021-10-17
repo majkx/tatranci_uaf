@@ -1,8 +1,10 @@
 /* eslint-disable */
 const createEditorDtoInType = shape({
-  name: string(200).isRequired(),
-  desc: uu5String(16000),
-  image: uri()
+  email: string(200),
+  telephoneNumber: string(200),
+  access: string(200),
+  rfidNumber: string(200),
+  numberOfPost: string(200)
 });
 const getEditorDtoInType = shape({
   id: id().isRequired()
@@ -14,8 +16,9 @@ const deleteEditorDtoInType = shape({
   id: id().isRequired()
 });
 const updateEditorDtoInType = shape({
-  name: string(200),
-  desc: uu5String(16000),
-  state: oneOf(["open","closed","tested"]),
-  image: uri()
+  email: string(200),
+  telephoneNumber: string(200),
+  access: string(200),
+  rfidNumber: string(200),
+  numberOfPost: string(200)
 });

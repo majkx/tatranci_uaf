@@ -15,11 +15,8 @@ const deleteReportDtoInType = shape({
   id: id().isRequired()
 });
 const updateReportDtoInType = shape({
-  id: id(),
-  autorsName: string(),
-  titleOfPost: string(),
+  titleOfPost: string(200).isRequired(),
   category: string(200),
-  videoURL: uri(),
-  embedCode: string(),
-  autorsUuId: uuIdentity(),
+  videoURL: uri().isRequired(),
+  embedCode: string()
 });

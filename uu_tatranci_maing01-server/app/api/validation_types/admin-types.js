@@ -1,10 +1,9 @@
 /* eslint-disable */
 const createAdminDtoInType = shape({
-  code: code().isRequired(),
-  name: string(200),
-  desc: uu5String(16000),
-  state: oneOf(["open","closed","tested"]),
-  image: uri()
+  email: string(200),
+  telephoneNumber: string(200),
+  access: string(200),
+  rfidNumber: string(200)
 });
 const getAdminDtoInType = shape({
   id: id().isRequired()
@@ -16,9 +15,8 @@ const deleteAdminDtoInType = shape({
   id: id().isRequired()
 });
 const updateAdminDtoInType = shape({
-  code: code().isRequired(),
-  name: string(200),
-  desc: uu5String(16000),
-  state: oneOf(["open","closed","tested"]),
-  image: uri()
+  email: string(200),
+  telephoneNumber: string(200),
+  access: string(200),
+  rfidNumber: string(200)
 });

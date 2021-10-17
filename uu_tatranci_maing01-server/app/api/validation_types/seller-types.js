@@ -1,10 +1,13 @@
 /* eslint-disable */
 const createSellerDtoInType = shape({
-  code: code().isRequired(),
-  name: string(200),
-  desc: uu5String(16000),
-  state: oneOf(["open","closed","tested"]),
-  image: uri()
+  sellerNumber: string(200),
+  position: string(200),
+  email: string(200),
+  telephoneNumber: string(200),
+  timeWorked: string(200),
+  salary: string(200),
+  access: string(200),
+  rfidNumber: string(200)
 })
 const getSellerDtoInType = shape({
   id: id().isRequired()
@@ -16,9 +19,12 @@ const deleteSellerDtoInType = shape({
   id: id().isRequired()
 })
 const updateSellerDtoInType = shape({
-  code: code().isRequired(),
-  name: string(200),
-  desc: uu5String(16000),
-  state: oneOf(["open","closed","tested"]),
-  image: uri()
+  sellerNumber: string(200),
+  position: string(200),
+  email: string(200),
+  telephoneNumber: string(200),
+  timeWorked: string(200),
+  salary: string(200),
+  access: string(200),
+  rfidNumber: string(200)
 })

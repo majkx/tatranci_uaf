@@ -1,10 +1,15 @@
 /* eslint-disable */
 const createSchoolMagazineDtoInType = shape({
-  code: code().isRequired(),
   name: string(200),
-  desc: uu5String(16000),
-  state: oneOf(["open","closed","tested"]),
-  image: uri()
+  magazineNumber: string(200),
+  numbersOfPages: string(200),
+  articles: [
+    {
+      titleOfPost: string(200),
+      category: string(200),
+      content: string(200)
+    }
+  ]
 });
 const getSchoolMagazineDtoInType = shape({
   id: id().isRequired()
@@ -16,9 +21,14 @@ const deleteSchoolMagazineDtoInType = shape({
   id: id().isRequired()
 });
 const updateSchoolMagazineDtoInType = shape({
-  code: code().isRequired(),
   name: string(200),
-  desc: uu5String(16000),
-  state: oneOf(["open","closed","tested"]),
-  image: uri()
+  magazineNumber: string(200),
+  numbersOfPages: string(200),
+  articles: [
+    {
+      titleOfPost: string(200),
+      category: string(200),
+      content: string(200)
+    }
+  ]
 });
