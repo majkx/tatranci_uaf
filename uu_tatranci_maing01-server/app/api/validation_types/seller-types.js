@@ -6,7 +6,6 @@ const createSellerDtoInType = shape({
   telephoneNumber: string(200),
   timeWorked: string(200),
   salary: string(200),
-  access: string(200),
   rfidNumber: string(200)
 })
 const getSellerDtoInType = shape({

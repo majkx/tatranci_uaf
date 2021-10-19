@@ -3,13 +3,14 @@ const createSchoolMagazineDtoInType = shape({
   name: string(200),
   magazineNumber: string(200),
   numbersOfPages: string(200),
-  articles: [
-    {
-      titleOfPost: string(200),
-      category: string(200),
-      content: string(200)
-    }
-  ]
+  articles: array(
+    shape(
+      {
+        titleOfPost: string(200),
+        category: string(200),
+        content: string(200)
+      })
+  )
 });
 const getSchoolMagazineDtoInType = shape({
   id: id().isRequired()

@@ -1,17 +1,19 @@
 /* eslint-disable */
 const createReservationDtoInType = shape({
-  state: oneOf(["open","closed","tested"]),
+  state: oneOf(["open","closed","canceled"]),
   count: integer(),
   totalPrice: integer(), // (description)
-  products: [
-    {
+  products: array(
+    shape({
       priceIndividually: float(), // (description)
       productId: string(200),
       productName: string(200),
       productPrice: integer(),
       productCount: integer()
-    }
-  ]
+    })
+  )
+
+
 });
 
 const getReservationDtoInType = shape({

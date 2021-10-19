@@ -2,7 +2,6 @@
 const createAdminDtoInType = shape({
   email: string(200),
   telephoneNumber: string(200),
-  access: string(200),
   rfidNumber: string(200)
 });
 const getAdminDtoInType = shape({
