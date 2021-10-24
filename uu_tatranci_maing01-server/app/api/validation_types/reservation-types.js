@@ -5,7 +5,7 @@ const createReservationDtoInType = shape({
   totalPrice: integer().isRequired(),
   products: array(
     shape({
-      priceIndividually: float(), // (description)
+      priceIndividually: float(),
       productId: string(200),
       productName: string(200),
       productPrice: integer(),

@@ -1,8 +1,8 @@
 /* eslint-disable */
 const createArticleDtoInType = shape({
-  name : string(200).isRequired().isRequired(),
-  desc: uu5String(16000).isRequired().isRequired(),
-  content: uu5String(16000).isRequired().isRequired(),
+  name : string(200).isRequired(),
+  desc: uu5String(200).isRequired(),
+  content: uu5String().isRequired(),
   titleImg: uri()
 });
 

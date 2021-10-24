@@ -1,14 +1,14 @@
 /* eslint-disable */
 const createSchoolMagazineDtoInType = shape({
   name: string(200).isRequired(),
-  magazineNumber: string(200).isRequired(),
-  numbersOfPages: string(200).isRequired(),
+  magazineNumber: string().isRequired(),
+  numbersOfPages: string().isRequired(),
   articles: array(
     shape(
       {
-        titleOfPost: string(200),
+        titleOfPost: string(200).isRequired(),
         category: string(200),
-        content: string(200)
+        content: string().isRequired()
       })
   )
 });
