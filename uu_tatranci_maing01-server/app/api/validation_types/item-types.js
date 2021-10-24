@@ -1,11 +1,11 @@
 /* eslint-disable */
 const createItemDtoInType = shape({
-  nameOfItem: string(200),
-  itemCategory: string(200),
-  weight: string(200),
-  numberOfPieces: string(200),
-  price: string(200),
-  sellingPrice: string(200),
+  nameOfItem: string(200).isRequired(),
+  itemCategory: string(200).isRequired(),
+  weight: string(200).isRequired(),
+  numberOfPieces: string(200).isRequired(),
+  price: string(200).isRequired(),
+  sellingPrice: string(200).isRequired(),
   manufacturer: string(200),
   allergens: string(200),
   discount: string(200),
