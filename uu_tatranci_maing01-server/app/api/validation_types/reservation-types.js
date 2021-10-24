@@ -26,17 +26,16 @@ const deleteReservationDtoInType = shape({
   id: id().isRequired()
 });
 const updateReservationDtoInType = shape({
-  state: oneOf(["open","closed","tested"]),
+  state: oneOf(["open","closed","canceled"]),
   count: integer(),
-  totalPrice: integer(), // (description)
-  bookingDate: date(), // (description)
-  products: [
-    {
-      priceIndividually: float(), // (description)
+  totalPrice: integer(),
+  products: array(
+    shape({
+      priceIndividually: float(),
       productId: string(200),
       productName: string(200),
       productPrice: integer(),
       productCount: integer()
-    }
-  ]
+    })
+  )
 });
