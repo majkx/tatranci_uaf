@@ -3,10 +3,12 @@ const createEditorDtoInType = shape({
   email: string(200).isRequired(),
   telephoneNumber: string(200).isRequired(),
   rfidNumber: string(200).isRequired(),
-  numberOfPost: string()
+  numberOfPost: string(),
+  uuIdentity: uuIdentity().isRequired()
 });
 const getEditorDtoInType = shape({
-  id: id().isRequired()
+  id: id().isRequired(),
+  uuId: uuIdentity().isRequired("id")
 });
 const listEditorDtoInType = shape({
 

@@ -3,6 +3,10 @@ const ArticleAbl = require("../../abl/article-abl.js");
 
 class ArticleController {
 
+  listByUuId(ucEnv) {
+    return ArticleAbl.listByUuId(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
   update(ucEnv) {
     return ArticleAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }

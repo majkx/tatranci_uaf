@@ -16,8 +16,13 @@ const deleteArticleDtoInType = shape({
   id: id().isRequired()
 });
 const updateArticleDtoInType = shape({
+  id: id().isRequired(),
   name : string(200),
   desc: uu5String(200),
   content: uu5String(),
   titleImg: uri()
+});
+
+const listArticleByUuIdDtoInType = shape({
+  uuId: uuIdentity().isRequired()
 });

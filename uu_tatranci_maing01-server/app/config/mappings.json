@@ -240,6 +240,11 @@
         "realization": "api/controllers/EditorController.update",
         "httpMethod": "POST",
         "type": "CMD"
+      },
+      "article/listByUuId": {
+        "realization": "api/controllers/ArticleController.listByUuId",
+        "httpMethod": "GET",
+        "type": "CMD"
       }
     }
   }

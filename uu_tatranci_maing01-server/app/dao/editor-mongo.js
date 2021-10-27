@@ -18,6 +18,14 @@ class EditorMongo extends UuObjectDao {
     return await super.findOne(filter);
   }
 
+  async getByUuIdentity(awid, uuIdentity){
+    let filter = {
+      awid: awid,
+      uuIdentity: uuIdentity
+    }
+    return await super.findOne(filter);
+  }
+
   async update(uuObject){
     let filter = {
       awid: uuObject.awid,
