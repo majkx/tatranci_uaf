@@ -63,12 +63,60 @@ class UserAbl {
     return dtoOut;
   }
 
-  async delete(awid, dtoIn) {
+  async delete(awid, dtoIn, uuAppErrorMap = {}) {
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("deleteUserDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.createUserUnsuportedKeys.code,
+      Errors.Delete.InvalidDtoIn
+    );
 
+    //HDS 2 - Check if updated object exists
+    let userObject = await this.dao.get(awid, dtoIn.id);
+
+    // A2 - throw error
+    if(Object.keys(userObject).length === 0){
+      throw new Errors.Delete.UserNotFound({uuAppErrorMap}, {id: dtoIn.id})
+    }
+
+    // HDS -- Keď objekt obsahuje cudzie kľúče (mažem editora ktorý má články)
+    // Tak najskôr si getnem editora, potom vylistujem jeho články ktorým zmením autora podľa vstupu == na vstupe pribudne forceDelete:true/false a uuId nového autora
+    // keď bude forceDelete false, a editor bude mať nejaké články, tak vyhodíme chybu
+    // Pokiaľ bude forceDelete true, a editor bude mať nejaké články, zmeníme autora článku na id zo vstupu (dtoIn.newAuthorId)
+    // a až následne mažem editora.
+    // List podľa filtrov (podľa dtoIn)
+
+    //HDS 3 - Remove article from DB
+    let dtoOut = {}
+    try {
+      await this.dao.remove(awid, dtoIn.id)
+    }catch (e){
+      throw new Errors.Delete.DeleteUserByDaoFailed({uuAppErrorMap}, {cause: e})
+    }
+
+    //HDS 4 return properly filled out dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
   }
 
-  async list(awid, dtoIn) {
+  async list(awid, dtoIn, uuAppErrorMap = {}) {
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("listArticleDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.getArticleUnsuportedKeys.code,
+      Errors.List.InvalidDtoIn
+    );
 
+    //HDS 2 Get itemList of articles
+    let dtoOut = await this.dao.list(awid)
+
+    //HDS 3 - Return dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
   }
 
   async get(awid, dtoIn, uuAppErrorMap = {}) {
