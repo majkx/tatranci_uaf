@@ -36,12 +36,42 @@ const Get = {
 
 const List = {
   UC_CODE: `${EDITOR_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${List.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
 
 };
 
 const Delete = {
   UC_CODE: `${EDITOR_ERROR_PREFIX}delete/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  EditorNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}editorNotFound`;
+      this.message = "Editor with given ID was not found.";
+    }
+  },
+
+  DeleteEditorByDaoFailed: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}removeEditorDaoFailed`;
+      this.message = "Removal of editor failed on DAO.";
+    }
+  },
 };
 
 const Update = {

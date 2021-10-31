@@ -35,13 +35,43 @@ const Get = {
 };
 
 const List = {
-  UC_CODE: `${SCHOOL_MAGAZINE_ERROR_PREFIX}list/`,
+  UC_CODE: `${SCHOOL_MAGAZINE_ERROR_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${List.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
 
 };
 
 const Delete = {
-  UC_CODE: `${SCHOOL_MAGAZINE_ERROR_PREFIX}delete/`,
+  UC_CODE: `${SCHOOL_MAGAZINE_ERROR_ERROR_PREFIX}delete/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  SchoolMagazineNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}schoolMagazineNotFound`;
+      this.message = "SchoolMagazine with given ID was not found.";
+    }
+  },
+
+  DeleteSchoolMagazineByDaoFailed: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}removeSchoolMagazineDaoFailed`;
+      this.message = "Removal of schoolMagazine failed on DAO.";
+    }
+  },
 };
 
 const Update = {

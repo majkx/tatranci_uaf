@@ -36,12 +36,42 @@ const Get = {
 
 const List = {
   UC_CODE: `${ADMIN_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${List.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
 
 };
 
 const Delete = {
   UC_CODE: `${ADMIN_ERROR_PREFIX}delete/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  AdminNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}adminNotFound`;
+      this.message = "Admin with given ID was not found.";
+    }
+  },
+
+  DeleteAdminByDaoFailed: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}removeAdminDaoFailed`;
+      this.message = "Removal of admin failed on DAO.";
+    }
+  },
 };
 
 const Update = {

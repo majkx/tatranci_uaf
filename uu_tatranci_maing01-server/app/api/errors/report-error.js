@@ -34,12 +34,42 @@ const Get = {
 
 const List = {
   UC_CODE: `${REPORT_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${List.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
 
 };
 
 const Delete = {
   UC_CODE: `${REPORT_ERROR_PREFIX}delete/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  ReportNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}reportNotFound`;
+      this.message = "Report with given ID was not found.";
+    }
+  },
+
+  DeleteReportByDaoFailed: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}removeReportDaoFailed`;
+      this.message = "Removal of report failed on DAO.";
+    }
+  },
 };
 
 const Update = {

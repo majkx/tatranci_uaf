@@ -28,6 +28,13 @@ class ItemMongo extends UuObjectDao {
     return await super.findOneAndUpdate(filter, uuObject, "NONE")
   }
 
+  async remove(awid, id) {
+    return await super.deleteOne({ awid, id });
+  }
+
+  async list(awid) {
+    return await super.find({ awid });
+  }
 }
 
 module.exports = ItemMongo;

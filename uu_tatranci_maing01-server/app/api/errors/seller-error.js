@@ -34,14 +34,44 @@ const Get = {
   },
 };
 
-const Delete = {
-  UC_CODE: `${SELLER_ERROR_PREFIX}delete/`,
+const List = {
+  UC_CODE: `${SELLER_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${List.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
 
 };
 
-const List = {
-  UC_CODE: `${SELLER_ERROR_PREFIX}list/`,
+const Delete = {
+  UC_CODE: `${SELLER_ERROR_PREFIX}delete/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  SellerNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}sellerNotFound`;
+      this.message = "Seller with given ID was not found.";
+    }
+  },
+
+  DeleteSellerByDaoFailed: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}removeSellerDaoFailed`;
+      this.message = "Removal of seller failed on DAO.";
+    }
+  },
 };
 
 const Update = {

@@ -36,12 +36,42 @@ const Get = {
 
 const List = {
   UC_CODE: `${RESERVATION_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${List.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
 
 };
 
 const Delete = {
   UC_CODE: `${RESERVATION_ERROR_PREFIX}delete/`,
 
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  ReservationNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}reservationNotFound`;
+      this.message = "Reservation with given ID was not found.";
+    }
+  },
+
+  DeleteReservationByDaoFailed: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Delete.UC_CODE}removeReservationDaoFailed`;
+      this.message = "Removal of reservation failed on DAO.";
+    }
+  },
 };
 
 const Update = {
