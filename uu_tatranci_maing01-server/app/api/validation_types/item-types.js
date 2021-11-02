@@ -27,8 +27,9 @@ const listItemDtoInType = shape({
 });
 const deleteItemDtoInType = shape({
   id: id().isRequired()
-})
+});
 const updateItemDtoInType = shape({
+  id: id().isRequired(),
   nameOfItem: string(200),
   itemCategory: string(200),
   weight: string(200),
@@ -47,4 +48,7 @@ const updateItemDtoInType = shape({
   revenue: string(),
   expenses: string(),
   profit: string()
-})
+});
+const listItemByUuIdDtoInType = shape({
+  uuId: uuIdentity().isRequired()
+});

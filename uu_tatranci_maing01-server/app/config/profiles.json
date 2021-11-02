@@ -200,6 +200,22 @@
       "article/listByUuId": {
         "sysStateList": ["active"],
         "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+      },
+      "item/listByUuId": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+      },
+      "report/listByUuId": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+      },
+      "reservation/listByUuId": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+      },
+      "schoolMagazine/listByUuId": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
       }
     }
   }

@@ -22,6 +22,7 @@ const deleteSchoolMagazineDtoInType = shape({
   id: id().isRequired()
 });
 const updateSchoolMagazineDtoInType = shape({
+  id: id().isRequired(),
   name: string(200),
   magazineNumber: string(),
   numbersOfPages: string(),
@@ -33,4 +34,7 @@ const updateSchoolMagazineDtoInType = shape({
         content: string()
       })
   )
+});
+const listSchoolMagazineByUuIdDtoInType = shape({
+  uuId: uuIdentity().isRequired()
 });

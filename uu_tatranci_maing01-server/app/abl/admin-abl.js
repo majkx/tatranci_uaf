@@ -88,6 +88,7 @@ class AdminAbl {
     // a až následne mažem editora.
     // List podľa filtrov (podľa dtoIn)
 
+
     //HDS 3 - Remove article from DB
     let dtoOut = {}
     try {

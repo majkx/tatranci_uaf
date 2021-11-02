@@ -18,6 +18,7 @@ const deleteSellerDtoInType = shape({
   id: id().isRequired()
 })
 const updateSellerDtoInType = shape({
+  id: id().isRequired(),
   sellerNumber: string(),
   position: string(),
   email: string(200),

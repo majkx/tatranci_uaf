@@ -3,6 +3,10 @@ const ReportAbl = require("../../abl/report-abl.js");
 
 class ReportController {
 
+  listByUuId(ucEnv) {
+    return ReportAbl.listByUuId(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
   update(ucEnv) {
     return ReportAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }

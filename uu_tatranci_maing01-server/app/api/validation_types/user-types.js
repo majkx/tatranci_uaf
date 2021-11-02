@@ -19,6 +19,7 @@ const deleteUserDtoInType = shape({
   id: id().isRequired()
 });
 const updateUserDtoInType = shape({
+  id: id().isRequired(),
   uuId: uuIdentity(),
   firstName: string(200),
   lastName: string(),

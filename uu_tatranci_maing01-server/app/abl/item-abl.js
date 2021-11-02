@@ -24,6 +24,33 @@ class ItemAbl {
     this.dao = DaoFactory.getDao("item");
   }
 
+  async listByUuId(awid, dtoIn, uuAppErrorMap = {}) {
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("listItemByUuIdDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.getItemUnsuportedKeys.code,
+      Errors.List.InvalidDtoIn
+    );
+
+    //HDS 2 - validation if author exists
+    // let author = await this.editorDao.getByUuIdentity(awid, dtoIn.uuId)
+    // if(Object.keys(author).length === 0) throw new Errors.ListByUuId.AuthorDoesNotExists({uuAppErrorMap},{UuId: dtoIn.uuId})
+
+    // HDS 3 -
+    let dtoOut = {}
+    try {
+      dtoOut = await this.dao.listByUuId(awid, dtoIn.uuId)
+    }catch(e){
+      throw e;
+    }
+
+    //HDS 4 - Return dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap
+    return dtoOut;
+  }
+
   async update(awid, dtoIn, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn

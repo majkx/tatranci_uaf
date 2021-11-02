@@ -3,6 +3,10 @@ const ReservationAbl = require("../../abl/reservation-abl.js");
 
 class ReservationController {
 
+  listByUuId(ucEnv) {
+    return ReservationAbl.listByUuId(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
   update(ucEnv) {
     return ReservationAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }

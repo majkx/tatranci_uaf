@@ -35,6 +35,10 @@ class ItemMongo extends UuObjectDao {
   async list(awid) {
     return await super.find({ awid });
   }
+
+  async listByUuId(awid, uuIdentity) {
+    return await super.find({ awid }, { authorUuId: uuIdentity })
+  }
 }
 
 module.exports = ItemMongo;

@@ -245,6 +245,26 @@
         "realization": "api/controllers/ArticleController.listByUuId",
         "httpMethod": "GET",
         "type": "CMD"
+      },
+      "item/listByUuId": {
+        "realization": "api/controllers/ItemController.listByUuId",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "report/listByUuId": {
+        "realization": "api/controllers/ReportController.listByUuId",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "reservation/listByUuId": {
+        "realization": "api/controllers/ReservationController.listByUuId",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "schoolMagazine/listByUuId": {
+        "realization": "api/controllers/SchoolMagazineController.listByUuId",
+        "httpMethod": "GET",
+        "type": "CMD"
       }
     }
   }

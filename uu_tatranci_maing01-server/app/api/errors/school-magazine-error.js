@@ -35,7 +35,7 @@ const Get = {
 };
 
 const List = {
-  UC_CODE: `${SCHOOL_MAGAZINE_ERROR_ERROR_PREFIX}list/`,
+  UC_CODE: `${SCHOOL_MAGAZINE_ERROR_PREFIX}list/`,
   InvalidDtoIn: class extends TatranciMainUseCaseError {
     constructor() {
       super(...arguments);
@@ -47,7 +47,7 @@ const List = {
 };
 
 const Delete = {
-  UC_CODE: `${SCHOOL_MAGAZINE_ERROR_ERROR_PREFIX}delete/`,
+  UC_CODE: `${SCHOOL_MAGAZINE_ERROR_PREFIX}delete/`,
 
   InvalidDtoIn: class extends TatranciMainUseCaseError {
     constructor() {
@@ -95,7 +95,27 @@ const Update = {
 
 };
 
+const ListByUuId = {
+  UC_CODE: `${SCHOOL_MAGAZINE_ERROR_PREFIX}listByUuId/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${ListByUuId.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  AuthorDoesNotExists: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${Get.UC_CODE}invalidAuthorUuId`;
+      this.message = "Author with given uuId does not exists.";
+    }
+  },
+};
+
 module.exports = {
+  ListByUuId,
   Update,
   Delete,
   List,

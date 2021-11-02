@@ -3,6 +3,10 @@ const SchoolMagazineAbl = require("../../abl/school-magazine-abl.js");
 
 class SchoolMagazineController {
 
+  listByUuId(ucEnv) {
+    return SchoolMagazineAbl.listByUuId(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
   update(ucEnv) {
     return SchoolMagazineAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
