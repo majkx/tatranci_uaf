@@ -4,7 +4,8 @@ const createEditorDtoInType = shape({
   telephoneNumber: string(200).isRequired(),
   rfidNumber: string(200).isRequired(),
   numberOfPost: string(),
-  uuIdentity: uuIdentity().isRequired()
+  uuId: uuIdentity().isRequired()
+
 });
 const getEditorDtoInType = shape({
   id: id().isRequired(),

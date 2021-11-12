@@ -22,6 +22,8 @@ class EditorAbl {
   constructor() {
     this.validator = Validator.load();
     this.dao = DaoFactory.getDao("editor");
+    this.articledao = DaoFactory.getDao("article");
+    this.reportdao = DaoFactory.getDao("report");
   }
 
   async update(awid, dtoIn, uuAppErrorMap = {}) {
@@ -87,7 +89,16 @@ class EditorAbl {
     // Pokiaľ bude forceDelete true, a editor bude mať nejaké články, zmeníme autora článku na id zo vstupu (dtoIn.newAuthorId)
     // a až následne mažem editora.
     // List podľa filtrov (podľa dtoIn)
-
+    if(Object.keys(editorObject).length !== 0){
+      let articles = await this.articledao.listByUuId(awid,editorObject.uuIdentity)
+      if (articles.length !== 0 ){
+        let newEditor = await this.dao.getByUuIdentity(dtoIn.uuIdentity);
+        articles.forEach( article=> {
+          article.authorUuId = newEditor;
+          article.authorName = name;
+        } )
+      }
+    }
     //HDS 3 - Remove article from DB
     let dtoOut = {}
     try {
@@ -143,7 +154,7 @@ class EditorAbl {
     return dtoOut;
   }
 
-  async create(awid, dtoIn, session, uuAppErrorMap = {}) {
+  async create(awid, dtoIn, session, user, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("createEditorDtoInType", dtoIn);
@@ -156,8 +167,16 @@ class EditorAbl {
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
     //TODO: Zjednotit s dokumentaciou
-
+    let uuIdentity = user.getByUuIdentity().getUuIdentity();
+    let firstName = user.getByUuIdentity().getName();
+    let lastName = user.getByUuIdentity().getLastName();
+    dtoIn.userUuId = uuIdentity;
+    dtoIn.userFirstName = firstName;
+    dtoIn.userLastName = lastName;
+    dtoIn.awid = awid;
+    //dtoIn.id = ObjectId();
     let dtoOut = {};
+
 
     // HDS 3 - Zapis do databazi
     dtoIn.awid = awid;
