@@ -103,11 +103,11 @@ class UserAbl {
 
   async list(awid, dtoIn, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
-    let validationResult = this.validator.validate("listArticleDtoInType", dtoIn);
+    let validationResult = this.validator.validate("listUserDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
-      Warnings.getArticleUnsuportedKeys.code,
+      Warnings.getUserUnsuportedKeys.code,
       Errors.List.InvalidDtoIn
     );
 

@@ -24,6 +24,7 @@ class EditorAbl {
     this.dao = DaoFactory.getDao("editor");
     this.articledao = DaoFactory.getDao("article");
     this.reportdao = DaoFactory.getDao("report");
+    this.userdao = DaoFactory.getDao("user");
   }
 
   async update(awid, dtoIn, uuAppErrorMap = {}) {
@@ -154,7 +155,7 @@ class EditorAbl {
     return dtoOut;
   }
 
-  async create(awid, dtoIn, session, user, uuAppErrorMap = {}) {
+  async create(awid, dtoIn, session, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("createEditorDtoInType", dtoIn);
@@ -167,12 +168,12 @@ class EditorAbl {
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
     //TODO: Zjednotit s dokumentaciou
-    let uuIdentity = user.getByUuIdentity().getUuIdentity();
-    let firstName = user.getByUuIdentity().getName();
-    let lastName = user.getByUuIdentity().getLastName();
-    dtoIn.userUuId = uuIdentity;
-    dtoIn.userFirstName = firstName;
-    dtoIn.userLastName = lastName;
+
+    let user = await this.userdao.getByUserUuId(awid, dtoIn.UuId);
+    dtoIn.firstName = user.firstName;
+    dtoIn.lastName = user.lastName;
+    dtoIn.email = user.email;
+    dtoIn.telephoneNumber = user.telephoneNumber;
     dtoIn.awid = awid;
     //dtoIn.id = ObjectId();
     let dtoOut = {};

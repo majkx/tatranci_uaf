@@ -1,9 +1,5 @@
 /* eslint-disable */
 const createEditorDtoInType = shape({
-  email: string(200).isRequired(),
-  telephoneNumber: string(200).isRequired(),
-  rfidNumber: string(200).isRequired(),
-  numberOfPost: string(),
   uuId: uuIdentity().isRequired()
 
 });
