@@ -22,6 +22,7 @@ class AdminAbl {
   constructor() {
     this.validator = Validator.load();
     this.dao = DaoFactory.getDao("admin");
+    this.userdao = DaoFactory.getDao("user");
   }
 
   async update(awid, dtoIn, uuAppErrorMap = {}) {
@@ -164,7 +165,14 @@ class AdminAbl {
     // dtoIn.firstName = firstName;
     // dtoIn.lastName = lastName;
     // dtoIn.awid = awid;
-
+    let user = await this.userdao.getByUserUuId(awid, dtoIn.UuId);
+    dtoIn.firstName = user.firstName;
+    dtoIn.lastName = user.lastName;
+    dtoIn.email = user.email;
+    dtoIn.telephoneNumber = user.telephoneNumber;
+    dtoIn.rfidNumber = user.rfidNumber;
+    dtoIn.awid = awid;
+    //dtoIn.id = ObjectId();
     let dtoOut = {};
 
     // HDS 3 - Zapis do databazi

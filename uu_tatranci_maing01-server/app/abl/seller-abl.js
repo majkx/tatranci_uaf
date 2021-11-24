@@ -22,6 +22,7 @@ class SellerAbl {
   constructor() {
     this.validator = Validator.load();
     this.dao = DaoFactory.getDao("seller");
+    this.userdao = DaoFactory.getDao("user");
   }
 
   async update(awid, dtoIn, uuAppErrorMap = {}) {
@@ -150,7 +151,14 @@ class SellerAbl {
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
     //TODO: Zjednotit s dokumentaciou
-
+    let user = await this.userdao.getByUserUuId(awid, dtoIn.UuId);
+    dtoIn.firstName = user.firstName;
+    dtoIn.lastName = user.lastName;
+    dtoIn.email = user.email;
+    dtoIn.telephoneNumber = user.telephoneNumber;
+    dtoIn.rfidNumber = user.rfidNumber;
+    dtoIn.awid = awid;
+    //dtoIn.id = ObjectId();
     let dtoOut = {};
 
     // HDS 3 - Zapis do databazi

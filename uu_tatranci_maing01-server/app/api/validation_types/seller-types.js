@@ -1,12 +1,9 @@
 /* eslint-disable */
 const createSellerDtoInType = shape({
+  uuId: uuIdentity().isRequired(),
   sellerNumber: string().isRequired(),
   position: string().isRequired(),
-  email: string(200).isRequired(),
-  telephoneNumber: string(200).isRequired(),
-  timeWorked: string(),
   salary: string(),
-  rfidNumber: string(200).isRequired()
 })
 const getSellerDtoInType = shape({
   id: id().isRequired()

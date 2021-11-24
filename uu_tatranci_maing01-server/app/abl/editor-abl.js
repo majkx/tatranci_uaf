@@ -174,6 +174,7 @@ class EditorAbl {
     dtoIn.lastName = user.lastName;
     dtoIn.email = user.email;
     dtoIn.telephoneNumber = user.telephoneNumber;
+    dtoIn.rfidNumber = user.rfidNumber;
     dtoIn.awid = awid;
     //dtoIn.id = ObjectId();
     let dtoOut = {};
