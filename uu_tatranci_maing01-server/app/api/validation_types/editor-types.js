@@ -15,8 +15,11 @@ const deleteEditorDtoInType = shape({
 });
 const updateEditorDtoInType = shape({
   id: id().isRequired(),
+  uuId: uuIdentity(),
+  firstName: string(200),
+  lastName: string(),
   email: string(200),
   telephoneNumber: string(200),
-  rfidNumber: string(200),
-  numberOfPost: string()
+  numberOfPost: string(200),
+  rfidNumber: string(200)
 });

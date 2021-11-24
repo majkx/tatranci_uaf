@@ -13,6 +13,9 @@ const deleteAdminDtoInType = shape({
 });
 const updateAdminDtoInType = shape({
   id: id().isRequired(),
+  uuId: uuIdentity(),
+  firstName: string(200),
+  lastName: string(),
   email: string(200),
   telephoneNumber: string(200),
   rfidNumber: string(200)
