@@ -139,6 +139,13 @@ class AdminAbl {
     }catch(e){
       throw e;
     }
+    let user = await this.userdao.getByUserUuId(awid, dtoOut.uuId);
+    dtoOut.firstName = user.firstName;
+    dtoOut.lastName = user.lastName;
+    dtoOut.email = user.email;
+    dtoOut.telephoneNumber = user.telephoneNumber;
+    dtoOut.rfidNumber = user.rfidNumber;
+
 
     // HDS 3 - Return object from DB
     dtoOut.uuAppErrorMap = uuAppErrorMap
@@ -157,20 +164,7 @@ class AdminAbl {
     );
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
-    //TODO: Zjednotit s dokumentaciou
-    // let uuIdentity = session.getIdentity().getUuIdentity();
-    // let firstName = session.getIdentity().getFirstName(); // Tvoje meno, nie administratorove !
-    // let lastName = session.getIdentity().getLastName();
-    // dtoIn.UuId = uuIdentity;
-    // dtoIn.firstName = firstName;
-    // dtoIn.lastName = lastName;
-    // dtoIn.awid = awid;
-    let user = await this.userdao.getByUserUuId(awid, dtoIn.UuId);
-    dtoIn.firstName = user.firstName;
-    dtoIn.lastName = user.lastName;
-    dtoIn.email = user.email;
-    dtoIn.telephoneNumber = user.telephoneNumber;
-    dtoIn.rfidNumber = user.rfidNumber;
+
     dtoIn.awid = awid;
     //dtoIn.id = ObjectId();
     let dtoOut = {};

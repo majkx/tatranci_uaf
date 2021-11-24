@@ -183,9 +183,7 @@ class ReportAbl {
     // HDS 2 - get author uuId and Name and add it to dtoIn
     //TODO: Zjednotit s dokumentaciou
     let uuIdentity = session.getIdentity().getUuIdentity();
-    let name = session.getIdentity().getName();
     dtoIn.authorUuId = uuIdentity;
-    dtoIn.authorName = name;
     dtoIn.awid = awid;
     let dtoOut = {};
 

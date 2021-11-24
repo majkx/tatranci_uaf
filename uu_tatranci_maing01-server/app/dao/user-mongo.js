@@ -35,8 +35,8 @@ class UserMongo extends UuObjectDao {
     return await super.find({ awid });
   }
 
-async getByUserUuId( awid, UuId) {
-  return await super.findOne({ awid, UuId });
+async getByUserUuId( awid, uuId) {
+  return await super.findOne({ awid, uuId });
 }
 }
 module.exports = UserMongo;

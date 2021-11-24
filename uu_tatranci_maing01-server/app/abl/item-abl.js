@@ -184,6 +184,9 @@ class ItemAbl {
     // HDS 2 - get author uuId and Name and add it to dtoIn
 
     //TODO: Vyhodit autora
+    let uuIdentity = session.getIdentity().getUuIdentity();
+    dtoIn.authorUuId = uuIdentity;
+    //dtoIn.id = ObjectId();
     dtoIn.awid = awid;
     let dtoOut = {};
 

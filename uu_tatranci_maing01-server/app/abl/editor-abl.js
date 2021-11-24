@@ -149,7 +149,12 @@ class EditorAbl {
     }catch(e){
       throw e;
     }
-
+    let user = await this.userdao.getByUserUuId(dtoOut.awid, dtoOut.uuId);
+    dtoOut.firstName = user.firstName;
+    dtoOut.lastName = user.lastName;
+    dtoOut.email = user.email;
+    dtoOut.telephoneNumber = user.telephoneNumber;
+    dtoOut.rfidNumber = user.rfidNumber;
     // HDS 3 - Return object from DB
     dtoOut.uuAppErrorMap = uuAppErrorMap
     return dtoOut;
@@ -169,14 +174,9 @@ class EditorAbl {
     // HDS 2 - get author uuId and Name and add it to dtoIn
     //TODO: Zjednotit s dokumentaciou
 
-    let user = await this.userdao.getByUserUuId(awid, dtoIn.UuId);
-    dtoIn.firstName = user.firstName;
-    dtoIn.lastName = user.lastName;
-    dtoIn.email = user.email;
-    dtoIn.telephoneNumber = user.telephoneNumber;
-    dtoIn.rfidNumber = user.rfidNumber;
+
     dtoIn.awid = awid;
-    //dtoIn.id = ObjectId();
+
     let dtoOut = {};
 
 
