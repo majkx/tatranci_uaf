@@ -37,7 +37,7 @@ class SchoolMagazineMongo extends UuObjectDao {
   }
 
   async listByUuId(awid, uuIdentity) {
-    return await super.find({ awid }, { authorUuId: uuIdentity })
+    return await super.find({ awid, authorUuId: uuIdentity })
   }
 }
 
