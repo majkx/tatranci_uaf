@@ -36,11 +36,6 @@ class ArticleAbl {
       Errors.List.InvalidDtoIn
     );
 
-    //HDS 2 - validation if author exists
-    // let author = await this.editorDao.getByUuIdentity(awid, dtoIn.uuId)
-    // if(Object.keys(author).length === 0) throw new Errors.ListByUuId.AuthorDoesNotExists({uuAppErrorMap},{UuId: dtoIn.uuId})
-
-    // HDS 3 -
     let dtoOut = {}
     try {
       dtoOut = await this.dao.listByUuId(awid, dtoIn.uuId)
@@ -185,11 +180,9 @@ class ArticleAbl {
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
     let uuIdentity = session.getIdentity().getUuIdentity();
-    let name = session.getIdentity().getName();
     dtoIn.authorUuId = uuIdentity;
-    dtoIn.authorName = name;
-    dtoIn.awid = awid;
     //dtoIn.id = ObjectId();
+    dtoIn.awid = awid;
     let dtoOut = {};
 
     // HDS 3 - Zapis do databazi
