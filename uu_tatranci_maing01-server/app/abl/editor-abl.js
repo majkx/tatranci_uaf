@@ -84,14 +84,21 @@ class EditorAbl {
       throw new Errors.Delete.EditorNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
+    let updatedArticles = [];
+    console.log(editorObject);
     if(Object.keys(editorObject).length !== 0){
-      let articles = await this.articledao.listByUuId(awid,editorObject.uuIdentity)
-      if (articles.length !== 0 ){
-        let newEditor = await this.dao.getByUuIdentity(dtoIn.uuIdentity);
-        articles.forEach( article=> {
-          article.authorUuId = newEditor;
-          article.authorName = name;
-        } )
+      let articles = await this.articledao.listByUuId(awid,editorObject.uuId)
+      console.log(articles);
+      if (articles.itemList.length !== 0 ){
+        let newEditor = await this.dao.getByUuIdentity(dtoIn.newAuthorUuId);
+        let authorName = await this.userdao.getByUserUuId(dtoIn.newAuthorUuId);
+        console.log(articles)
+        for(let article of articles) {
+          article.authorUuId = newEditor.uuId;
+          article.authorName = authorName.firstName+" "+authorName.lastName;
+          let updatedArticle = await this.dao.update(updatedArticles);
+          updatedArticles.push(updatedArticle);
+        }
       }
     }
     //HDS 3 - Remove editor from DB
@@ -104,6 +111,7 @@ class EditorAbl {
 
     //HDS 4 return properly filled out dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.updatedArticles = updatedArticles;
     return dtoOut;
   }
 

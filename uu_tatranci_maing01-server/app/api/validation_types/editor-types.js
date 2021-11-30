@@ -11,7 +11,8 @@ const listEditorDtoInType = shape({
 
 });
 const deleteEditorDtoInType = shape({
-  id: id().isRequired()
+  id: id().isRequired(),
+  newAuthorUuId: uuIdentity().isRequired()
 });
 const updateEditorDtoInType = shape({
   id: id().isRequired(),
