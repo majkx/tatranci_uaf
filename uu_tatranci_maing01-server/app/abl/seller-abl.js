@@ -44,7 +44,7 @@ class SellerAbl {
       throw new Errors.Update.SellerNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
-    //HDS 3 - Prepare new article object
+    //HDS 3 - Prepare new seller object
     let newSeller = {
       ...sellerObject,
       ...dtoIn
@@ -83,7 +83,7 @@ class SellerAbl {
     }
 
 
-    //HDS 3 - Remove article from DB
+    //HDS 3 - Remove seller from DB
     let dtoOut = {}
     try {
       await this.dao.remove(awid, dtoIn.id)
@@ -106,7 +106,7 @@ class SellerAbl {
       Errors.List.InvalidDtoIn
     );
 
-    //HDS 2 Get itemList of articles
+    //HDS 2 Get itemList of sellers
     let dtoOut = await this.dao.list(awid)
 
     //HDS 3 - Return dtoOut
@@ -125,7 +125,7 @@ class SellerAbl {
       Errors.Get.InvalidDtoIn
     );
 
-    // HDS 2 - get article from DB
+    // HDS 2 - get seller from DB
     let dtoOut = {}
     try{
       dtoOut = await this.dao.get(awid, dtoIn.id);
@@ -156,11 +156,9 @@ class SellerAbl {
     );
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
-    //TODO: Zjednotit s dokumentaciou
-
     let dtoOut = {};
 
-    // HDS 3 - Zapis do databazi
+    // HDS 3 - Database entry
     dtoIn.awid = awid;
     try {
       dtoOut = await this.dao.create(dtoIn)

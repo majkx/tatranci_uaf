@@ -35,8 +35,6 @@ class ReportAbl {
     );
 
     //HDS 2 - validation if author exists
-    // let author = await this.editorDao.getByUuIdentity(awid, dtoIn.uuId)
-    // if(Object.keys(author).length === 0) throw new Errors.ListByUuId.AuthorDoesNotExists({uuAppErrorMap},{UuId: dtoIn.uuId})
 
     // HDS 3 -
     let dtoOut = {}
@@ -70,7 +68,7 @@ class ReportAbl {
       throw new Errors.Update.ReportNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
-    //HDS 3 - Prepare new article object
+    //HDS 3 - Prepare new report object
     let newReport = {
       ...reportObject,
       ...dtoIn
@@ -108,14 +106,7 @@ class ReportAbl {
       throw new Errors.Delete.ReportNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
-    // HDS -- Keď objekt obsahuje cudzie kľúče (mažem editora ktorý má články)
-    // Tak najskôr si getnem editora, potom vylistujem jeho články ktorým zmením autora podľa vstupu == na vstupe pribudne forceDelete:true/false a uuId nového autora
-    // keď bude forceDelete false, a editor bude mať nejaké články, tak vyhodíme chybu
-    // Pokiaľ bude forceDelete true, a editor bude mať nejaké články, zmeníme autora článku na id zo vstupu (dtoIn.newAuthorId)
-    // a až následne mažem editora.
-    // List podľa filtrov (podľa dtoIn)
-
-    //HDS 3 - Remove article from DB
+    //HDS 3 - Remove reports from DB
     let dtoOut = {}
     try {
       await this.dao.remove(awid, dtoIn.id)
@@ -138,7 +129,7 @@ class ReportAbl {
       Errors.List.InvalidDtoIn
     );
 
-    //HDS 2 Get itemList of articles
+    //HDS 2 Get itemList of reports
     let dtoOut = await this.dao.list(awid)
 
     //HDS 3 - Return dtoOut
@@ -156,7 +147,7 @@ class ReportAbl {
       Errors.Get.InvalidDtoIn
     );
 
-    // HDS 2 - get article from DB
+    // HDS 2 - get report from DB
     let dtoOut = {}
     try{
       dtoOut = await this.dao.get(awid, dtoIn.id);
@@ -181,13 +172,12 @@ class ReportAbl {
     );
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
-    //TODO: Zjednotit s dokumentaciou
     let uuIdentity = session.getIdentity().getUuIdentity();
     dtoIn.authorUuId = uuIdentity;
     dtoIn.awid = awid;
     let dtoOut = {};
 
-    // HDS 3 - Zapis do databazi
+    // HDS 3 - Database entry
     try {
       dtoOut = await this.dao.create(dtoIn)
     } catch(e){

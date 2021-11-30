@@ -35,8 +35,6 @@ class ReservationAbl {
     );
 
     //HDS 2 - validation if author exists
-    // let author = await this.editorDao.getByUuIdentity(awid, dtoIn.uuId)
-    // if(Object.keys(author).length === 0) throw new Errors.ListByUuId.AuthorDoesNotExists({uuAppErrorMap},{UuId: dtoIn.uuId})
 
     // HDS 3 -
     let dtoOut = {}
@@ -70,7 +68,7 @@ class ReservationAbl {
       throw new Errors.Update.ReservationNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
-    //HDS 3 - Prepare new article object
+    //HDS 3 - Prepare new reservation object
     let newReservation = {
       ...reservationObject,
       ...dtoIn
@@ -110,7 +108,7 @@ class ReservationAbl {
 
 
 
-    //HDS 3 - Remove article from DB
+    //HDS 3 - Remove reservation from DB
     let dtoOut = {}
     try {
       await this.dao.remove(awid, dtoIn.id)
@@ -133,7 +131,7 @@ class ReservationAbl {
       Errors.List.InvalidDtoIn
     );
 
-    //HDS 2 Get itemList of articles
+    //HDS 2 Get itemList of reservations
     let dtoOut = await this.dao.list(awid)
 
     //HDS 3 - Return dtoOut
@@ -152,7 +150,7 @@ class ReservationAbl {
       Errors.Get.InvalidDtoIn
     );
 
-    // HDS 2 - get article from DB
+    // HDS 2 - get reservation from DB
     let dtoOut = {}
     try{
       dtoOut = await this.dao.get(awid, dtoIn.id);
@@ -177,7 +175,6 @@ class ReservationAbl {
     );
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
-    //TODO: personId za authorUuId , name netreba
     let uuIdentity = session.getIdentity().getUuIdentity();
     let name = session.getIdentity().getName();
     dtoIn.authorUuId = uuIdentity;
@@ -185,7 +182,7 @@ class ReservationAbl {
     dtoIn.awid = awid;
     let dtoOut = {};
 
-    // HDS 3 - Zapis do databazi
+    // HDS 3 - Database entry
     try {
       dtoOut = await this.dao.create(dtoIn)
     } catch(e){

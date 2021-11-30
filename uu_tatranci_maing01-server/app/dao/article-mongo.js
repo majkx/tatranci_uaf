@@ -41,13 +41,6 @@ class ArticleMongo extends UuObjectDao {
   }
 
 
-  // OR function
-  // async listByUuId(awid, uuIdentity) {
-  //   return await super.find(
-  //     {
-  //       $or: [{ awid }, { authorUuId: uuIdentity }]
-  //     });
-  // }
 }
 
   module.exports = ArticleMongo;

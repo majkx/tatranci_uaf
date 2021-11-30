@@ -43,7 +43,7 @@ class UserAbl {
       throw new Errors.Update.UserNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
-    //HDS 3 - Prepare new article object
+    //HDS 3 - Prepare new user object
     let newUser = {
       ...userObject,
       ...dtoIn
@@ -81,14 +81,7 @@ class UserAbl {
       throw new Errors.Delete.UserNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
-    // HDS -- Keď objekt obsahuje cudzie kľúče (mažem editora ktorý má články)
-    // Tak najskôr si getnem editora, potom vylistujem jeho články ktorým zmením autora podľa vstupu == na vstupe pribudne forceDelete:true/false a uuId nového autora
-    // keď bude forceDelete false, a editor bude mať nejaké články, tak vyhodíme chybu
-    // Pokiaľ bude forceDelete true, a editor bude mať nejaké články, zmeníme autora článku na id zo vstupu (dtoIn.newAuthorId)
-    // a až následne mažem editora.
-    // List podľa filtrov (podľa dtoIn)
-
-    //HDS 3 - Remove article from DB
+    //HDS 3 - Remove user from DB
     let dtoOut = {}
     try {
       await this.dao.remove(awid, dtoIn.id)
@@ -111,7 +104,7 @@ class UserAbl {
       Errors.List.InvalidDtoIn
     );
 
-    //HDS 2 Get itemList of articles
+    //HDS 2 Get itemList of users
     let dtoOut = await this.dao.list(awid)
 
     //HDS 3 - Return dtoOut
@@ -130,7 +123,7 @@ class UserAbl {
       Errors.Get.InvalidDtoIn
     );
 
-    // HDS 2 - get article from DB
+    // HDS 2 - get user from DB
     let dtoOut = {}
     try{
       dtoOut = await this.dao.get(awid, dtoIn.id);
@@ -155,11 +148,9 @@ class UserAbl {
     );
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
-    ///TODO: Zjednotit s dokumentaciou nazvy props
-
     let dtoOut = {};
 
-    // HDS 3 - Zapis do databazi
+    // HDS 3 - Database entry
     dtoIn.awid = awid;
     try {
       dtoOut = await this.dao.create(dtoIn)

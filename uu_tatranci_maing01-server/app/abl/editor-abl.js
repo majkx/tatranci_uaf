@@ -46,7 +46,7 @@ class EditorAbl {
       throw new Errors.Update.editorNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
-    //HDS 3 - Prepare new article object
+    //HDS 3 - Prepare new editor object
     let newEditor = {
       ...editorObject,
       ...dtoIn
@@ -84,12 +84,6 @@ class EditorAbl {
       throw new Errors.Delete.EditorNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
-    // HDS -- Keď objekt obsahuje cudzie kľúče (mažem editora ktorý má články)
-    // Tak najskôr si getnem editora, potom vylistujem jeho články ktorým zmením autora podľa vstupu == na vstupe pribudne forceDelete:true/false a uuId nového autora
-    // keď bude forceDelete false, a editor bude mať nejaké články, tak vyhodíme chybu
-    // Pokiaľ bude forceDelete true, a editor bude mať nejaké články, zmeníme autora článku na id zo vstupu (dtoIn.newAuthorId)
-    // a až následne mažem editora.
-    // List podľa filtrov (podľa dtoIn)
     if(Object.keys(editorObject).length !== 0){
       let articles = await this.articledao.listByUuId(awid,editorObject.uuIdentity)
       if (articles.length !== 0 ){
@@ -100,7 +94,7 @@ class EditorAbl {
         } )
       }
     }
-    //HDS 3 - Remove article from DB
+    //HDS 3 - Remove editor from DB
     let dtoOut = {}
     try {
       await this.dao.remove(awid, dtoIn.id)
@@ -123,7 +117,7 @@ class EditorAbl {
       Errors.List.InvalidDtoIn
     );
 
-    //HDS 2 Get itemList of articles
+    //HDS 2 Get itemList of editors
     let dtoOut = await this.dao.list(awid)
 
     //HDS 3 - Return dtoOut
@@ -142,7 +136,7 @@ class EditorAbl {
       Errors.Get.InvalidDtoIn
     );
 
-    // HDS 2 - get article from DB
+    // HDS 2 - get editor from DB
     let dtoOut = {}
     try{
       dtoOut = await this.dao.get(awid, dtoIn.id);
@@ -172,15 +166,10 @@ class EditorAbl {
     );
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
-    //TODO: Zjednotit s dokumentaciou
-
-
     dtoIn.awid = awid;
-
     let dtoOut = {};
 
-
-    // HDS 3 - Zapis do databazi
+    // HDS 3 - Database entry
     dtoIn.awid = awid;
     try {
       dtoOut = await this.dao.create(dtoIn)
