@@ -12,6 +12,39 @@
       "appDeploymentUri": null
     }
   },
-  "uu_tatranci_maing01-hi": {},
+  "uu_tatranci_maing01-hi": {
+    "componentList": [
+      {
+        "code": "UuTatranci.Bricks.SkolskaRada",
+        "name": "SkolskaRada",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SkolskaRada"
+        ],
+        "docCode": "UuTatranciBricksSkolskaRada",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SkolskaRada />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SkolskaRadaReady",
+        "name": "SkolskaRadaReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SkolskaRadaReady"
+        ],
+        "docCode": "UuTatranciBricksSkolskaRadaReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SkolskaRadaReady />"
+      }
+    ]
+  },
   "uu_tatranci_maing01-server": {}
 }

@@ -13,6 +13,11 @@ let Calls = {
     return response.data;
   },
 
+  listArticles(dtoIn) {
+    let commandUri = Calls.getCommandUri("article/list");
+    return Calls.call("get", commandUri, dtoIn);
+  },
+
   loadDemoContent(dtoIn) {
     let commandUri = Calls.getCommandUri("loadDemoContent");
     return Calls.call("get", commandUri, dtoIn);

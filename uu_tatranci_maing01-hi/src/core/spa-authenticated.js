@@ -26,8 +26,10 @@ const ROUTES = {
   "": DEFAULT_USE_CASE,
   home: { component: <Home /> },
   about: { component: <About /> },
-  "sys/uuAppWorkspace/initUve": { component: <InitAppWorkspace /> },
-  controlPanel: { component: <ControlPanel /> },
+  skolskaRada:{},
+  skolskyBufet:{},
+  skolskaTelevizia:{},
+  skolskyCasopis:{}
 };
 
 export const SpaAuthenticated = createVisualComponent({
@@ -57,9 +59,10 @@ export const SpaAuthenticated = createVisualComponent({
           {...props}
           top={<Plus4U5.App.TopBt />}
           topFixed="smart"
+          menuType={"top"}
           bottom={<Bottom />}
           type={3}
-          displayedLanguages={["cs", "en"]}
+          displayedLanguages={["sk"]}
           left={<Left />}
           leftWidth="!xs-300px !s-300px !m-288px !l-288px !xl-288px"
           leftFixed

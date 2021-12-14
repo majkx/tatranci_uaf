@@ -36,19 +36,25 @@ export const Left = createVisualComponent({
       <Plus4U5.App.Left
         {...props}
         logoProps={{
-          backgroundColor: UU5.Environment.colors.blue.c700,
-          backgroundColorTo: UU5.Environment.colors.blue.c500,
-          title: "uuTatranci",
-          companyLogo: Plus4U5.Environment.basePath + "assets/img/unicorn-logo.svg",
-          generation: "1",
+          backgroundColor: UU5.Environment.colors["blue-grey"].c50,
+          backgroundColorTo: UU5.Environment.colors["blue-grey"].c500,
+          title: "SPŠka do vrecka",
+          companyLogo: "../assets/unicorn.svg",
         }}
-        aboutItems={[{ content: <UU5.Bricks.Lsi lsi={Lsi.left.about} />, href: "about" }]}
+        aboutItems={[{ content: <UU5.Bricks.Lsi lsi={Lsi.left.about}/>, href: "about" }]}
         helpHref={null}
       >
         <Plus4U5.App.MenuTree
           borderBottom
           // NOTE Item "id" equals to useCase so that item gets automatically selected when route changes (see spa-autheticated.js).
-          items={[{ id: "home", href: "home", content: <UU5.Bricks.Lsi lsi={Lsi.left.home} /> }]}
+          items={[
+            { id: "home", href: "home", content: "Úvod"},
+            { id: "skolskarada", href: "skolskaRada", content: "Školská rada"},
+            { id: "skolskybufet", href: "skolskyBufet", content: "Školský bufet"},
+            { id: "skolskatelevizia", href: "skolskaTelevizia", content: "Školská televízia"},
+            { id: "skolskycasopis", href: "skolskyCasopis", content: "Školský časopis"},
+
+          ]}
         />
       </Plus4U5.App.Left>
     );
