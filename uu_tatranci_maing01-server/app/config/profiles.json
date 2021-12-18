@@ -47,7 +47,7 @@
       },
       "report/list": {
         "sysStateList": ["active"],
-        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+        "profileList": ["AwidLicenseOwner","Authorities","Executives", "Public"]
       },
       "report/delete": {
         "sysStateList": ["active"],

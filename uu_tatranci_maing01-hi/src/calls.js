@@ -17,6 +17,10 @@ let Calls = {
     let commandUri = Calls.getCommandUri("article/list");
     return Calls.call("get", commandUri, dtoIn);
   },
+  listReports(dtoIn) {
+    let commandUri = Calls.getCommandUri("report/list");
+    return Calls.call("get", commandUri, dtoIn);
+  },
 
   loadDemoContent(dtoIn) {
     let commandUri = Calls.getCommandUri("loadDemoContent");

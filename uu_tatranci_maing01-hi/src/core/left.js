@@ -15,7 +15,7 @@ const STATICS = {
   //@@viewOff:static
 };
 
-export const Left = createVisualComponent({
+export const  Left = createVisualComponent({
   ...STATICS,
 
   //@@viewOn:propTypes

@@ -43,6 +43,36 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.SkolskaRadaReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SkolskaTelevizia",
+        "name": "SkolskaTelevizia",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SkolskaTelevizia"
+        ],
+        "docCode": "UuTatranciBricksSkolskaTelevizia",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SkolskaTelevizia />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SkolskaTeleviziaReady",
+        "name": "SkolskaTeleviziaReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SkolskaTeleviziaReady"
+        ],
+        "docCode": "UuTatranciBricksSkolskaTeleviziaReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SkolskaTeleviziaReady />"
       }
     ]
   },

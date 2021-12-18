@@ -7,6 +7,7 @@ import "uu_plus4u5g01-bricks";
 import Config from "./config/config.js";
 
 import SkolskaRada from "../bricks/skolska-rada";
+import SkolskaTelevizia from "../bricks/skolska-televizia";
 //@@viewOff:imports
 
 const STATICS = {
@@ -55,8 +56,10 @@ export const Home = createVisualComponent({
     return (
       <div {...attrs}>
        <SkolskaRada/>
+        <SkolskaTelevizia/>
       </div>
     );
+
     //@@viewOff:render
   },
 });
