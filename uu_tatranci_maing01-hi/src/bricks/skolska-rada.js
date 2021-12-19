@@ -1,9 +1,8 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
-import { createComponent, useDataObject } from "uu5g04-hooks";
+import { createComponent, useDataObject} from "uu5g04-hooks";
 import Config from "./config/config";
 import Calls from "../calls";
-import SkolskaRadaReady from "./skolska-rada-ready";
 //@@viewOff:imports
 
 const STATICS = {

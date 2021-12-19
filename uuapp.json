@@ -73,6 +73,36 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.SkolskaTeleviziaReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SkolskyCasopis",
+        "name": "SkolskyCasopis",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SkolskyCasopis"
+        ],
+        "docCode": "UuTatranciBricksSkolskyCasopis",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SkolskyCasopis />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SkolskyCasopisReady",
+        "name": "SkolskyCasopisReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SkolskyCasopisReady"
+        ],
+        "docCode": "UuTatranciBricksSkolskyCasopisReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SkolskyCasopisReady />"
       }
     ]
   },

@@ -59,8 +59,14 @@ export const SkolskaTeleviziaReady = createVisualComponent({
 
     return currentNestingLevel ? (
       <div {...attrs}>
-        <div>Visual Component {STATICS.displayName}</div>
-        {UU5.Utils.Content.getChildren(props.children, props, STATICS)}
+        <Uu5Tiles.Controller
+          data={props.data.itemList}>
+          <Uu5Tiles.List
+            viewType={"table"}
+            rowAlignment={"center"}
+            columns={getColumns()}
+          />
+        </Uu5Tiles.Controller>
       </div>
     ) : null;
     //@@viewOff:render
