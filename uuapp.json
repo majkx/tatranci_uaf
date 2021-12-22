@@ -103,6 +103,36 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.SkolskyCasopisReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SkolskyBufet",
+        "name": "SkolskyBufet",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SkolskyBufet"
+        ],
+        "docCode": "UuTatranciBricksSkolskyBufet",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SkolskyBufet />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SkolskyBufetReady",
+        "name": "SkolskyBufetReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SkolskyBufetReady"
+        ],
+        "docCode": "UuTatranciBricksSkolskyBufetReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SkolskyBufetReady />"
       }
     ]
   },

@@ -8,6 +8,8 @@ import Config from "./config/config.js";
 
 import SkolskaRada from "../bricks/skolska-rada";
 import SkolskaTelevizia from "../bricks/skolska-televizia";
+import SkolskyCasopis from "../bricks/skolsky-casopis";
+import SkolskyBufet from "../bricks/skolsky-bufet";
 //@@viewOff:imports
 
 const STATICS = {
@@ -58,6 +60,7 @@ export const Home = createVisualComponent({
        <SkolskaRada/>
         <SkolskaTelevizia/>
         <SkolskyCasopis/>
+        <SkolskyBufet/>
       </div>
     );
 

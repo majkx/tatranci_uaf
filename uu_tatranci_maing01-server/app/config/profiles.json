@@ -87,7 +87,7 @@
       },
       "item/list": {
         "sysStateList": ["active"],
-        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+        "profileList": ["AwidLicenseOwner","Authorities","Executives","Public"]
       },
       "item/delete": {
         "sysStateList": ["active"],

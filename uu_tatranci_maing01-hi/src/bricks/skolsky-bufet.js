@@ -3,16 +3,16 @@ import UU5 from "uu5g04";
 import { createComponent, useDataObject} from "uu5g04-hooks";
 import Config from "./config/config";
 import Calls from "../calls";
-import SkolskaTeleviziaReady from "./skolska-televizia-ready";
+import SkolskyBufetReady from "./skolsky-bufet-ready";
 //@@viewOff:imports
 
 const STATICS = {
   //@@viewOn:statics
-  displayName: Config.TAG + "SkolskaTelevizia",
+  displayName: Config.TAG + "SkolskyBufet",
   //@@viewOff:statics
 };
 
-export const SkolskaTelevizia = createComponent({
+export const SkolskyBufet = createComponent({
   ...STATICS,
 
   //@@viewOn:propTypes
@@ -27,14 +27,14 @@ export const SkolskaTelevizia = createComponent({
     //@@viewOn:hooks
     let dataResult = useDataObject({
       handlerMap: {
-        load: loadReports
+        load: loadItems
       }
     })
     //@@viewOff:hooks
 
     //@@viewOn:private
-    function loadReports(){
-      return Calls.listReports();
+    function loadItems(){
+      return Calls.listItems();
     }
 
     let {state, data} = dataResult;
@@ -53,7 +53,7 @@ export const SkolskaTelevizia = createComponent({
 
     switch(state){
       case "ready":
-        return <SkolskaTeleviziaReady data={data}/>
+        return <SkolskyBufetReady data={data}/>
         break;
       case "pending":
       case "pendingNoData":
@@ -65,5 +65,4 @@ export const SkolskaTelevizia = createComponent({
   },
 });
 
-
-export default SkolskaTelevizia;
+export default SkolskyBufet;
