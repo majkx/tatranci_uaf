@@ -26,6 +26,10 @@ let Calls = {
     let commandUri = Calls.getCommandUri("schoolMagazine/list");
     return Calls.call("get", commandUri, dtoIn);
   },
+  listItems(dtoIn) {
+    let commandUri = Calls.getCommandUri("item/list");
+    return Calls.call("get", commandUri, dtoIn);
+  },
 
   loadDemoContent(dtoIn) {
     let commandUri = Calls.getCommandUri("loadDemoContent");
