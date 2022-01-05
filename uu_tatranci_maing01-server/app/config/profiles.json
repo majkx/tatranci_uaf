@@ -107,7 +107,7 @@
       },
       "schoolMagazine/list": {
         "sysStateList": ["active"],
-        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+        "profileList": ["AwidLicenseOwner","Authorities","Executives","Public"]
       },
       "schoolMagazine/delete": {
         "sysStateList": ["active"],

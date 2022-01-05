@@ -61,15 +61,15 @@ export const SkolskaRadaReady = createVisualComponent({
      return currentNestingLevel ? (
        <div {...attrs}>
         <Uu5Tiles.Controller
-         data={props.data.itemList}>
+          data={props.data.itemList}>
           <Uu5Tiles.List
              viewType={"table"}
              rowAlignment={"center"}
-            columns={getColumns()}
-          />
+             columns={getColumns()}
+         />
         </Uu5Tiles.Controller>
-      </div>
-     ) :null ;
+       </div>
+    ) : null;
     //@@viewOff:render
   },
 });

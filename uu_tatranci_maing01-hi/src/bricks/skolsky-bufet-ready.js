@@ -29,12 +29,12 @@ export const SkolskyBufetReady = createVisualComponent({
       return [
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.name} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span> {cellProps.data.nameOfItem} </UU5.Bricks.Span>
           }
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.content} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span> {cellProps.data.price} </UU5.Bricks.Span>
           }
         },
         {

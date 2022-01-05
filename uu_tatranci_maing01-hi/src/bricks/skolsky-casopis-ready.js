@@ -34,7 +34,7 @@ export const SkolskyCasopisReady = createComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.content} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span> {cellProps.data.numbersOfPages} </UU5.Bricks.Span>
           }
         },
         {
