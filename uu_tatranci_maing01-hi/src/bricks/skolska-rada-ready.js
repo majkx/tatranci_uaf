@@ -29,7 +29,8 @@ export const SkolskaRadaReady = createVisualComponent({
       return [
         {
           cell: (cellProps) => {
-            return cellProps.data.name;
+            console.log(cellProps)
+            return <UU5.Bricks.Span> {cellProps.data.name} </UU5.Bricks.Span>
           }
         },
         {
@@ -57,19 +58,19 @@ export const SkolskaRadaReady = createVisualComponent({
       props,
       STATICS
     );
-
-    return currentNestingLevel ? (
-      <div {...attrs}>
+//return JSON.stringify(props.data.itemList)
+     return currentNestingLevel ? (
+       <div {...attrs}>
         <Uu5Tiles.Controller
-        data={props.data.itemList}>
+         data={props.data.itemList}>
           <Uu5Tiles.List
-            viewType={"table"}
-            rowAlignment={"center"}
+             viewType={"table"}
+             rowAlignment={"center"}
             columns={getColumns()}
           />
         </Uu5Tiles.Controller>
       </div>
-    ) : null;
+     ) :null ;
     //@@viewOff:render
   },
 });

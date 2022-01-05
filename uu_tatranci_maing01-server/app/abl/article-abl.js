@@ -24,6 +24,7 @@ class ArticleAbl {
     this.validator = Validator.load();
     this.dao = DaoFactory.getDao("article");
     this.editorDao = DaoFactory.getDao("editor")
+    this.userDao = DaoFactory.getDao("user")
   }
 
   async listByUuId(awid, dtoIn, uuAppErrorMap = {}) {
@@ -172,9 +173,11 @@ class ArticleAbl {
     );
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
+
     let uuIdentity = session.getIdentity().getUuIdentity();
+    let userObject = await this.userDao.getByUserUuId(awid, uuIdentity);
     dtoIn.authorUuId = uuIdentity;
-    //dtoIn.id = ObjectId();
+    dtoIn.authorName = userObject.firstName + " " + userObject.lastName;
     dtoIn.awid = awid;
     let dtoOut = {};
 

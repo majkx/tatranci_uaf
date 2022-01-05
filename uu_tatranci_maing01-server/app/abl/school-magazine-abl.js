@@ -22,6 +22,7 @@ class SchoolMagazineAbl {
   constructor() {
     this.validator = Validator.load();
     this.dao = DaoFactory.getDao("schoolMagazine");
+    this.userDao = DaoFactory.getDao("user")
   }
 
   async listByUuId(awid, dtoIn, uuAppErrorMap = {}) {
@@ -174,7 +175,9 @@ class SchoolMagazineAbl {
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
     let uuIdentity = session.getIdentity().getUuIdentity();
+    let userObject = await this.userDao.getByUserUuId(awid, uuIdentity);
     dtoIn.authorUuId = uuIdentity;
+    dtoIn.authorName = userObject.firstName + " " + userObject.lastName;
     dtoIn.awid = awid;
     let dtoOut = {};
 
