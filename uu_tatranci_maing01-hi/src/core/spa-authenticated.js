@@ -9,6 +9,11 @@ import Config from "./config/config";
 import Left from "./left";
 import Bottom from "./bottom";
 import Home from "../routes/home";
+import skolskaRada from "../routes/skolskaRada";
+import skolskaTelevizia from "../routes/skolskaTelevizia";
+import skolskyBufet from "../routes/skolskyBufet";
+import skolskyCasopis from "../routes/skolskyCasopis";
+
 //@@viewOff:imports
 
 const STATICS = {
@@ -26,10 +31,10 @@ const ROUTES = {
   "": DEFAULT_USE_CASE,
   home: { component: <Home /> },
   about: { component: <About /> },
-  skolskaRada:{},
-  skolskyBufet:{},
-  skolskaTelevizia:{},
-  skolskyCasopis:{}
+  skolskaRada:{ compoenet: <skolskaRada />},
+  skolskyBufet:{compoenet: <skolskyBufet />},
+  skolskaTelevizia:{compoenet: <skolskaTelevizia />},
+  skolskyCasopis:{compoenet: <skolskyCasopis />}
 };
 
 export const SpaAuthenticated = createVisualComponent({
