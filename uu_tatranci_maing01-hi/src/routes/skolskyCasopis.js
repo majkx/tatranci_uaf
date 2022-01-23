@@ -46,7 +46,7 @@ export const StrankaSkolskyCasopis = createVisualComponent({
   //@@viewOn:defaultProps
   //@@viewOff:defaultProps
 
-  render(props) {
+  render(props ) {
     //@@viewOn:private
     //@@viewOff:private
 
