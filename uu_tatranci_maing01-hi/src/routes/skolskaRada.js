@@ -7,14 +7,12 @@ import "uu_plus4u5g01-bricks";
 import Config from "./config/config.js";
 
 import SkolskaRada from "../bricks/skolska-rada";
-import SkolskaTelevizia from "../bricks/skolska-televizia";
-import SkolskyCasopis from "../bricks/skolsky-casopis";
-import SkolskyBufet from "../bricks/skolsky-bufet";
+
 //@@viewOff:imports
 
 const STATICS = {
   //@@viewOn:statics
-  displayName: Config.TAG + "Home",
+  displayName: Config.TAG + "StrankaSkolskaRada",
   //@@viewOff:statics
 };
 
@@ -37,7 +35,7 @@ const CLASS_NAMES = {
   `,
 };
 
-export const Home = createVisualComponent({
+export const StrankaSkolskaRada = createVisualComponent({
   ...STATICS,
 
   //@@viewOn:propTypes
@@ -58,9 +56,7 @@ export const Home = createVisualComponent({
     return (
       <div {...attrs}>
         <SkolskaRada/>
-        <SkolskaTelevizia/>
-        <SkolskyCasopis/>
-        <SkolskyBufet/>
+
     </div>
     );
 
@@ -68,4 +64,4 @@ export const Home = createVisualComponent({
   },
 });
 
-export default Home;
+export default StrankaSkolskaRada;

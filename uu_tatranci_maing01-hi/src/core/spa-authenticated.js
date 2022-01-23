@@ -9,10 +9,10 @@ import Config from "./config/config";
 import Left from "./left";
 import Bottom from "./bottom";
 import Home from "../routes/home";
-import skolskaRada from "../routes/skolskaRada";
-import skolskaTelevizia from "../routes/skolskaTelevizia";
-import skolskyBufet from "../routes/skolskyBufet";
-import skolskyCasopis from "../routes/skolskyCasopis";
+import StrankaSkolskaRada from "../routes/skolskaRada";
+import StrankaSkolskaTelevizia from "../routes/skolskaTelevizia";
+import StrankaSkolskyBufet from "../routes/skolskyBufet";
+import StrankaSkolskyCasopis from "../routes/skolskyCasopis";
 
 //@@viewOff:imports
 
@@ -31,10 +31,10 @@ const ROUTES = {
   "": DEFAULT_USE_CASE,
   home: { component: <Home /> },
   about: { component: <About /> },
-  skolskaRada:{ compoenet: <skolskaRada />},
-  skolskyBufet:{compoenet: <skolskyBufet />},
-  skolskaTelevizia:{compoenet: <skolskaTelevizia />},
-  skolskyCasopis:{compoenet: <skolskyCasopis />}
+  skolskaRada:{ component: <StrankaSkolskaRada />},
+  skolskyBufet:{component: <StrankaSkolskyBufet />},
+  skolskaTelevizia:{component: <StrankaSkolskaTelevizia />},
+  skolskyCasopis:{component: <StrankaSkolskyCasopis />}
 };
 
 export const SpaAuthenticated = createVisualComponent({

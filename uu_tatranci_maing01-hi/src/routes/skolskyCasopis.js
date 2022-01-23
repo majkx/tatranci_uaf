@@ -8,12 +8,13 @@ import Config from "./config/config.js";
 
 import Clanky from "../bricks/skolska-rada";
 import Casopis from "../bricks/skolska-televizia";
+import SkolskyCasopis from "../bricks/skolsky-casopis";
 
 //@@viewOff:imports
 
 const STATICS = {
   //@@viewOn:statics
-  displayName: Config.TAG + "Home",
+  displayName: Config.TAG + "StrankaSkolskyCasopis",
   //@@viewOff:statics
 };
 
@@ -36,7 +37,7 @@ const CLASS_NAMES = {
   `,
 };
 
-export const Home = createVisualComponent({
+export const StrankaSkolskyCasopis = createVisualComponent({
   ...STATICS,
 
   //@@viewOn:propTypes
@@ -56,8 +57,7 @@ export const Home = createVisualComponent({
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
-        <Clanky/>
-        <Casopis/>
+        <SkolskyCasopis/>
     </div>
     );
 
@@ -65,4 +65,4 @@ export const Home = createVisualComponent({
   },
 });
 
-export default Home;
+export default StrankaSkolskyCasopis;
