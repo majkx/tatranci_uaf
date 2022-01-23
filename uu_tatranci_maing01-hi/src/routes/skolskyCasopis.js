@@ -58,7 +58,7 @@ export const StrankaSkolskyCasopis = createVisualComponent({
     return (
       <div {...attrs}>
         <SkolskyCasopis/>
-    </div>
+      </div>
     );
 
     //@@viewOff:render
