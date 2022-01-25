@@ -133,6 +133,36 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.SkolskyBufetReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ZlavneneProdukty",
+        "name": "ZlavneneProdukty",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ZlavneneProdukty"
+        ],
+        "docCode": "UuTatranciBricksZlavneneProdukty",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ZlavneneProdukty />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ZlavneneProduktyReady",
+        "name": "ZlavneneProduktyReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ZlavneneProduktyReady"
+        ],
+        "docCode": "UuTatranciBricksZlavneneProduktyReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ZlavneneProduktyReady />"
       }
     ]
   },

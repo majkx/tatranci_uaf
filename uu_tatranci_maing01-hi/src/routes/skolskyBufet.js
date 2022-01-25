@@ -6,8 +6,7 @@ import "uu_plus4u5g01-bricks";
 
 import Config from "./config/config.js";
 
-import Zlavy from "../bricks/skolska-rada";
-import Produkty from "../bricks/skolska-televizia";
+import Zlavy from "../bricks/zlavnene-produkty";
 import SkolskyBufet from "../bricks/skolsky-bufet";
 
 //@@viewOff:imports
@@ -58,6 +57,7 @@ export const StrankaSkolskyBufet = createVisualComponent({
     return (
       <div {...attrs}>
         <SkolskyBufet/>
+        <Zlavy/>
     </div>
     );
 
