@@ -89,6 +89,10 @@
         "sysStateList": ["active"],
         "profileList": ["AwidLicenseOwner","Authorities","Executives","Public"]
       },
+      "item/listZlavnene": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives","Public"]
+      },
       "item/delete": {
         "sysStateList": ["active"],
         "profileList": ["Authorities","Executives"]

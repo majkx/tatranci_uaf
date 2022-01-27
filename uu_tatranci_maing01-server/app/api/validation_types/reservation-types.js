@@ -1,6 +1,6 @@
 /* eslint-disable */
 const createReservationDtoInType = shape({
-  state: oneOf(["open","closed","canceled"]).isRequired(),
+  state: oneOf(["initial", "open", "closed", "canceled" ]).isRequired(),
   count: integer().isRequired(),
   totalPrice: integer().isRequired(),
   products: array(
@@ -27,7 +27,7 @@ const deleteReservationDtoInType = shape({
 });
 const updateReservationDtoInType = shape({
   id: id().isRequired(),
-  state: oneOf(["open","closed","canceled"]),
+  state: oneOf(["open", "closed", "canceled" ]),
   count: integer(),
   totalPrice: integer(),
   products: array(

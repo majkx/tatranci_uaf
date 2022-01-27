@@ -137,6 +137,24 @@ class ItemAbl {
     dtoOut.uuAppErrorMap = uuAppErrorMap;
     return dtoOut;
   }
+  async listZlavnene(awid, dtoIn, uuAppErrorMap = {}) {
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("listItemDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.getItemUnsuportedKeys.code,
+      Errors.List.InvalidDtoIn
+    );
+
+    //HDS 2 Get itemList of items
+    let items = await this.dao.list(awid)
+      let dtoOut = items.itemList.filter(item => item.discount > 0)
+
+    //HDS 3 - Return dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
+  }
 
   async get(awid, dtoIn, uuAppErrorMap = {}) {
 

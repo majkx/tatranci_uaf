@@ -19,6 +19,10 @@ class ItemController {
     return ItemAbl.list(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
 
+  listZlavnene(ucEnv) {
+    return ItemAbl.listZlavnene(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
   get(ucEnv) {
     return ItemAbl.get(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
