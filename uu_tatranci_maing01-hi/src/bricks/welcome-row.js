@@ -20,15 +20,16 @@ const CLASS_NAMES = {
   `,
   text: () => Config.Css.css`
     text-align: center;
+    padding-left: 10px
 
     ${UU5.Utils.ScreenSize.getMinMediaQueries("s", `text-align: left;`)}
   `,
   iconColumn: () => Config.Css.css`
     padding-right: 24px;
     text-align: center;
-  
+
     ${UU5.Utils.ScreenSize.getMinMediaQueries("s", `text-align: right;`)}
-  
+
     .uu5-bricks-icon {
       font-size: 48px;
     }

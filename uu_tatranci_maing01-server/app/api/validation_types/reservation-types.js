@@ -1,6 +1,6 @@
 /* eslint-disable */
 const createReservationDtoInType = shape({
-  state: oneOf(["initial", "open", "closed", "canceled" ]).isRequired(),
+  state: oneOf(["initial", "open", "closed", "canceled" ]),
   count: integer().isRequired(),
   totalPrice: integer().isRequired(),
   products: array(

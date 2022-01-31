@@ -19,6 +19,18 @@ class ReservationController {
     return ReservationAbl.list(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
 
+  listOpen(ucEnv) {
+    return ReservationAbl.listOpen(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
+  listClosed(ucEnv) {
+    return ReservationAbl.listClosed(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
+  listCanceled(ucEnv) {
+    return ReservationAbl.listCanceled(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
   get(ucEnv) {
     return ReservationAbl.get(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }

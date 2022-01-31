@@ -139,6 +139,61 @@ class ReservationAbl {
     return dtoOut;
   }
 
+  async listOpen(awid, dtoIn, uuAppErrorMap = {}) {
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("listReservationDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.getReservationUnsuportedKeys.code,
+      Errors.List.InvalidDtoIn
+    );
+
+    //HDS 2 Get itemList of reservations
+    let reservations = await this.dao.list(awid)
+    let dtoOut = reservations.reservationList.filter(reservation => reservation.state = "open");
+
+    //HDS 3 - Return dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
+  }
+
+  async listClosed(awid, dtoIn, uuAppErrorMap = {}) {
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("listReservationDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.getReservationUnsuportedKeys.code,
+      Errors.List.InvalidDtoIn
+    );
+
+    //HDS 2 Get itemList of reservations
+    let dtoOut = await this.dao.list(awid)
+
+    //HDS 3 - Return dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
+  }
+
+  async listCanceled(awid, dtoIn, uuAppErrorMap = {}) {
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("listReservationDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.getReservationUnsuportedKeys.code,
+      Errors.List.InvalidDtoIn
+    );
+
+    //HDS 2 Get itemList of reservations
+    let dtoOut = await this.dao.list(awid)
+
+    //HDS 3 - Return dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
+  }
+
   async get(awid, dtoIn, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
@@ -180,6 +235,7 @@ class ReservationAbl {
     dtoIn.authorUuId = uuIdentity;
     dtoIn.authorName = name;
     dtoIn.awid = awid;
+    dtoIn.state = "initial";
     let dtoOut = {};
 
     // HDS 3 - Database entry

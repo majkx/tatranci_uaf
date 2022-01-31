@@ -69,6 +69,18 @@
         "sysStateList": ["active"],
         "profileList": ["AwidLicenseOwner","Authorities","Executives"]
       },
+      "reservation/listOpen": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+      },
+      "reservation/listClosed": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+      },
+      "reservation/listCanceled": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+      },
       "reservation/delete": {
         "sysStateList": ["active"],
         "profileList": ["Authorities","Executives"]

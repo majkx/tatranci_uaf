@@ -34,6 +34,7 @@ const CLASS_NAMES = {
       margin: 0 auto;
     }
   `,
+
 };
 
 export const StrankaSkolskaTelevizia = createVisualComponent({

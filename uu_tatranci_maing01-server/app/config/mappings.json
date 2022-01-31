@@ -81,6 +81,21 @@
         "httpMethod": "GET",
         "type": "CMD"
       },
+      "reservation/listOpen": {
+        "realization": "api/controllers/ReservationController.listOpen",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "reservation/listClosed": {
+        "realization": "api/controllers/ReservationController.listClosed",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
+      "reservation/listCanceled": {
+        "realization": "api/controllers/ReservationController.listCanceled",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
       "reservation/delete": {
         "realization": "api/controllers/ReservationController.delete",
         "httpMethod": "POST",
