@@ -30,17 +30,20 @@ export const SkolskyBufetReady = createVisualComponent({
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.nameOfItem} </UU5.Bricks.Span>
-          }
+          },
+          header: <UU5.Bricks.Span> Názov produktu </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.price} </UU5.Bricks.Span>
-          }
+          },
+          header: <UU5.Bricks.Span> Cena </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.authorName} </UU5.Bricks.Span>
-          }
+          },
+          header: <UU5.Bricks.Span> Autor </UU5.Bricks.Span>
         }
       ];
     }

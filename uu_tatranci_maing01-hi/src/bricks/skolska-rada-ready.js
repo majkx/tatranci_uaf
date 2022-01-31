@@ -30,17 +30,20 @@ export const SkolskaRadaReady = createVisualComponent({
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.name} </UU5.Bricks.Span>
-          }
+          },
+          header: <UU5.Bricks.Span> Názov </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.content} </UU5.Bricks.Span>
-          }
+          },
+          header: <UU5.Bricks.Span> Content </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.authorName} </UU5.Bricks.Span>
-          }
+          },
+          header: <UU5.Bricks.Span> Autor </UU5.Bricks.Span>
         }
       ];
     }

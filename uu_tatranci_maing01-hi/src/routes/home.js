@@ -34,6 +34,7 @@ const CLASS_NAMES = {
     .plus4u5-bricks-user-photo {
       margin: 0 auto;
     }
+
   `,
 };
 
