@@ -11,6 +11,10 @@ class ReservationController {
     return ReservationAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
 
+  updateShoppingCard(ucEnv) {
+    return ReservationAbl.updateShoppingCard(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
   delete(ucEnv) {
     return ReservationAbl.delete(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }

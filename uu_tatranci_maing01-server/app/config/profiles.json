@@ -89,6 +89,10 @@
         "sysStateList": ["active"],
         "profileList": ["Authorities","Executives"]
       },
+      "reservation/updateShoppingCard": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities","Executives"]
+      },
       "item/create": {
         "sysStateList": ["active"],
         "profileList": ["Authorities","Executives"]

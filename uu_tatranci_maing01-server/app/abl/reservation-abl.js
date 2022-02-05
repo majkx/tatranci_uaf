@@ -88,6 +88,47 @@ class ReservationAbl {
     return dtoOut;
   }
 
+  async updateShoppingCard(awid, dtoIn, uuAppErrorMap = {}) {
+
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("updateReservationShoppingCardDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.createReservationUnsuportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+
+    //HDS 2 - Check if updated object exists
+    let reservationObject = await this.dao.get(awid, dtoIn.id);
+
+    // A2 - throw error
+    if(Object.keys(reservationObject).length === 0){
+      throw new Errors.Update.ReservationNotFound({uuAppErrorMap}, {id: dtoIn.id})
+    }
+
+    //HDS 3 - Prepare new reservation object
+    let newReservation = {
+      ...reservationObject,
+      ...dtoIn
+    }
+
+    // HDS 4 - Update object in Database
+    dtoIn.state = "open";
+    let dtoOut = {};
+
+    try {
+      dtoOut = await this.dao.update(newReservation)
+    }catch(e){
+      throw e;
+    }
+
+
+    //HDS 5 - Return filled dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
+  }
+
   async delete(awid, dtoIn, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("deleteReservationDtoInType", dtoIn);
@@ -150,8 +191,8 @@ class ReservationAbl {
     );
 
     //HDS 2 Get itemList of reservations
-    let reservations = await this.dao.list(awid)
-    let dtoOut = reservations.reservationList.filter(reservation => reservation.state = "open");
+    let reservations = await this.dao.list(awid);
+    let dtoOut = reservations.itemList.filter(reservation => reservation.state = "open");
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
@@ -169,7 +210,8 @@ class ReservationAbl {
     );
 
     //HDS 2 Get itemList of reservations
-    let dtoOut = await this.dao.list(awid)
+    let reservations = await this.dao.list(awid)
+      let dtoOut = reservations.itemList.filter(reservation => reservation.state = "closed")
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
@@ -187,7 +229,8 @@ class ReservationAbl {
     );
 
     //HDS 2 Get itemList of reservations
-    let dtoOut = await this.dao.list(awid)
+    let reservations = await this.dao.list(awid)
+      let dtoOut = reservations.itemList.filter(reservation => reservation.state = "canceled")
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;

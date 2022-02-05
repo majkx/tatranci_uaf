@@ -95,6 +95,27 @@ const Update = {
 
 };
 
+const UpdateShoppingCard = {
+  UC_CODE: `${RESERVATION_ERROR_PREFIX}updateShoppingCard/`,
+
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${UpdateShoppingCard.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  ReservationNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${UpdateShoppingCard.UC_CODE}reservationNotFound`;
+      this.message = "Reservation with given ID was not found.";
+    }
+  },
+
+};
+
 const ListByUuId = {
   UC_CODE: `${RESERVATION_ERROR_PREFIX}listByUuId/`,
   InvalidDtoIn: class extends TatranciMainUseCaseError {
@@ -117,6 +138,7 @@ const ListByUuId = {
 module.exports = {
   ListByUuId,
   Update,
+  UpdateShoppingCard,
   Delete,
   List,
   Get,

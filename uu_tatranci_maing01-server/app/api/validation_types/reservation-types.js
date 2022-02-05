@@ -40,6 +40,10 @@ const updateReservationDtoInType = shape({
     })
   )
 });
+const updateReservationShoppingCardDtoInType = shape({
+  id: id().isRequired(),
+  state: oneOf(["initial", "open", "closed", "canceled" ]),
+});
 const listReservationByUuIdDtoInType = shape({
   uuId: uuIdentity().isRequired()
 });

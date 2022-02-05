@@ -6,7 +6,6 @@ import "uu_plus4u5g01-bricks";
 
 import Config from "./config/config.js";
 
-import Videa from "../bricks/skolska-rada";
 import SkolskaTelevizia from "../bricks/skolska-televizia";
 
 //@@viewOff:imports
@@ -34,7 +33,13 @@ const CLASS_NAMES = {
       margin: 0 auto;
     }
   `,
-
+  test: () => Config.Css.css`
+    padding: 56px 0 20px;
+    max-width: 624px;
+    margin: 0 auto;
+    text-align: center;
+    padding-left: 50px;
+  `,
 };
 
 export const StrankaSkolskaTelevizia = createVisualComponent({
@@ -57,8 +62,8 @@ export const StrankaSkolskaTelevizia = createVisualComponent({
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
-        <SkolskaTelevizia/>
-    </div>
+        <SkolskaTelevizia className={CLASS_NAMES.test()} />
+      </div>
     );
 
     //@@viewOff:render

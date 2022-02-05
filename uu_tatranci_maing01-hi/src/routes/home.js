@@ -36,6 +36,9 @@ const CLASS_NAMES = {
     }
 
   `,
+  test: () => Config.Css.css`
+   text-align: right;
+  `,
 };
 
 export const Home = createVisualComponent({
@@ -58,7 +61,7 @@ export const Home = createVisualComponent({
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
-        <SkolskaRada/>
+        <SkolskaRada className={CLASS_NAMES.test()} />
         <SkolskaTelevizia/>
         <SkolskyCasopis/>
         <SkolskyBufet/>
