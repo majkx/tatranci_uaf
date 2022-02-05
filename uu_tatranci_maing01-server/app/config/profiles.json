@@ -69,6 +69,10 @@
         "sysStateList": ["active"],
         "profileList": ["AwidLicenseOwner","Authorities","Executives"]
       },
+      "reservation/listInitial": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives","Public"]
+      },
       "reservation/listOpen": {
         "sysStateList": ["active"],
         "profileList": ["AwidLicenseOwner","Authorities","Executives"]
@@ -89,7 +93,15 @@
         "sysStateList": ["active"],
         "profileList": ["Authorities","Executives"]
       },
-      "reservation/updateShoppingCard": {
+      "reservation/updateShopCardOpen": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities","Executives"]
+      },
+      "reservation/updateShopCardClosed": {
+        "sysStateList": ["active"],
+        "profileList": ["Authorities","Executives"]
+      },
+      "reservation/updateShopCardCanceled": {
         "sysStateList": ["active"],
         "profileList": ["Authorities","Executives"]
       },

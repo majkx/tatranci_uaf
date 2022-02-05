@@ -22,6 +22,18 @@ const getReservationDtoInType = shape({
 const listReservationDtoInType = shape({
 
 });
+const listReservationInitialDtoInType = shape({
+
+});
+const listReservationOpenDtoInType = shape({
+
+});
+const listReservationClosedDtoInType = shape({
+
+});
+const listReservationCanceledDtoInType = shape({
+
+});
 const deleteReservationDtoInType = shape({
   id: id().isRequired()
 });
@@ -40,9 +52,17 @@ const updateReservationDtoInType = shape({
     })
   )
 });
-const updateReservationShoppingCardDtoInType = shape({
+const updateReservationShopCardOpenDtoInType = shape({
   id: id().isRequired(),
-  state: oneOf(["initial", "open", "closed", "canceled" ]),
+  state: oneOf(["open", "closed", "canceled" ]),
+});
+const updateReservationShopCardClosedDtoInType = shape({
+  id: id().isRequired(),
+  state: oneOf(["closed", "canceled" ]),
+});
+const updateReservationShopCardCanceledDtoInType = shape({
+  id: id().isRequired(),
+  state: oneOf(["canceled" ]),
 });
 const listReservationByUuIdDtoInType = shape({
   uuId: uuIdentity().isRequired()

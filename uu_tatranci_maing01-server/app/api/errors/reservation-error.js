@@ -46,6 +46,55 @@ const List = {
 
 };
 
+const ListInitial = {
+  UC_CODE: `${RESERVATION_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${ListInitial.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+};
+
+const ListOpen = {
+  UC_CODE: `${RESERVATION_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${ListOpen.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+};
+
+const ListClosed = {
+  UC_CODE: `${RESERVATION_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${ListClosed.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+};
+
+const ListCanceled = {
+  UC_CODE: `${RESERVATION_ERROR_PREFIX}list/`,
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${ListCanceled.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+};
+
+
 const Delete = {
   UC_CODE: `${RESERVATION_ERROR_PREFIX}delete/`,
 
@@ -95,13 +144,13 @@ const Update = {
 
 };
 
-const UpdateShoppingCard = {
-  UC_CODE: `${RESERVATION_ERROR_PREFIX}updateShoppingCard/`,
+const UpdateShopCardOpen = {
+  UC_CODE: `${RESERVATION_ERROR_PREFIX}updateShopCardOpen/`,
 
   InvalidDtoIn: class extends TatranciMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${UpdateShoppingCard.UC_CODE}invalidDtoIn`;
+      this.code = `${UpdateShopCardOpen.UC_CODE}invalidDtoIn`;
       this.message = "DtoIn is not valid.";
     }
   },
@@ -109,7 +158,49 @@ const UpdateShoppingCard = {
   ReservationNotFound: class extends TatranciMainUseCaseError {
     constructor() {
       super(...arguments);
-      this.code = `${UpdateShoppingCard.UC_CODE}reservationNotFound`;
+      this.code = `${UpdateShopCardOpen.UC_CODE}reservationNotFound`;
+      this.message = "Reservation with given ID was not found.";
+    }
+  },
+
+};
+
+const UpdateShopCardClosed = {
+  UC_CODE: `${RESERVATION_ERROR_PREFIX}updateShopCardClosed/`,
+
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${UpdateShopCardClosed.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  ReservationNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${UpdateShopCardClosed.UC_CODE}reservationNotFound`;
+      this.message = "Reservation with given ID was not found.";
+    }
+  },
+
+};
+
+const UpdateShopCardCanceled = {
+  UC_CODE: `${RESERVATION_ERROR_PREFIX}updateShopCardCanceled/`,
+
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${UpdateShopCardCanceled.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+
+  ReservationNotFound: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${UpdateShopCardCanceled.UC_CODE}reservationNotFound`;
       this.message = "Reservation with given ID was not found.";
     }
   },
@@ -138,7 +229,9 @@ const ListByUuId = {
 module.exports = {
   ListByUuId,
   Update,
-  UpdateShoppingCard,
+  UpdateShopCardOpen,
+  UpdateShopCardClosed,
+  UpdateShopCardCanceled,
   Delete,
   List,
   Get,

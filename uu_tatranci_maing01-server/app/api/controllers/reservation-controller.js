@@ -11,8 +11,16 @@ class ReservationController {
     return ReservationAbl.update(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
 
-  updateShoppingCard(ucEnv) {
-    return ReservationAbl.updateShoppingCard(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  updateShopCardOpen(ucEnv) {
+    return ReservationAbl.updateShopCardOpen(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
+  updateShopCardClosed(ucEnv) {
+    return ReservationAbl.updateShopCardClosed(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
+  updateShopCardCanceled(ucEnv) {
+    return ReservationAbl.updateShopCardCanceled(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
 
   delete(ucEnv) {
@@ -21,6 +29,10 @@ class ReservationController {
 
   list(ucEnv) {
     return ReservationAbl.list(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
+  listInitial(ucEnv) {
+    return ReservationAbl.listInitial(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
 
   listOpen(ucEnv) {

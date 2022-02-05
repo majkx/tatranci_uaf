@@ -31,6 +31,11 @@ let Calls = {
     return Calls.call("get", commandUri, dtoIn);
   },
 
+  listReservationsInitial(dtoIn) {
+    let commandUri = Calls.getCommandUri("reservation/listInitial");
+    return Calls.call("get", commandUri, dtoIn);
+  },
+
   loadDemoContent(dtoIn) {
     let commandUri = Calls.getCommandUri("loadDemoContent");
     return Calls.call("get", commandUri, dtoIn);

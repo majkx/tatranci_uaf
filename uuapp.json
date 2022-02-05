@@ -163,6 +163,36 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.ZlavneneProduktyReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.Kosik",
+        "name": "Kosik",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "Kosik"
+        ],
+        "docCode": "UuTatranciBricksKosik",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.Kosik />"
+      },
+      {
+        "code": "UuTatranci.Bricks.KosikReady",
+        "name": "KosikReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "KosikReady"
+        ],
+        "docCode": "UuTatranciBricksKosikReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.KosikReady />"
       }
     ]
   },

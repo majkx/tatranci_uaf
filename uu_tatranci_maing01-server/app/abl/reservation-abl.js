@@ -88,10 +88,10 @@ class ReservationAbl {
     return dtoOut;
   }
 
-  async updateShoppingCard(awid, dtoIn, uuAppErrorMap = {}) {
+  async updateShopCardOpen(awid, dtoIn, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
-    let validationResult = this.validator.validate("updateReservationShoppingCardDtoInType", dtoIn);
+    let validationResult = this.validator.validate("updateReservationShopCardOpenDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
@@ -107,6 +107,7 @@ class ReservationAbl {
       throw new Errors.Update.ReservationNotFound({uuAppErrorMap}, {id: dtoIn.id})
     }
 
+    dtoIn.state = "open";
     //HDS 3 - Prepare new reservation object
     let newReservation = {
       ...reservationObject,
@@ -114,11 +115,92 @@ class ReservationAbl {
     }
 
     // HDS 4 - Update object in Database
-    dtoIn.state = "open";
     let dtoOut = {};
 
     try {
-      dtoOut = await this.dao.update(newReservation)
+      dtoOut = await this.dao.updateShopCardOpen(newReservation)
+    }catch(e){
+      throw e;
+    }
+
+
+    //HDS 5 - Return filled dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
+  }
+
+  async updateShopCardClosed(awid, dtoIn, uuAppErrorMap = {}) {
+
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("updateReservationShopCardClosedDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.createReservationUnsuportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+
+    //HDS 2 - Check if updated object exists
+    let reservationObject = await this.dao.get(awid, dtoIn.id);
+
+    // A2 - throw error
+    if(Object.keys(reservationObject).length === 0){
+      throw new Errors.Update.ReservationNotFound({uuAppErrorMap}, {id: dtoIn.id})
+    }
+
+    dtoIn.state = "closed";
+    //HDS 3 - Prepare new reservation object
+    let newReservation = {
+      ...reservationObject,
+      ...dtoIn
+    }
+
+    // HDS 4 - Update object in Database
+    let dtoOut = {};
+
+    try {
+      dtoOut = await this.dao.updateShopCardClosed(newReservation)
+    }catch(e){
+      throw e;
+    }
+
+
+    //HDS 5 - Return filled dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
+  }
+
+  async updateShopCardCanceled(awid, dtoIn, uuAppErrorMap = {}) {
+
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("updateReservationShopCardCanceledDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.createReservationUnsuportedKeys.code,
+      Errors.Update.InvalidDtoIn
+    );
+
+    //HDS 2 - Check if updated object exists
+    let reservationObject = await this.dao.get(awid, dtoIn.id);
+
+    // A2 - throw error
+    if(Object.keys(reservationObject).length === 0){
+      throw new Errors.Update.ReservationNotFound({uuAppErrorMap}, {id: dtoIn.id})
+    }
+
+    dtoIn.state = "canceled";
+    //HDS 3 - Prepare new reservation object
+    let newReservation = {
+      ...reservationObject,
+      ...dtoIn
+    }
+
+    // HDS 4 - Update object in Database
+    let dtoOut = {};
+
+    try {
+      dtoOut = await this.dao.updateShopCardCanceled(newReservation)
     }catch(e){
       throw e;
     }
@@ -180,9 +262,9 @@ class ReservationAbl {
     return dtoOut;
   }
 
-  async listOpen(awid, dtoIn, uuAppErrorMap = {}) {
+  async listInitial(awid, dtoIn, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
-    let validationResult = this.validator.validate("listReservationDtoInType", dtoIn);
+    let validationResult = this.validator.validate("listReservationInitialDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
@@ -192,7 +274,26 @@ class ReservationAbl {
 
     //HDS 2 Get itemList of reservations
     let reservations = await this.dao.list(awid);
-    let dtoOut = reservations.itemList.filter(reservation => reservation.state = "open");
+    let dtoOut = reservations.itemList.filter(reservation => reservation.state === "initial");
+
+    //HDS 3 - Return dtoOut
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    return dtoOut;
+  }
+
+  async listOpen(awid, dtoIn, uuAppErrorMap = {}) {
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("listReservationOpenDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.getReservationUnsuportedKeys.code,
+      Errors.List.InvalidDtoIn
+    );
+
+    //HDS 2 Get itemList of reservations
+    let reservations = await this.dao.list(awid);
+    let dtoOut = reservations.itemList.filter(reservation => reservation.state === "open");
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
@@ -201,7 +302,7 @@ class ReservationAbl {
 
   async listClosed(awid, dtoIn, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
-    let validationResult = this.validator.validate("listReservationDtoInType", dtoIn);
+    let validationResult = this.validator.validate("listReservationClosedDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
@@ -211,7 +312,7 @@ class ReservationAbl {
 
     //HDS 2 Get itemList of reservations
     let reservations = await this.dao.list(awid)
-      let dtoOut = reservations.itemList.filter(reservation => reservation.state = "closed")
+      let dtoOut = reservations.itemList.filter(reservation => reservation.state === "closed")
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
@@ -220,7 +321,7 @@ class ReservationAbl {
 
   async listCanceled(awid, dtoIn, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
-    let validationResult = this.validator.validate("listReservationDtoInType", dtoIn);
+    let validationResult = this.validator.validate("listReservationCanceledDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
       dtoIn,
       validationResult,
@@ -230,7 +331,7 @@ class ReservationAbl {
 
     //HDS 2 Get itemList of reservations
     let reservations = await this.dao.list(awid)
-      let dtoOut = reservations.itemList.filter(reservation => reservation.state = "canceled")
+      let dtoOut = reservations.itemList.filter(reservation => reservation.state === "canceled")
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;

@@ -53,6 +53,7 @@ export const  Left = createVisualComponent({
             { id: "skolskybufet", href: "skolskyBufet", content: "Školský bufet"},
             { id: "skolskatelevizia", href: "skolskaTelevizia", content: "Školská televízia"},
             { id: "skolskycasopis", href: "skolskyCasopis", content: "Školský časopis"},
+            { id: "kosik", href: "kosik", content: "Košík"},
 
           ]}
         />

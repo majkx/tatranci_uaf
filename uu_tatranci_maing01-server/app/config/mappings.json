@@ -81,6 +81,11 @@
         "httpMethod": "GET",
         "type": "CMD"
       },
+      "reservation/listInitial": {
+        "realization": "api/controllers/ReservationController.listInitial",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
       "reservation/listOpen": {
         "realization": "api/controllers/ReservationController.listOpen",
         "httpMethod": "GET",
@@ -106,8 +111,18 @@
         "httpMethod": "POST",
         "type": "CMD"
       },
-      "reservation/updateShoppingCard": {
-        "realization": "api/controllers/ReservationController.updateShoppingCard",
+      "reservation/updateShopCardOpen": {
+        "realization": "api/controllers/ReservationController.updateShopCardOpen",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "reservation/updateShopCardClosed": {
+        "realization": "api/controllers/ReservationController.updateShopCardClosed",
+        "httpMethod": "POST",
+        "type": "CMD"
+      },
+      "reservation/updateShopCardCanceled": {
+        "realization": "api/controllers/ReservationController.updateShopCardCanceled",
         "httpMethod": "POST",
         "type": "CMD"
       },

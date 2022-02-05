@@ -27,7 +27,21 @@ class ReservationMongo extends UuObjectDao {
     }
     return await super.findOneAndUpdate(filter, uuObject, "NONE")
   }
-  async updateShoppingCard(uuObject){
+  async updateShopCardOpen(uuObject){
+    let filter = {
+      awid: uuObject.awid,
+      id: uuObject.id
+    }
+    return await super.findOneAndUpdate(filter, uuObject, "NONE")
+  }
+  async updateShopCardClosed(uuObject){
+    let filter = {
+      awid: uuObject.awid,
+      id: uuObject.id
+    }
+    return await super.findOneAndUpdate(filter, uuObject, "NONE")
+  }
+  async updateShopCardCanceled(uuObject){
     let filter = {
       awid: uuObject.awid,
       id: uuObject.id

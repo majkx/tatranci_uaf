@@ -13,6 +13,7 @@ import StrankaSkolskaRada from "../routes/skolskaRada";
 import StrankaSkolskaTelevizia from "../routes/skolskaTelevizia";
 import StrankaSkolskyBufet from "../routes/skolskyBufet";
 import StrankaSkolskyCasopis from "../routes/skolskyCasopis";
+import StrankaKosik from "../routes/kosik";
 
 //@@viewOff:imports
 
@@ -34,7 +35,8 @@ const ROUTES = {
   skolskaRada:{ component: <StrankaSkolskaRada />},
   skolskyBufet:{component: <StrankaSkolskyBufet />},
   skolskaTelevizia:{component: <StrankaSkolskaTelevizia />},
-  skolskyCasopis:{component: <StrankaSkolskyCasopis />}
+  skolskyCasopis:{component: <StrankaSkolskyCasopis />},
+  kosik:{component: <StrankaKosik />}
 };
 
 export const SpaAuthenticated = createVisualComponent({
