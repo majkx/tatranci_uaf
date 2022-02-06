@@ -29,7 +29,7 @@ export const KosikReady = createVisualComponent({
       return [
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.products} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span> {cellProps.data.products.productName} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span> Názov produktu </UU5.Bricks.Span>
         },

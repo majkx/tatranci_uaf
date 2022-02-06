@@ -34,15 +34,15 @@ export const About = {
   },
   leadingAuthors: [
     {
-      name: "Some Name",
-      uuIdentity: "4-4-1",
+      name: "Marek Želonka",
+      uuIdentity: "",
       role: {
         en: "Chief Business Architect & Stakeholder",
       },
     },
     {
-      name: "Other Name",
-      uuIdentity: "4-4-1",
+      name: "Matúš Mlynár",
+      uuIdentity: "5321-2603-1",
       role: {
         en: "Head of Development",
       },

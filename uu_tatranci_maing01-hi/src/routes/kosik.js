@@ -33,6 +33,10 @@ const CLASS_NAMES = {
       margin: 0 auto;
     }
   `,
+  main: () => Config.Css.css`
+    padding-left: 10px;
+    padding-right: 10px;
+  `,
 };
 
 export const StrankaKosik = createVisualComponent({
@@ -52,7 +56,7 @@ export const StrankaKosik = createVisualComponent({
     //@@viewOff:interface
 
     //@@viewOn:render
-    const attrs = UU5.Common.VisualComponent.getAttrs(props);
+    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     return (
       <div {...attrs}>
         <Kosik/>

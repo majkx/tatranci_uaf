@@ -274,7 +274,7 @@ class ReservationAbl {
 
     //HDS 2 Get itemList of reservations
     let reservations = await this.dao.list(awid);
-    let dtoOut = reservations.itemList.filter(reservation => reservation.state === "initial");
+      let dtoOut = reservations.itemList.filter(reservation => reservation.state === "initial");
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
@@ -293,7 +293,7 @@ class ReservationAbl {
 
     //HDS 2 Get itemList of reservations
     let reservations = await this.dao.list(awid);
-    let dtoOut = reservations.itemList.filter(reservation => reservation.state === "open");
+      let dtoOut = reservations.itemList.filter(reservation => reservation.state === "open");
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;

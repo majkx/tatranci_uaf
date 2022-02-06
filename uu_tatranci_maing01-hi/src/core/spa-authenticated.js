@@ -32,11 +32,11 @@ const ROUTES = {
   "": DEFAULT_USE_CASE,
   home: { component: <Home /> },
   about: { component: <About /> },
-  skolskaRada:{ component: <StrankaSkolskaRada />},
-  skolskyBufet:{component: <StrankaSkolskyBufet />},
-  skolskaTelevizia:{component: <StrankaSkolskaTelevizia />},
-  skolskyCasopis:{component: <StrankaSkolskyCasopis />},
-  kosik:{component: <StrankaKosik />}
+  skolskaRada: { component: <StrankaSkolskaRada /> },
+  skolskyBufet: { component: <StrankaSkolskyBufet /> },
+  skolskaTelevizia: { component: <StrankaSkolskaTelevizia /> },
+  skolskyCasopis: { component: <StrankaSkolskyCasopis /> },
+  kosik: { component: <StrankaKosik /> },
 };
 
 export const SpaAuthenticated = createVisualComponent({

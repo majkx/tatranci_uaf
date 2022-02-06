@@ -33,12 +33,14 @@ const CLASS_NAMES = {
       margin: 0 auto;
     }
   `,
-  test: () => Config.Css.css`
-    padding: 56px 0 20px;
-    max-width: 624px;
-    margin: 0 auto;
-    text-align: center;
-    padding-left: 50px;
+  main: () => Config.Css.css`
+    padding-left: 10px;
+    padding-right: 10px;
+  `,
+  header: () => Config.Css.css`
+    .uu5-bricks-header {
+      text-align: centre;
+    }
   `,
 };
 
@@ -59,10 +61,10 @@ export const StrankaSkolskaTelevizia = createVisualComponent({
     //@@viewOff:interface
 
     //@@viewOn:render
-    const attrs = UU5.Common.VisualComponent.getAttrs(props);
+    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     return (
       <div {...attrs}>
-        <SkolskaTelevizia className={CLASS_NAMES.test()} />
+        <SkolskaTelevizia className={CLASS_NAMES.header()} />
       </div>
     );
 
