@@ -31,19 +31,19 @@ export const SkolskyBufetReady = createVisualComponent({
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.nameOfItem} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span> Názov produktu </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Názov produktu </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.price} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span> Cena </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Cena </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.authorName} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span> Autor </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Autor </UU5.Bricks.Span>
         }
       ];
     }
@@ -53,8 +53,16 @@ export const SkolskyBufetReady = createVisualComponent({
     //@@viewOff:interface
 
     //@@viewOn:render
-    const className = Config.Css.css``;
-    const attrs = UU5.Common.VisualComponent.getAttrs(props, className);
+    const CLASS_NAMES = {
+      header: () => Config.Css.css`
+      color: red;
+      `,
+      main: () => Config.Css.css`
+      padding-left: 12px;
+      padding-right: 12px;
+      `,
+    };
+    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     const currentNestingLevel = UU5.Utils.NestingLevel.getNestingLevel(
       props,
       STATICS

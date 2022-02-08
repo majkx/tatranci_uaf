@@ -34,13 +34,8 @@ const CLASS_NAMES = {
     }
   `,
   main: () => Config.Css.css`
-    padding-left: 10px;
-    padding-right: 10px;
-  `,
-  header: () => Config.Css.css`
-    .uu5-bricks-header {
-      text-align: centre;
-    }
+    padding-left: 12px;
+    padding-right: 12px;
   `,
 };
 
@@ -64,7 +59,7 @@ export const StrankaSkolskaTelevizia = createVisualComponent({
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     return (
       <div {...attrs}>
-        <SkolskaTelevizia className={CLASS_NAMES.header()} />
+        <SkolskaTelevizia />
       </div>
     );
 

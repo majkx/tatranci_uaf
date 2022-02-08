@@ -31,25 +31,25 @@ export const SkolskaTeleviziaReady = createVisualComponent({
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.titleOfPost} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span> Názov </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Názov </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.desc} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span> Popis </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Popis </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.authorName} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span> Autor </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Autor </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.YoutubeVideo src={cellProps.data.videoURL} size = "sm"/>
           },
-          header: <UU5.Bricks.Span> Video </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Video </UU5.Bricks.Span>
         }
       ];
     }
@@ -59,8 +59,16 @@ export const SkolskaTeleviziaReady = createVisualComponent({
     //@@viewOff:interface
 
     //@@viewOn:render
-    const className = Config.Css.css``;
-    const attrs = UU5.Common.VisualComponent.getAttrs(props, className);
+    const CLASS_NAMES = {
+      header: () => Config.Css.css`
+      color: red;
+      `,
+      main: () => Config.Css.css`
+      padding-left: 12px;
+      padding-right: 12px;
+      `,
+    };
+    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     const currentNestingLevel = UU5.Utils.NestingLevel.getNestingLevel(
       props,
       STATICS

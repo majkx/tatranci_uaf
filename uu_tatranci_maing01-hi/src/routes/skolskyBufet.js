@@ -33,10 +33,6 @@ const CLASS_NAMES = {
       margin: 0 auto;
     }
   `,
-  main: () => Config.Css.css`
-    padding-left: 10px;
-    padding-right: 10px;
-  `,
 };
 
 export const StrankaSkolskyBufet = createVisualComponent({
@@ -56,7 +52,7 @@ export const StrankaSkolskyBufet = createVisualComponent({
     //@@viewOff:interface
 
     //@@viewOn:render
-    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
+    const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
         <SkolskyBufet/>

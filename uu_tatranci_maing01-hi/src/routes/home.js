@@ -37,8 +37,8 @@ const CLASS_NAMES = {
 
   `,
   main: () => Config.Css.css`
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 12px;
+    padding-right: 12px;
   `,
 };
 
