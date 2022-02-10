@@ -74,7 +74,7 @@ export const SkolskaRadaReady = createVisualComponent({
         <Uu5Tiles.Controller
           data={props.data.itemList}>
           <Uu5Tiles.List
-             viewType={"table"}
+            viewType={"table"}
              rowAlignment={"center"}
              columns={getColumns()}
          />
