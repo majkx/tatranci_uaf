@@ -193,6 +193,126 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.KosikReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ReservationOpen",
+        "name": "ReservationOpen",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ReservationOpen"
+        ],
+        "docCode": "UuTatranciBricksReservationOpen",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ReservationOpen />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ReservationOpenReady",
+        "name": "ReservationOpenReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ReservationOpenReady"
+        ],
+        "docCode": "UuTatranciBricksReservationOpenReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ReservationOpenReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ReservationClosed",
+        "name": "ReservationClosed",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ReservationClosed"
+        ],
+        "docCode": "UuTatranciBricksReservationClosed",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ReservationClosed />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ReservationClosedReady",
+        "name": "ReservationClosedReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ReservationClosedReady"
+        ],
+        "docCode": "UuTatranciBricksReservationClosedReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ReservationClosedReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ReservationCanceled",
+        "name": "ReservationCanceled",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ReservationCanceled"
+        ],
+        "docCode": "UuTatranciBricksReservationCanceled",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ReservationCanceled />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ReservationCanceledReady",
+        "name": "ReservationCanceledReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ReservationCanceledReady"
+        ],
+        "docCode": "UuTatranciBricksReservationCanceledReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ReservationCanceledReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ReservationInitial",
+        "name": "ReservationInitial",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ReservationInitial"
+        ],
+        "docCode": "UuTatranciBricksReservationInitial",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ReservationInitial />"
+      },
+      {
+        "code": "UuTatranci.Bricks.ReservationInitialReady",
+        "name": "ReservationInitialReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "ReservationInitialReady"
+        ],
+        "docCode": "UuTatranciBricksReservationInitialReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.ReservationInitialReady />"
       }
     ]
   },

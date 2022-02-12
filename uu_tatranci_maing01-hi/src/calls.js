@@ -35,6 +35,18 @@ let Calls = {
     let commandUri = Calls.getCommandUri("reservation/listInitial");
     return Calls.call("get", commandUri, dtoIn);
   },
+  listReservationsOpen(dtoIn) {
+    let commandUri = Calls.getCommandUri("reservation/listOpen");
+    return Calls.call("get", commandUri, dtoIn);
+  },
+  listReservationsCanceled(dtoIn) {
+    let commandUri = Calls.getCommandUri("reservation/listCanceled");
+    return Calls.call("get", commandUri, dtoIn);
+  },
+  listReservationsClosed(dtoIn) {
+    let commandUri = Calls.getCommandUri("reservation/listClosed");
+    return Calls.call("get", commandUri, dtoIn);
+  },
 
   loadDemoContent(dtoIn) {
     let commandUri = Calls.getCommandUri("loadDemoContent");
