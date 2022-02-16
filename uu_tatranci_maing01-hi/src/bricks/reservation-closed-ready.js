@@ -50,8 +50,14 @@ export const ReservationClosedReady = createVisualComponent({
             return <UU5.Bricks.Span> {cellProps.data.totalPrice} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Cena </UU5.Bricks.Span>
-        }
+        },
 
+        {
+          cell: (cellProps) => {
+            return <UU5.Bricks.Button onClick={handleClick(cellProps.data)}/>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
+        },
       ];
     }
     //@@viewOff:private
