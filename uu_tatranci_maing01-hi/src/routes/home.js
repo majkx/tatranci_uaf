@@ -63,9 +63,10 @@ export const Home = createVisualComponent({
     return (
       <div {...attrs}>
         <SkolskaRada />
+        <SkolskyBufet />
         <SkolskaTelevizia />
         <SkolskyCasopis />
-        <SkolskyBufet />
+
     </div>
     );
 

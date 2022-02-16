@@ -29,6 +29,7 @@ export const KosikReady = createVisualComponent({
       return [
         {
           cell: (cellProps) => {
+            console.log(cellProps)
             return <UU5.Bricks.Span> {cellProps.data.productName} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Názov produktu </UU5.Bricks.Span>
@@ -56,10 +57,8 @@ export const KosikReady = createVisualComponent({
     //@@viewOn:render
     const CLASS_NAMES = {
       header: () => Config.Css.css`
-      background-color: red;
-      color: white;
-      border-style: solid;
-      border-color: black;
+       background-color: grey;
+       color: white;
       `,
       main: () => Config.Css.css`
       padding-left: 12px;
@@ -75,11 +74,12 @@ export const KosikReady = createVisualComponent({
     return currentNestingLevel ? (
       <div {...attrs}>
         <Uu5Tiles.Controller
-          data={props.data}>
+          data={props.data.products}>
           <Uu5Tiles.List
             viewType={"table"}
             rowAlignment={"center"}
             columns={getColumns()}
+            headerClassName={CLASS_NAMES.header()}
           />
         </Uu5Tiles.Controller>
       </div>

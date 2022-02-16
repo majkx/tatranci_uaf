@@ -39,7 +39,7 @@ export const  Left = createVisualComponent({
           backgroundColor: UU5.Environment.colors["blue-grey"].c50,
           backgroundColorTo: UU5.Environment.colors["blue-grey"].c500,
           title: "SPŠka do vrecka",
-          companyLogo: "../assets/unicorn.svg",
+          companyLogo: "../assets/spskadovrecka.png",
         }}
         aboutItems={[{ content: <UU5.Bricks.Lsi lsi={Lsi.left.about}/>, href: "about" }]}
         helpHref={null}

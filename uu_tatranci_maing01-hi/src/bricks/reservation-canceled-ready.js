@@ -62,10 +62,8 @@ export const ReservationCanceledReady = createVisualComponent({
     //@@viewOn:render
     const CLASS_NAMES = {
       header: () => Config.Css.css`
-      background-color: red;
-      color: white;
-      border-style: solid;
-      border-color: black;
+       background-color: grey;
+       color: white;
       `,
       main: () => Config.Css.css`
       padding-left: 12px;
@@ -86,6 +84,7 @@ export const ReservationCanceledReady = createVisualComponent({
             viewType={"table"}
             rowAlignment={"center"}
             columns={getColumns()}
+            headerClassName={CLASS_NAMES.header()}
           />
         </Uu5Tiles.Controller>
       </div>

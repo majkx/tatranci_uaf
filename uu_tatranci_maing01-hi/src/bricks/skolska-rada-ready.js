@@ -56,11 +56,12 @@ export const SkolskaRadaReady = createVisualComponent({
     //@@viewOn:render
     const CLASS_NAMES = {
       header: () => Config.Css.css`
-      color: red;
+       background-color: red;
+       color: white;
       `,
       main: () => Config.Css.css`
-      padding-left: 12px;
-      padding-right: 12px;
+       padding-left: 12px;
+       padding-right: 12px;
       `,
     };
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
@@ -77,6 +78,7 @@ export const SkolskaRadaReady = createVisualComponent({
             viewType={"table"}
              rowAlignment={"center"}
              columns={getColumns()}
+             headerClassName={CLASS_NAMES.header()}
          />
         </Uu5Tiles.Controller>
        </div>

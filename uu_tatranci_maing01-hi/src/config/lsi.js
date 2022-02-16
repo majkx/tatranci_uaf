@@ -1,7 +1,8 @@
 const Lsi = {
   appName: {
-    cs: "Aplikace uuTatranci",
-    en: "Application uuTatranci",
+    cs: "Aplikace SPŠka do vrecka",
+    en: "Application SPŠka do vrecka",
+    sk: "Aplikácia SPŠka do vrecka",
   },
 
   left: {
@@ -18,8 +19,9 @@ const Lsi = {
 
   about: {
     header: {
-      cs: "O aplikaci uuTatranci",
+      cs: "O aplikaci SPŠka do vrecka",
       en: "About application uuTatranci",
+      sk: "O aplikácií SPŠka do vrecka",
     },
     creatorsHeader: {
       cs: "Tvůrci aplikace",
