@@ -60,6 +60,10 @@ export const ReservationCanceledReady = createVisualComponent({
 
       ];
     }
+    function handleClick( data) {
+      console.log(data)
+      //  return  RouteHelper.setRoute("kosik", { data }, window.location);
+    }
     //@@viewOff:private
 
     //@@viewOn:interface
