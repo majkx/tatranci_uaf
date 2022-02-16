@@ -74,14 +74,12 @@ console.log(data)
     //@@viewOn:render
     const CLASS_NAMES = {
       header: () => Config.Css.css`
-      background-color: red;
-      color: white;
-      border-style: solid;
-      border-color: black;
+       background-color: grey;
+       color: white;
       `,
       main: () => Config.Css.css`
-      padding-left: 12px;
-      padding-right: 12px;
+       padding-left: 12px;
+       padding-right: 12px;
       `,
     };
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
@@ -98,6 +96,7 @@ console.log(data)
             viewType={"table"}
             rowAlignment={"center"}
             columns={getColumns()}
+            headerClassName={CLASS_NAMES.header()}
           />
         </Uu5Tiles.Controller>
       </div>

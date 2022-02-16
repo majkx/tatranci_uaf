@@ -55,7 +55,8 @@ export const SkolskyBufetReady = createVisualComponent({
     //@@viewOn:render
     const CLASS_NAMES = {
       header: () => Config.Css.css`
-      color: red;
+      background-color: #66BB6A;
+      color: white;
       `,
       main: () => Config.Css.css`
       padding-left: 12px;
@@ -76,6 +77,7 @@ export const SkolskyBufetReady = createVisualComponent({
             viewType={"table"}
             rowAlignment={"center"}
             columns={getColumns()}
+            headerClassName={CLASS_NAMES.header()}
           />
         </Uu5Tiles.Controller>
       </div>

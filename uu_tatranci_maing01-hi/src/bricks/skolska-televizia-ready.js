@@ -41,16 +41,17 @@ export const SkolskaTeleviziaReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
+            return <UU5.Bricks.YoutubeVideo src={cellProps.data.videoURL} size = "sm"/>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Video </UU5.Bricks.Span>
+        },
+        {
+          cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.authorName} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Autor </UU5.Bricks.Span>
         },
-        {
-          cell: (cellProps) => {
-            return <UU5.Bricks.YoutubeVideo src={cellProps.data.videoURL} size = "sm"/>
-          },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Video </UU5.Bricks.Span>
-        }
+
       ];
     }
     //@@viewOff:private
@@ -61,11 +62,11 @@ export const SkolskaTeleviziaReady = createVisualComponent({
     //@@viewOn:render
     const CLASS_NAMES = {
       header: () => Config.Css.css`
-      color: red;
+       background-color: #FFEB3B;
       `,
       main: () => Config.Css.css`
-      padding-left: 12px;
-      padding-right: 12px;
+       padding-left: 12px;
+       padding-right: 12px;
       `,
     };
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
@@ -82,6 +83,7 @@ export const SkolskaTeleviziaReady = createVisualComponent({
             viewType={"table"}
             rowAlignment={"center"}
             columns={getColumns()}
+            headerClassName={CLASS_NAMES.header()}
           />
         </Uu5Tiles.Controller>
       </div>
