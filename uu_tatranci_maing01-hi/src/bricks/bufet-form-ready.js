@@ -35,10 +35,22 @@ export const BufetFormReady = createVisualComponent({
               //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
             >
               <UU5.Forms.Text name="title" label="Názov" /*placeholder="John"*/ required />
-              <UU5.Forms.TextArea name="description" label="Popis" placeholder="Text..." required />
-              <UU5.Forms.TextArea name="category" label="Kategória" placeholder="Text..." required />
-              <UU5.Forms.TextArea name="videoURL" label="URL adresa videa" placeholder="Text..." required />
-              <UU5.Forms.Controls />
+              <UU5.Forms.Text name="category" label="Popis" placeholder="Text..." required />
+              <UU5.Forms.Text name="weight" label="Váha" placeholder="Text..." required />
+              <UU5.Forms.Text name="number" label="Počet kusov" placeholder="Text..." required />
+              <UU5.Forms.Text name="price" label="Cena" placeholder="Text..." required />
+              <UU5.Forms.Text name="sellingPrice" label="Predajná cena" placeholder="Text..." required />
+              <UU5.Forms.Text name="manufacturer" label="Výrobca" placeholder="Text..." required />
+              <UU5.Forms.Text name="allergens" label="Alergény" placeholder="Text..." required />
+              <UU5.Forms.Text name="discount" label="Zľava" placeholder="Text..." required />
+              <UU5.Forms.Text name="expirationDate" label="Dátum spotreby" placeholder="Text..." required />
+              <UU5.Forms.Text name="dateOfPurchase" label="Dátum nákupu" placeholder="Text..." required />
+              <UU5.Forms.Text name="dateOfDelivery" label="Dátum dodania" placeholder="Text..." required />
+              <UU5.Forms.Text name="bookingDate" label="Dátum rezervácie" placeholder="Text..." required />
+              <UU5.Forms.Text name="numberOfReserved" label="Počet rezervovaných" placeholder="Text..." required />
+              <UU5.Forms.Text name="revenue" label="Zisk" placeholder="Text..." required />
+              <UU5.Forms.Text name="expenses" label="Náklady" placeholder="Text..." required />
+              <UU5.Forms.Text name="profit" label="Profit" placeholder="Text..." required />
             </UU5.Forms.Form>
           },
         },

@@ -39,10 +39,10 @@ export const  Left = createVisualComponent({
 
     //@@viewOn:render
     return (
-      <Plus4U5.App.Left className={CLASS_NAMES.logo()}
+      <Plus4U5.App.Left
         {...props}
         logoProps={{
-          backgroundColor: UU5.Environment.colors["blue-grey"].c50,
+          backgroundColor: UU5.Environment.colors["blue-grey"].c150,
           backgroundColorTo: UU5.Environment.colors["blue-grey"].c500,
           title: "SPŠka do vrecka",
           companyLogo: "../assets/spskadovrecka.png",

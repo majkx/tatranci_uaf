@@ -35,9 +35,8 @@ export const RadaFormReady = createVisualComponent({
               //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
             >
               <UU5.Forms.Text name="title" label="Názov" /*placeholder="John"*/ required />
-              <UU5.Forms.TextArea name="description" label="Popis" placeholder="Text..." required />
-              <UU5.Forms.TextArea name="content" label="Obsah" placeholder="Text..." required />
-              <UU5.Forms.Controls />
+              <UU5.Forms.Text name="description" label="Popis" placeholder="Text..." required />
+              <UU5.Forms.Text name="content" label="Obsah" placeholder="Text..." required />
             </UU5.Forms.Form>
           },
         },
