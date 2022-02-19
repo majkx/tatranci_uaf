@@ -3,6 +3,7 @@ import UU5 from "uu5g04";
 import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
+import RouteHelper from "../route-helper";
 //@@viewOff:imports
 
 const STATICS = {
@@ -62,7 +63,7 @@ export const ReservationOpenReady = createVisualComponent({
     }
     function handleClick( data) {
       console.log(data)
-      //  return  RouteHelper.setRoute("kosik", { data }, window.location);
+      return  RouteHelper.setRoute("kosik", { data }, window.location);
     }
     //@@viewOff:private
 

@@ -3,14 +3,9 @@ const createSchoolMagazineDtoInType = shape({
   name: string(200).isRequired(),
   magazineNumber: string().isRequired(),
   numbersOfPages: string().isRequired(),
-  articles: array(
-    shape(
-      {
-        titleOfPost: string(200).isRequired(),
-        category: string(200),
-        content: string().isRequired()
-      })
-  )
+  titleOfPost: string(200).isRequired(),
+  category: string(200),
+  content: string().isRequired()
 });
 const getSchoolMagazineDtoInType = shape({
   id: id().isRequired()
@@ -26,14 +21,9 @@ const updateSchoolMagazineDtoInType = shape({
   name: string(200),
   magazineNumber: string(),
   numbersOfPages: string(),
-  articles: array(
-    shape(
-      {
-        titleOfPost: string(200),
-        category: string(200),
-        content: string()
-      })
-  )
+  titleOfPost: string(200),
+  category: string(200),
+  content: string(200)
 });
 const listSchoolMagazineByUuIdDtoInType = shape({
   uuId: uuIdentity().isRequired()

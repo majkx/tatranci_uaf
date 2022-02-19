@@ -64,7 +64,7 @@ export const ReservationInitialReady = createVisualComponent({
     }
     function handleClick( data) {
 console.log(data)
-    //  return  RouteHelper.setRoute("kosik", { data }, window.location);
+     return  RouteHelper.setRoute("kosik", { data }, window.location);
     }
     //@@viewOff:private
 

@@ -7,6 +7,7 @@ import "uu_plus4u5g01-bricks";
 import Config from "./config/config.js";
 
 import SkolskaTelevizia from "../bricks/skolska-televizia";
+import TeleviziaForm from "../bricks/televizia-form";
 
 //@@viewOff:imports
 
@@ -60,6 +61,7 @@ export const StrankaSkolskaTelevizia = createVisualComponent({
     return (
       <div {...attrs}>
         <SkolskaTelevizia />
+        <TeleviziaForm />
       </div>
     );
 

@@ -1,18 +1,18 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
-import { createComponent } from "uu5g04-hooks";
+import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
 //@@viewOff:imports
 
 const STATICS = {
   //@@viewOn:statics
-  displayName: Config.TAG + "SkolskyCasopisReady",
+  displayName: Config.TAG + "RadaFormReady",
   nestingLevel: "bigBoxCollection",
   //@@viewOff:statics
 };
 
-export const SkolskyCasopisReady = createComponent({
+export const RadaFormReady = createVisualComponent({
   ...STATICS,
 
   //@@viewOn:propTypes
@@ -29,28 +29,18 @@ export const SkolskyCasopisReady = createComponent({
       return [
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.name} </UU5.Bricks.Span>
+            return <UU5.Forms.Form
+              onSave={(opt) => alert(`opt.values:\n${JSON.stringify(opt.values, null, 2)}`)}
+              header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='yellow' className='font-size-m' />}
+              //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
+            >
+              <UU5.Forms.Text name="title" label="Názov" /*placeholder="John"*/ required />
+              <UU5.Forms.TextArea name="description" label="Popis" placeholder="Text..." required />
+              <UU5.Forms.TextArea name="content" label="Obsah" placeholder="Text..." required />
+              <UU5.Forms.Controls />
+            </UU5.Forms.Form>
           },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Názov </UU5.Bricks.Span>
         },
-        {
-          cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.numbersOfPages} </UU5.Bricks.Span>
-          },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Počet strán </UU5.Bricks.Span>
-        },
-        {
-          cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.content} </UU5.Bricks.Span>
-          },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Obsah </UU5.Bricks.Span>
-        },
-        {
-          cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.authorName} </UU5.Bricks.Span>
-          },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Autor </UU5.Bricks.Span>
-        }
       ];
     }
     //@@viewOff:private
@@ -61,7 +51,7 @@ export const SkolskyCasopisReady = createComponent({
     //@@viewOn:render
     const CLASS_NAMES = {
       header: () => Config.Css.css`
-      background-color: #2196F3;
+      background-color: #66BB6A;
       color: white;
       `,
       main: () => Config.Css.css`
@@ -92,4 +82,4 @@ export const SkolskyCasopisReady = createComponent({
   },
 });
 
-export default SkolskyCasopisReady;
+export default RadaFormReady;

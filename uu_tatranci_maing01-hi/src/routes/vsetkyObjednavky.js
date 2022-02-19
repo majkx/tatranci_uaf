@@ -58,9 +58,9 @@ export const StrankaVsetkyObjedenavky = createVisualComponent({
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
-        <ReservationInitial/>
-        <ReservationOpen/>
-        <ReservationClosed/>
+        {/*<ReservationInitial/>*/}
+        {/*<ReservationOpen/>*/}
+        {/*<ReservationClosed/>*/}
         <ReservationCanceled/>
       </div>
     );

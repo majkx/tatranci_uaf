@@ -14,6 +14,12 @@ const STATICS = {
   displayName: Config.TAG + "Left",
   //@@viewOff:static
 };
+const CLASS_NAMES = {
+  logo: () => Config.Css.css`
+    max-width: 100%;
+    height: auto;
+  `,
+};
 
 export const  Left = createVisualComponent({
   ...STATICS,
@@ -33,7 +39,7 @@ export const  Left = createVisualComponent({
 
     //@@viewOn:render
     return (
-      <Plus4U5.App.Left
+      <Plus4U5.App.Left className={CLASS_NAMES.logo()}
         {...props}
         logoProps={{
           backgroundColor: UU5.Environment.colors["blue-grey"].c50,

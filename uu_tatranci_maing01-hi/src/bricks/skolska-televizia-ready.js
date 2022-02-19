@@ -63,6 +63,7 @@ export const SkolskaTeleviziaReady = createVisualComponent({
     const CLASS_NAMES = {
       header: () => Config.Css.css`
        background-color: #FFEB3B;
+       color: black;
       `,
       main: () => Config.Css.css`
        padding-left: 12px;
