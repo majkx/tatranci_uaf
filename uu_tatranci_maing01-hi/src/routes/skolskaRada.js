@@ -7,6 +7,7 @@ import "uu_plus4u5g01-bricks";
 import Config from "./config/config.js";
 
 import SkolskaRada from "../bricks/skolska-rada";
+import RadaForm from "../bricks/rada-form";
 
 //@@viewOff:imports
 
@@ -56,6 +57,7 @@ export const StrankaSkolskaRada = createVisualComponent({
     return (
       <div {...attrs}>
         <SkolskaRada/>
+        <RadaForm />
 
     </div>
     );

@@ -7,6 +7,7 @@ import "uu_plus4u5g01-bricks";
 import Config from "./config/config.js";
 
 import SkolskyBufet from "../bricks/skolsky-bufet";
+import BufetForm from "../bricks/bufet-form";
 
 //@@viewOff:imports
 
@@ -56,6 +57,7 @@ export const StrankaSkolskyBufet = createVisualComponent({
     return (
       <div {...attrs}>
         <SkolskyBufet/>
+        <BufetForm />
     </div>
     );
 

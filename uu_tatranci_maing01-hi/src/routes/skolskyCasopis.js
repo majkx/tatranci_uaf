@@ -9,6 +9,7 @@ import Config from "./config/config.js";
 import Clanky from "../bricks/skolska-rada";
 import Casopis from "../bricks/skolska-televizia";
 import SkolskyCasopis from "../bricks/skolsky-casopis";
+import CasopisForm from "../bricks/casopis-form";
 
 //@@viewOff:imports
 
@@ -58,6 +59,7 @@ export const StrankaSkolskyCasopis = createVisualComponent({
     return (
       <div {...attrs}>
         <SkolskyCasopis/>
+        <CasopisForm />
       </div>
     );
 

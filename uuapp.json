@@ -313,6 +313,66 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.ReservationInitialReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.BufetForm",
+        "name": "BufetForm",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "BufetForm"
+        ],
+        "docCode": "UuTatranciBricksBufetForm",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.BufetForm />"
+      },
+      {
+        "code": "UuTatranci.Bricks.BufetFormReady",
+        "name": "BufetFormReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "BufetFormReady"
+        ],
+        "docCode": "UuTatranciBricksBufetFormReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.BufetFormReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.CasopisForm",
+        "name": "CasopisForm",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "CasopisForm"
+        ],
+        "docCode": "UuTatranciBricksCasopisForm",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.CasopisForm />"
+      },
+      {
+        "code": "UuTatranci.Bricks.CasopisFormReady",
+        "name": "CasopisFormReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "CasopisFormReady"
+        ],
+        "docCode": "UuTatranciBricksCasopisFormReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.CasopisFormReady />"
       }
     ]
   },

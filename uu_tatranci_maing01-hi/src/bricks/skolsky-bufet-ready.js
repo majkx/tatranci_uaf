@@ -35,9 +35,27 @@ export const SkolskyBufetReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
+            return <UU5.Bricks.Span> {cellProps.data.weight} </UU5.Bricks.Span>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Váha </UU5.Bricks.Span>
+        },
+        {
+        cell: (cellProps) => {
+        return <UU5.Bricks.Span> {cellProps.data.numberOfPieces} </UU5.Bricks.Span>
+      },
+        header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Počet kusov </UU5.Bricks.Span>
+    },
+        {
+          cell: (cellProps) => {
             return <UU5.Bricks.Span> {cellProps.data.price} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Cena </UU5.Bricks.Span>
+        },
+        {
+          cell: (cellProps) => {
+            return <UU5.Bricks.Span> {cellProps.data.allergens} </UU5.Bricks.Span>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Alergény </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
