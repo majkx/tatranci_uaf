@@ -51,6 +51,10 @@ class ReservationController {
     return ReservationAbl.get(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
   }
 
+  getInitial(ucEnv) {
+    return ReservationAbl.getInitial(ucEnv.getUri().getAwid(), ucEnv.getDtoIn());
+  }
+
   create(ucEnv) {
     return ReservationAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
   }

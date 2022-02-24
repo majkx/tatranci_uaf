@@ -34,7 +34,10 @@ export const Kosik = createComponent({
 
     //@@viewOn:private
     function loadReservationsInitial(){
-      return Calls.listReservationsInitial();
+      let url = new URL(window.location.href);
+      let id = url.searchParams.get("id");
+      console.log(id)
+      return Calls.getReservationsInitial({id:id});
     }
 
     let {state, data} = dataResult;

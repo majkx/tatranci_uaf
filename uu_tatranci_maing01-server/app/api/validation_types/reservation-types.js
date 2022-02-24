@@ -19,6 +19,9 @@ const createReservationDtoInType = shape({
 const getReservationDtoInType = shape({
   id: id().isRequired()
 });
+const getReservationInitialDtoInType = shape({
+  id: id().isRequired()
+});
 const listReservationDtoInType = shape({
 
 });

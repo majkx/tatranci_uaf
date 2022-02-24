@@ -75,6 +75,8 @@ export const SkolskyBufetReady = createVisualComponent({
       header: () => Config.Css.css`
       background-color: #66BB6A;
       color: white;
+      letter-spacing: 1.5px;
+      font-weight: bold;
       `,
       main: () => Config.Css.css`
       padding-left: 12px;

@@ -64,6 +64,8 @@ export const SkolskaTeleviziaReady = createVisualComponent({
       header: () => Config.Css.css`
        background-color: #FFEB3B;
        color: black;
+       letter-spacing: 1.5px;
+       font-weight: bold;
       `,
       main: () => Config.Css.css`
        padding-left: 12px;

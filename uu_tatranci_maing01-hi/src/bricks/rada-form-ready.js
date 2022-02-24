@@ -25,23 +25,7 @@ export const RadaFormReady = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
-    function getColumns() {
-      return [
-        {
-          cell: (cellProps) => {
-            return <UU5.Forms.Form
-              onSave={(opt) => alert(`opt.values:\n${JSON.stringify(opt.values, null, 2)}`)}
-              header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='yellow' className='font-size-m' />}
-              //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
-            >
-              <UU5.Forms.Text name="title" label="Názov" /*placeholder="John"*/ required />
-              <UU5.Forms.Text name="description" label="Popis" placeholder="Text..." required />
-              <UU5.Forms.Text name="content" label="Obsah" placeholder="Text..." required />
-            </UU5.Forms.Form>
-          },
-        },
-      ];
-    }
+
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -66,15 +50,16 @@ export const RadaFormReady = createVisualComponent({
 
     return currentNestingLevel ? (
       <div {...attrs}>
-        <Uu5Tiles.Controller
-          data={props.data.itemList}>
-          <Uu5Tiles.List
-            viewType={"table"}
-            rowAlignment={"center"}
-            columns={getColumns()}
-            headerClassName={CLASS_NAMES.header()}
-          />
-        </Uu5Tiles.Controller>
+        <UU5.Forms.Form
+          onSave={(opt) => alert(`opt.values:\n${JSON.stringify(opt.values, null, 2)}`)}
+          header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='red-rich' className='font-size-m' />}
+          //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
+        >
+          <UU5.Forms.Text name="title" label="Názov" /*placeholder="John"*/ required />
+          <UU5.Forms.Text name="description" label="Popis" placeholder="Text..." required />
+          <UU5.Forms.Text name="content" label="Obsah" placeholder="Text..." required />
+          <UU5.Forms.Controls />
+        </UU5.Forms.Form>
       </div>
     ) : null;
     //@@viewOff:render

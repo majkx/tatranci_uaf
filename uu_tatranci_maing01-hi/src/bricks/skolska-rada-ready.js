@@ -29,7 +29,7 @@ export const SkolskaRadaReady = createVisualComponent({
       return [
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.name} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.name} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Názov </UU5.Bricks.Span>
         },
@@ -58,8 +58,14 @@ export const SkolskaRadaReady = createVisualComponent({
       header: () => Config.Css.css`
        background-color: red;
        color: white;
+       letter-spacing: 1.5px;
+       font-weight: bold;
       `,
       main: () => Config.Css.css`
+       padding-left: 12px;
+       padding-right: 12px;
+      `,
+      body: () => Config.Css.css`
        padding-left: 12px;
        padding-right: 12px;
       `,

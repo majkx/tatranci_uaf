@@ -63,7 +63,7 @@ export const ReservationCanceledReady = createVisualComponent({
     }
     function handleClick( data) {
       console.log(data)
-      //return  RouteHelper.setRoute("kosik", { data }, window.location);
+      return  RouteHelper.setRoute("kosik", { id: data.id });
     }
     //@@viewOff:private
 

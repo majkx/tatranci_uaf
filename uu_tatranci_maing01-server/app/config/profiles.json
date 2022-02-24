@@ -65,6 +65,10 @@
         "sysStateList": ["active"],
         "profileList": ["AwidLicenseOwner","Authorities","Executives"]
       },
+      "reservation/getInitial": {
+        "sysStateList": ["active"],
+        "profileList": ["AwidLicenseOwner","Authorities","Executives"]
+      },
       "reservation/list": {
         "sysStateList": ["active"],
         "profileList": ["AwidLicenseOwner","Authorities","Executives"]

@@ -362,6 +362,31 @@ class ReservationAbl {
     return dtoOut;
   }
 
+  async getInitial(awid, dtoIn, uuAppErrorMap = {}) {
+
+    // HDS 1 - validation of dtoIn
+    let validationResult = this.validator.validate("getReservationInitialDtoInType", dtoIn);
+    uuAppErrorMap = ValidationHelper.processValidationResult(
+      dtoIn,
+      validationResult,
+      Warnings.getReservationUnsuportedKeys.code,
+      Errors.Get.InvalidDtoIn
+    );
+
+
+    // HDS 2 - get reservation from DB
+    let dtoOut = {}
+    try{
+      dtoOut = await this.dao.get(awid, dtoIn.id);
+    }catch(e){
+      throw e;
+    }
+
+    // HDS 3 - Return object from DB
+    dtoOut.uuAppErrorMap = uuAppErrorMap
+    return dtoOut;
+  }
+
   async create(awid, dtoIn, session, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn

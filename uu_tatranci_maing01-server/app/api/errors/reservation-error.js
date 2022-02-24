@@ -34,6 +34,18 @@ const Get = {
   },
 };
 
+const GetInitial = {
+  UC_CODE: `${RESERVATION_ERROR_PREFIX}get/`,
+
+  InvalidDtoIn: class extends TatranciMainUseCaseError {
+    constructor() {
+      super(...arguments);
+      this.code = `${GetInitial.UC_CODE}invalidDtoIn`;
+      this.message = "DtoIn is not valid.";
+    }
+  },
+};
+
 const List = {
   UC_CODE: `${RESERVATION_ERROR_PREFIX}list/`,
   InvalidDtoIn: class extends TatranciMainUseCaseError {

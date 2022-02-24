@@ -58,7 +58,6 @@ export const StrankaSkolskaRada = createVisualComponent({
       <div {...attrs}>
         <SkolskaRada/>
         <RadaForm />
-
     </div>
     );
 

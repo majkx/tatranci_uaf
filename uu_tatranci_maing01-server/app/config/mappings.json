@@ -76,6 +76,11 @@
         "httpMethod": "GET",
         "type": "CMD"
       },
+      "reservation/getInitial": {
+        "realization": "api/controllers/ReservationController.getInitial",
+        "httpMethod": "GET",
+        "type": "CMD"
+      },
       "reservation/list": {
         "realization": "api/controllers/ReservationController.list",
         "httpMethod": "GET",

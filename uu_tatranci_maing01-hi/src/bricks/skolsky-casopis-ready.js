@@ -41,7 +41,7 @@ export const SkolskyCasopisReady = createComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.content} </UU5.Bricks.Span>
+            return <UU5.Bricks.Link a href={cellProps.data.content}> Link </UU5.Bricks.Link>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Obsah </UU5.Bricks.Span>
         },
@@ -63,6 +63,8 @@ export const SkolskyCasopisReady = createComponent({
       header: () => Config.Css.css`
       background-color: #2196F3;
       color: white;
+      letter-spacing: 1.5px;
+      font-weight: bold;
       `,
       main: () => Config.Css.css`
       padding-left: 12px;
