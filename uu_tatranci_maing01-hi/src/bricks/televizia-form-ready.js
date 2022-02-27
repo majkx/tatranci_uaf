@@ -52,7 +52,7 @@ export const TeleviziaFormReady = createVisualComponent({
       <div {...attrs}>
         <UU5.Forms.Form
           onSave={(opt) => alert(`opt.values:\n${JSON.stringify(opt.values, null, 2)}`)}
-          header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='yellow' className='font-size-m' />}
+          header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='yellow-rich' className='font-size-m' />}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >
           <UU5.Forms.Text name="title" label="Názov" /*placeholder="John"*/ required />

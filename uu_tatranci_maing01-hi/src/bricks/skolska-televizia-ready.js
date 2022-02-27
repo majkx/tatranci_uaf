@@ -29,29 +29,34 @@ export const SkolskaTeleviziaReady = createVisualComponent({
       return [
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.titleOfPost} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.titleOfPost} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Názov </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.desc} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.desc} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Popis </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.YoutubeVideo src={cellProps.data.videoURL} size = "sm"/>
+            return <UU5.Bricks.YoutubeVideo src={cellProps.data.videoURL} size = "sm" className={CLASS_NAMES.body()}/>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Video </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.authorName} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.authorName} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Autor </UU5.Bricks.Span>
         },
-
+        {
+          cell: (cellProps) => {
+            return <UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Zmazať príspevok </UU5.Bricks.Button>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
+        }
       ];
     }
     //@@viewOff:private
@@ -66,8 +71,14 @@ export const SkolskaTeleviziaReady = createVisualComponent({
        color: black;
        letter-spacing: 1.5px;
        font-weight: bold;
+       padding-left: 6px;
+       padding-right: 6px;
       `,
       main: () => Config.Css.css`
+       padding-left: 12px;
+       padding-right: 12px;
+      `,
+      body: () => Config.Css.css`
        padding-left: 12px;
        padding-right: 12px;
       `,
@@ -89,6 +100,7 @@ export const SkolskaTeleviziaReady = createVisualComponent({
             headerClassName={CLASS_NAMES.header()}
           />
         </Uu5Tiles.Controller>
+        {/*<UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Vytvoriť príspevok </UU5.Bricks.Button>*/}
       </div>
     ) : null;
     //@@viewOff:render

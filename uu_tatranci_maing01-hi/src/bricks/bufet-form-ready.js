@@ -52,7 +52,7 @@ export const BufetFormReady = createVisualComponent({
       <div {...attrs}>
         <UU5.Forms.Form
         onSave={(opt) => alert(`opt.values:\n${JSON.stringify(opt.values, null, 2)}`)}
-        header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='green' className='font-size-m' />}
+        header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='green-rich' className='font-size-m' />}
         //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
       >
         <UU5.Forms.Text name="title" label="Názov" /*placeholder="John"*/ required />

@@ -103,8 +103,8 @@ const Lsi = {
       en: "You can buy your own uuTatranci.",
     },
     notAuthorized: {
-      cs: "Nemáte právo inicializovat tuto aplikaci uuTatranci.",
-      en: "You don't have rights to initialize this uuTatranci.",
+      cs: "Nemáte právo inicializovat tuto aplikaci SPŠka do vrecka.",
+      en: "You don't have rights to initialize this SPŠka do vrecka.",
     },
   },
 

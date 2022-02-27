@@ -34,10 +34,6 @@ const CLASS_NAMES = {
       margin: 0 auto;
     }
   `,
-  main: () => Config.Css.css`
-    padding-left: 12px;
-    padding-right: 12px;
-  `,
 };
 
 export const StrankaSkolskaTelevizia = createVisualComponent({
@@ -57,7 +53,7 @@ export const StrankaSkolskaTelevizia = createVisualComponent({
     //@@viewOff:interface
 
     //@@viewOn:render
-    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
+    const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
         <SkolskaTelevizia />

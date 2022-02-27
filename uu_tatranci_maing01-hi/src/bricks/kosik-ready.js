@@ -30,21 +30,27 @@ export const KosikReady = createVisualComponent({
         {
           cell: (cellProps) => {
             console.log(cellProps)
-            return <UU5.Bricks.Span> {cellProps.data.productName} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.productName} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Názov produktu </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.count} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span> {cellProps.data.productCount} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Počet kusov </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.totalPrice} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span> {cellProps.data.productPrice} € </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Cena </UU5.Bricks.Span>
+        },
+        {
+          cell: (cellProps) => {
+            return <UU5.Bricks.Span> {cellProps.data.productId} </UU5.Bricks.Span>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Id produktu </UU5.Bricks.Span>
         }
 
       ];
@@ -63,6 +69,10 @@ export const KosikReady = createVisualComponent({
       main: () => Config.Css.css`
       padding-left: 12px;
       padding-right: 12px;
+      `,
+      body: () => Config.Css.css`
+       padding-left: 12px;
+       padding-right: 12px;
       `,
     };
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());

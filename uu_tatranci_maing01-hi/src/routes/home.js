@@ -36,10 +36,6 @@ const CLASS_NAMES = {
     }
 
   `,
-  main: () => Config.Css.css`
-    padding-left: 12px;
-    padding-right: 12px;
-  `,
 };
 
 export const Home = createVisualComponent({
@@ -59,7 +55,7 @@ export const Home = createVisualComponent({
     //@@viewOff:interface
 
     //@@viewOn:render
-    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
+    const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
         <SkolskaRada />

@@ -29,27 +29,33 @@ export const SkolskyCasopisReady = createComponent({
       return [
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.name} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.name} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Názov </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.numbersOfPages} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.numbersOfPages} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Počet strán </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Link a href={cellProps.data.content}> Link </UU5.Bricks.Link>
+            return <UU5.Bricks.Link href={cellProps.data.content} className={CLASS_NAMES.body()}> Link </UU5.Bricks.Link>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Obsah </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.authorName} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.authorName} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Autor </UU5.Bricks.Span>
+        },
+        {
+          cell: (cellProps) => {
+            return <UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Zmazať príspevok </UU5.Bricks.Button>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
         }
       ];
     }
@@ -65,10 +71,16 @@ export const SkolskyCasopisReady = createComponent({
       color: white;
       letter-spacing: 1.5px;
       font-weight: bold;
+      padding-left: 6px;
+      padding-right: 6px;
       `,
       main: () => Config.Css.css`
       padding-left: 12px;
       padding-right: 12px;
+      `,
+      body: () => Config.Css.css`
+       padding-left: 12px;
+       padding-right: 12px;
       `,
     };
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
@@ -88,6 +100,7 @@ export const SkolskyCasopisReady = createComponent({
             headerClassName={CLASS_NAMES.header()}
           />
         </Uu5Tiles.Controller>
+        {/*<UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Vytvoriť príspevok </UU5.Bricks.Button>*/}
       </div>
     ) : null;
     //@@viewOff:render

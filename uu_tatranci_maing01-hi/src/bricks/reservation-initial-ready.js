@@ -30,31 +30,31 @@ export const ReservationInitialReady = createVisualComponent({
       return [
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.state} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.state} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Stav objednavky </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.id} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.id} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> id </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.count} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.count} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Počet kusov </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.totalPrice} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.totalPrice} € </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Cena </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Button onClick={handleClick(cellProps.data)}/>
+            return <UU5.Bricks.Button onClick={ ()=> handleClick(cellProps.data) } className={CLASS_NAMES.body()}> Detail </UU5.Bricks.Button>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
         },
@@ -63,8 +63,8 @@ export const ReservationInitialReady = createVisualComponent({
 
     }
     function handleClick( data) {
-console.log(data)
-     return  RouteHelper.setRoute("kosik", { data }, window.location);
+      console.log(data)
+      return  RouteHelper.setRoute("kosik", { id: data.id });
     }
     //@@viewOff:private
 
@@ -78,6 +78,10 @@ console.log(data)
        color: white;
       `,
       main: () => Config.Css.css`
+       padding-left: 12px;
+       padding-right: 12px;
+      `,
+      body: () => Config.Css.css`
        padding-left: 12px;
        padding-right: 12px;
       `,

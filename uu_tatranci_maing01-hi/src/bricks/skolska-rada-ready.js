@@ -3,6 +3,7 @@ import UU5 from "uu5g04";
 import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
+import RouteHelper from "../route-helper";
 //@@viewOff:imports
 
 const STATICS = {
@@ -35,17 +36,27 @@ export const SkolskaRadaReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.content} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.content} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Content </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.authorName} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.authorName} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Autor </UU5.Bricks.Span>
-        }
+        },
+        {
+          cell: (cellProps) => {
+            return <UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Zmazať príspevok </UU5.Bricks.Button>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
+        },
       ];
+    }
+    function handleClick( data) {
+      console.log(data)
+      return  RouteHelper.setRoute("rada-form", { id: data.id });
     }
 
     //@@viewOff:private
@@ -60,6 +71,8 @@ export const SkolskaRadaReady = createVisualComponent({
        color: white;
        letter-spacing: 1.5px;
        font-weight: bold;
+       padding-left: 6px;
+       padding-right: 6px;
       `,
       main: () => Config.Css.css`
        padding-left: 12px;
@@ -87,8 +100,10 @@ export const SkolskaRadaReady = createVisualComponent({
              headerClassName={CLASS_NAMES.header()}
          />
         </Uu5Tiles.Controller>
+         {/*<UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Vytvoriť príspevok </UU5.Bricks.Button>*/}
        </div>
     ) : null;
+
     //@@viewOff:render
   },
 });
