@@ -17,11 +17,22 @@ let Calls = {
     let commandUri = Calls.getCommandUri("article/list");
     return Calls.call("get", commandUri, dtoIn);
   },
+  createArticle(dtoIn) {
+    let commandUri = Calls.getCommandUri("article/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  deleteArticle(dtoIn) {
+    let commandUri = Calls.getCommandUri("article/delete");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  updateArticle(dtoIn) {
+    let commandUri = Calls.getCommandUri("article/update");
+    return Calls.call("post", commandUri, dtoIn);
+  },
   listReports(dtoIn) {
     let commandUri = Calls.getCommandUri("report/list");
     return Calls.call("get", commandUri, dtoIn);
   },
-
   listSchoolMagazines(dtoIn) {
     let commandUri = Calls.getCommandUri("schoolMagazine/list");
     return Calls.call("get", commandUri, dtoIn);

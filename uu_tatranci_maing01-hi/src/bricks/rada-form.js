@@ -1,9 +1,10 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
-import { createComponent, useDataObject} from "uu5g04-hooks";
+import { createComponent, useDataObject, useRef } from "uu5g04-hooks";
 import Config from "./config/config";
 import Calls from "../calls";
 import RadaFormReady from "./rada-form-ready";
+import radaFormReady from "./rada-form-ready";
 //@@viewOff:imports
 
 const STATICS = {
@@ -25,6 +26,7 @@ export const RadaForm = createComponent({
 
   render(props) {
     //@@viewOn:hooks
+    let modalRef = useRef();
     let dataResult = useDataObject({
       handlerMap: {
         load: loadItems
@@ -33,11 +35,21 @@ export const RadaForm = createComponent({
     //@@viewOff:hooks
 
     //@@viewOn:private
-    function loadItems(){
+    function loadItems() {
       return Calls.listItems();
     }
 
-    let {state, data} = dataResult;
+    let { state, data } = dataResult;
+    function handleClick(){
+      modalRef.current.open({
+      header: " ",
+      content: (<RadaFormReady data={data} handleClose={handleClose}/> ),
+    })
+    }
+    function handleClose(){
+      console.log("text")
+      modalRef.current.close()
+    }
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -51,16 +63,13 @@ export const RadaForm = createComponent({
       STATICS
     );
 
-    switch(state){
-      case "ready":
-        return <RadaFormReady data={data}/>
-        break;
-      case "pending":
-      case "pendingNoData":
-      default:
-        return <UU5.Bricks.Loading/>
-        break;
-    }
+    return (
+      <>
+        <UU5.Bricks.Modal ref={modalRef}/>
+        <UU5.Bricks.Button onClick={() => handleClick()} > Vytvoriť príspevok </UU5.Bricks.Button>
+      </>
+    )
+
     //@@viewOff:render
   },
 });

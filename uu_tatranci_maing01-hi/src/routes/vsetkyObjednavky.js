@@ -58,6 +58,7 @@ export const StrankaVsetkyObjedenavky = createVisualComponent({
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
+        <UU5.Bricks.Heading content = { "initial"}/>
         <ReservationInitial/>
         <ReservationOpen/>
         <ReservationClosed/>

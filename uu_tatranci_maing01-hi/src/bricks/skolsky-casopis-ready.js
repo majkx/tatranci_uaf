@@ -41,7 +41,7 @@ export const SkolskyCasopisReady = createComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Link href={cellProps.data.content} className={CLASS_NAMES.body()}> Link </UU5.Bricks.Link>
+            return <UU5.Bricks.Link href={cellProps.data.content} className={CLASS_NAMES.body()} target={"_blank"}> Link </UU5.Bricks.Link>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Obsah </UU5.Bricks.Span>
         },

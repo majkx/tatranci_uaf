@@ -4,6 +4,7 @@ import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
 import RouteHelper from "../route-helper";
+import Calls from "../calls";
 //@@viewOff:imports
 
 const STATICS = {
@@ -38,7 +39,7 @@ export const SkolskaRadaReady = createVisualComponent({
           cell: (cellProps) => {
             return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.content} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Content </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Popis </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
@@ -48,15 +49,21 @@ export const SkolskaRadaReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Zmazať príspevok </UU5.Bricks.Button>
+            return <UU5.Bricks.Button onClick={ ()=> handleRemove(cellProps) } className={CLASS_NAMES.body()}> Zmazať príspevok </UU5.Bricks.Button>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
         },
       ];
     }
-    function handleClick( data) {
+    function handleClick(data) {
       console.log(data)
       return  RouteHelper.setRoute("rada-form", { id: data.id });
+    }
+    function handleRemove(dtoIn) {
+      return Calls.deleteArticle({id:dtoIn.data.id}).then((dtoOut)=>{
+        return dtoOut.data;
+      })
+      console.log(dtoIn);
     }
 
     //@@viewOff:private
