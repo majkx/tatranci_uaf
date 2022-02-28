@@ -2,13 +2,13 @@
 const createReservationDtoInType = shape({
   state: oneOf(["initial", "open", "closed", "canceled" ]),
   count: integer().isRequired(),
-  totalPrice: integer().isRequired(),
+  totalPrice: float().isRequired(),
   products: array(
     shape({
       priceIndividually: float(),
       productId: string(200),
       productName: string(200),
-      productPrice: integer(),
+      productPrice: float(),
       productCount: integer()
     })
   ).isRequired()
@@ -44,13 +44,13 @@ const updateReservationDtoInType = shape({
   id: id().isRequired(),
   state: oneOf(["open", "closed", "canceled" ]),
   count: integer(),
-  totalPrice: integer(),
+  totalPrice: float(),
   products: array(
     shape({
       priceIndividually: float(),
       productId: string(200),
       productName: string(200),
-      productPrice: integer(),
+      productPrice: float(),
       productCount: integer()
     })
   )

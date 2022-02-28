@@ -68,7 +68,6 @@ export const SkolskyBufetReady = createVisualComponent({
           cell: (cellProps) => {
             return <UU5.Bricks.Button onClick={ ()=> handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať produkt </UU5.Bricks.Button>
           },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
         }
       ];
     }

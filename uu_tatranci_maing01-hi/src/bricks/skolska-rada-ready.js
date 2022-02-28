@@ -56,7 +56,6 @@ export const SkolskaRadaReady = createVisualComponent({
             </>
             )
           },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
         },
       ];
     }

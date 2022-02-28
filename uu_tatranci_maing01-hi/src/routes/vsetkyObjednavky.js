@@ -64,7 +64,7 @@ export const StrankaVsetkyObjedenavky = createVisualComponent({
       <div {...attrs}>
         <UU5.Bricks.Heading content = { "Práve vytvorené objednávky"} className={CLASS_NAMES.header()}/>
         <ReservationInitial/>
-        <UU5.Bricks.Heading content = { "Objednávky v spracovaní"} className={CLASS_NAMES.header()}/>
+        <UU5.Bricks.Heading content = { "Spracovávané objednávky"} className={CLASS_NAMES.header()}/>
         <ReservationOpen/>
         <UU5.Bricks.Heading content = { "Vybavené objednávky"} className={CLASS_NAMES.header()}/>
         <ReservationClosed/>
