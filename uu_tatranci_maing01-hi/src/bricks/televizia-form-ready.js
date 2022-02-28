@@ -3,6 +3,7 @@ import UU5 from "uu5g04";
 import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
+import Calls from "../calls";
 //@@viewOff:imports
 
 const STATICS = {
@@ -25,7 +26,13 @@ export const TeleviziaFormReady = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
-
+    function handleSave(dtoIn) {
+      console.log(dtoIn.values);
+      return Calls.createReport(dtoIn.values).then((dtoOut)=>{
+        props.handleClose();
+        return dtoOut.data;
+      })
+    };
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -51,12 +58,12 @@ export const TeleviziaFormReady = createVisualComponent({
     return currentNestingLevel ? (
       <div {...attrs}>
         <UU5.Forms.Form
-          onSave={(opt) => alert(`opt.values:\n${JSON.stringify(opt.values, null, 2)}`)}
+          onSave={(opt) => {handleSave(opt)}}
           header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='yellow-rich' className='font-size-m' />}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >
-          <UU5.Forms.Text name="title" label="Názov" /*placeholder="John"*/ required />
-          <UU5.Forms.Text name="description" label="Popis" placeholder="Text..." required />
+          <UU5.Forms.Text name="titleOfPost" label="Názov" /*placeholder="John"*/ required />
+          <UU5.Forms.Text name="desc" label="Popis" placeholder="Text..." required />
           <UU5.Forms.Text name="category" label="Kategória" placeholder="Text..." required />
           <UU5.Forms.Text name="videoURL" label="URL adresa videa" placeholder="Text..." required />
           <UU5.Forms.Controls />

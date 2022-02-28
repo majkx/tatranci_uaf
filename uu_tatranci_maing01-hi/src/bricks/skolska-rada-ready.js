@@ -49,22 +49,31 @@ export const SkolskaRadaReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Button onClick={ ()=> handleRemove(cellProps) } className={CLASS_NAMES.body()}> Zmazať príspevok </UU5.Bricks.Button>
+            return (
+            <>
+              <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
+              {/*<UU5.Bricks.Button onClick={() => handleUpdate(cellProps)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>*/}
+            </>
+            )
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
         },
       ];
     }
-    function handleClick(data) {
-      console.log(data)
-      return  RouteHelper.setRoute("rada-form", { id: data.id });
-    }
+
     function handleRemove(dtoIn) {
-      return Calls.deleteArticle({id:dtoIn.data.id}).then((dtoOut)=>{
+      return Calls.deleteArticle({ id: dtoIn.data.id }).then((dtoOut) => {
         return dtoOut.data;
       })
       console.log(dtoIn);
     }
+
+    //function handleUpdate(dtoIn) {
+    //  return Calls.updateArticle({ id: dtoIn.data.id }).then((dtoOut)=>{
+    //    return dtoOut.data;
+    //  })
+    //  console.log(dtoIn);
+    //}
 
     //@@viewOff:private
 
@@ -89,6 +98,10 @@ export const SkolskaRadaReady = createVisualComponent({
        padding-left: 12px;
        padding-right: 12px;
       `,
+      buttons: () => Config.Css.css`
+       margin-left: 12px;
+       margin-right: 12px;
+      `,
     };
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     const currentNestingLevel = UU5.Utils.NestingLevel.getNestingLevel(
@@ -96,19 +109,18 @@ export const SkolskaRadaReady = createVisualComponent({
       STATICS
     );
 //return JSON.stringify(props.data.itemList)
-     return currentNestingLevel ? (
-       <div {...attrs}>
+    return currentNestingLevel ? (
+      <div {...attrs}>
         <Uu5Tiles.Controller
           data={props.data.itemList}>
           <Uu5Tiles.List
             viewType={"table"}
-             rowAlignment={"center"}
-             columns={getColumns()}
-             headerClassName={CLASS_NAMES.header()}
-         />
+            rowAlignment={"center"}
+            columns={getColumns()}
+            headerClassName={CLASS_NAMES.header()}
+          />
         </Uu5Tiles.Controller>
-         {/*<UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Vytvoriť príspevok </UU5.Bricks.Button>*/}
-       </div>
+      </div>
     ) : null;
 
     //@@viewOff:render

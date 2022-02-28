@@ -56,8 +56,17 @@ export const RadaForm = createComponent({
     //@@viewOff:interface
 
     //@@viewOn:render
-    const className = Config.Css.css``;
-    const attrs = UU5.Common.VisualComponent.getAttrs(props, className);
+    const CLASS_NAMES = {
+      main: () => Config.Css.css`
+      padding-left: 12px;
+      padding-right: 12px;
+      `,
+      buttons: () => Config.Css.css`
+       margin-left: 12px;
+       margin-right: 12px;
+      `,
+    };
+    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     const currentNestingLevel = UU5.Utils.NestingLevel.getNestingLevel(
       props,
       STATICS
@@ -66,7 +75,7 @@ export const RadaForm = createComponent({
     return (
       <>
         <UU5.Bricks.Modal ref={modalRef}/>
-        <UU5.Bricks.Button onClick={() => handleClick()} > Vytvoriť príspevok </UU5.Bricks.Button>
+        <UU5.Bricks.Button onClick={() => handleClick()} className={CLASS_NAMES.buttons()}> Vytvoriť príspevok </UU5.Bricks.Button>
       </>
     )
 

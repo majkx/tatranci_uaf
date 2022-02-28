@@ -36,19 +36,19 @@ export const KosikReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.productCount} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.productCount} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Počet kusov </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.productPrice} € </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.productPrice} € </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Cena </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span> {cellProps.data.productId} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.productId} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Id produktu </UU5.Bricks.Span>
         }
@@ -65,6 +65,10 @@ export const KosikReady = createVisualComponent({
       header: () => Config.Css.css`
        background-color: grey;
        color: white;
+       letter-spacing: 1.5px;
+       font-weight: bold;
+       padding-left: 6px;
+       padding-right: 6px;
       `,
       main: () => Config.Css.css`
       padding-left: 12px;

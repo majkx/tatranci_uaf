@@ -29,19 +29,54 @@ let Calls = {
     let commandUri = Calls.getCommandUri("article/update");
     return Calls.call("post", commandUri, dtoIn);
   },
+  createReport(dtoIn) {
+    let commandUri = Calls.getCommandUri("report/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
   listReports(dtoIn) {
     let commandUri = Calls.getCommandUri("report/list");
     return Calls.call("get", commandUri, dtoIn);
+  },
+  deleteReport(dtoIn) {
+    let commandUri = Calls.getCommandUri("report/delete");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  updateReport(dtoIn) {
+    let commandUri = Calls.getCommandUri("report/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  createSchoolMagazine(dtoIn) {
+    let commandUri = Calls.getCommandUri("schoolMagazine/create");
+    return Calls.call("post", commandUri, dtoIn);
   },
   listSchoolMagazines(dtoIn) {
     let commandUri = Calls.getCommandUri("schoolMagazine/list");
     return Calls.call("get", commandUri, dtoIn);
   },
+  deleteSchoolMagazine(dtoIn) {
+    let commandUri = Calls.getCommandUri("schoolMagazine/delete");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  updateSchoolMagazine(dtoIn) {
+    let commandUri = Calls.getCommandUri("schoolMagazine/update");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  createItem(dtoIn) {
+    let commandUri = Calls.getCommandUri("item/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
   listItems(dtoIn) {
     let commandUri = Calls.getCommandUri("item/list");
     return Calls.call("get", commandUri, dtoIn);
   },
-
+  deleteItem(dtoIn) {
+    let commandUri = Calls.getCommandUri("item/delete");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  updateItem(dtoIn) {
+    let commandUri = Calls.getCommandUri("item/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
   listReservationsInitial(dtoIn) {
     let commandUri = Calls.getCommandUri("reservation/listInitial");
     return Calls.call("get", commandUri, dtoIn);

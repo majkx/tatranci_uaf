@@ -4,7 +4,7 @@ const createReportDtoInType = shape({
   desc: uu5String().isRequired(),
   category: string(200),
   videoURL: uri().isRequired(),
-  embedCode: string().isRequired()
+  embedCode: string()
 });
 const getReportDtoInType = shape({
   id: id().isRequired()

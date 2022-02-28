@@ -26,14 +26,20 @@ export const RadaFormReady = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
-     function handlesave (dtoIn){
+     function handleSave(dtoIn) {
        console.log(dtoIn.values);
        return Calls.createArticle(dtoIn.values).then((dtoOut)=>{
          props.handleClose();
          return dtoOut.data;
        })
-
-     }
+     };
+    /*function handleUpdate(dtoIn) {
+      console.log(dtoIn.values);
+      return Calls.updateArticle(dtoIn.values).then((dtoOut)=>{
+        props.handleClose();
+        return dtoOut.data;
+      })
+    }*/
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -59,7 +65,7 @@ export const RadaFormReady = createVisualComponent({
     return currentNestingLevel ? (
       <div {...attrs}>
         <UU5.Forms.Form
-          onSave={(opt) => handlesave(opt)}
+          onSave={(opt) => {handleSave(opt)}}
           header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='red-rich' className='font-size-m' />}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >

@@ -3,6 +3,7 @@ import UU5 from "uu5g04";
 import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
+import Calls from "../calls";
 //@@viewOff:imports
 
 const STATICS = {
@@ -65,11 +66,17 @@ export const SkolskyBufetReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Zmazať produkt </UU5.Bricks.Button>
+            return <UU5.Bricks.Button onClick={ ()=> handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať produkt </UU5.Bricks.Button>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
         }
       ];
+    }
+    function handleRemove(dtoIn) {
+      return Calls.deleteItem({ id: dtoIn.data.id }).then((dtoOut) => {
+        return dtoOut.data;
+      })
+      console.log(dtoIn);
     }
     //@@viewOff:private
 
@@ -93,6 +100,10 @@ export const SkolskyBufetReady = createVisualComponent({
       body: () => Config.Css.css`
        padding-left: 12px;
        padding-right: 12px;
+      `,
+      buttons: () => Config.Css.css`
+       margin-left: 12px;
+       margin-right: 12px;
       `,
     };
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());

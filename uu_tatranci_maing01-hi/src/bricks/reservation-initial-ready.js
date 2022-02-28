@@ -28,12 +28,12 @@ export const ReservationInitialReady = createVisualComponent({
     //@@viewOn:private
     function getColumns() {
       return [
-        {
+        /*{
           cell: (cellProps) => {
             return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.state} </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Stav objednavky </UU5.Bricks.Span>
-        },
+        },*/
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.id} </UU5.Bricks.Span>
@@ -54,9 +54,8 @@ export const ReservationInitialReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Button onClick={ ()=> handleClick(cellProps.data) } className={CLASS_NAMES.body()}> Detail </UU5.Bricks.Button>
+            return <UU5.Bricks.Button onClick={ ()=> handleClick(cellProps.data) } className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button>
           },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Detail </UU5.Bricks.Span>
         },
 
       ];
@@ -76,6 +75,10 @@ export const ReservationInitialReady = createVisualComponent({
       header: () => Config.Css.css`
        background-color: grey;
        color: white;
+       letter-spacing: 1.5px;
+       font-weight: bold;
+       padding-left: 6px;
+       padding-right: 6px;
       `,
       main: () => Config.Css.css`
        padding-left: 12px;
@@ -84,6 +87,10 @@ export const ReservationInitialReady = createVisualComponent({
       body: () => Config.Css.css`
        padding-left: 12px;
        padding-right: 12px;
+      `,
+      buttons: () => Config.Css.css`
+       margin-left: 12px;
+       margin-right: 12px;
       `,
     };
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());

@@ -36,6 +36,10 @@ const CLASS_NAMES = {
       margin: 0 auto;
     }
   `,
+  header: () => Config.Css.css`
+       padding-left: 12px;
+       padding-right: 12px;
+      `,
 };
 
 export const StrankaVsetkyObjedenavky = createVisualComponent({
@@ -58,10 +62,13 @@ export const StrankaVsetkyObjedenavky = createVisualComponent({
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
-        <UU5.Bricks.Heading content = { "initial"}/>
+        <UU5.Bricks.Heading content = { "Práve vytvorené objednávky"} className={CLASS_NAMES.header()}/>
         <ReservationInitial/>
+        <UU5.Bricks.Heading content = { "Objednávky v spracovaní"} className={CLASS_NAMES.header()}/>
         <ReservationOpen/>
+        <UU5.Bricks.Heading content = { "Vybavené objednávky"} className={CLASS_NAMES.header()}/>
         <ReservationClosed/>
+        <UU5.Bricks.Heading content = { "Zrušené objednávky"} className={CLASS_NAMES.header()}/>
         <ReservationCanceled/>
       </div>
     );
