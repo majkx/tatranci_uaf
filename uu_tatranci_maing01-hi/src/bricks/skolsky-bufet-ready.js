@@ -122,7 +122,6 @@ export const SkolskyBufetReady = createVisualComponent({
             headerClassName={CLASS_NAMES.header()}
           />
         </Uu5Tiles.Controller>
-        {/*<UU5.Bricks.Button onClick={ ()=> handleClick("rada-form") } className={CLASS_NAMES.body()}> Pridať produkt </UU5.Bricks.Button>*/}
       </div>
     ) : null;
     //@@viewOff:render

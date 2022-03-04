@@ -31,7 +31,6 @@ export const SkolskyBufet = createComponent({
       }
     })
     //@@viewOff:hooks
-
     //@@viewOn:private
     function loadItems(){
       return Calls.listItems();
@@ -39,10 +38,8 @@ export const SkolskyBufet = createComponent({
 
     let {state, data} = dataResult;
     //@@viewOff:private
-
     //@@viewOn:interface
     //@@viewOff:interface
-
     //@@viewOn:render
     const className = Config.Css.css``;
     const attrs = UU5.Common.VisualComponent.getAttrs(props, className);

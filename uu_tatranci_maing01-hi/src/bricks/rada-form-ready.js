@@ -26,13 +26,20 @@ export const RadaFormReady = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
-     function handleSave(dtoIn) {
-       console.log(dtoIn.values);
-       return Calls.createArticle(dtoIn.values).then((dtoOut)=>{
-         props.handleClose();
-         return dtoOut.data;
-       })
-     };
+    function handleSave(dtoIn) {
+      console.log(dtoIn.values);
+      if (props.method === "update") {
+        dtoIn.values.id = props.data.id
+        return Calls.updateArticle(dtoIn.values).then((dtoOut) => {
+          return dtoOut.data;
+        })
+      } else {
+        return Calls.createArticle(dtoIn.values).then((dtoOut) => {
+          props.handleClose();
+          return dtoOut.data;
+        })
+      }
+    };
     /*function handleUpdate(dtoIn) {
       console.log(dtoIn.values);
       return Calls.updateArticle(dtoIn.values).then((dtoOut)=>{
@@ -65,14 +72,16 @@ export const RadaFormReady = createVisualComponent({
     return currentNestingLevel ? (
       <div {...attrs}>
         <UU5.Forms.Form
-          onSave={(opt) => {handleSave(opt)}}
-          header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='red-rich' className='font-size-m' />}
+          onSave={(opt) => {
+            handleSave(opt)
+          }}
+          header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='red-rich' className='font-size-m'/>}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >
-          <UU5.Forms.Text name="name" label="Názov" /*placeholder="John"*/ required />
-          <UU5.Forms.Text name="desc" label="Popis" placeholder="Text..." required />
-          <UU5.Forms.Text name="content" label="Obsah" placeholder="Text..." required />
-          <UU5.Forms.Controls />
+          <UU5.Forms.Text name="name" label="Názov" value= {props.data.name ? props.data.name : ""} />
+          <UU5.Forms.Text name="desc" label="Popis" value= {props.data.desc ? props.data.desc : ""} />
+          <UU5.Forms.Text name="content" label="Obsah" value= {props.data.content ? props.data.content : ""} />
+          <UU5.Forms.Controls/>
         </UU5.Forms.Form>
       </div>
     ) : null;
