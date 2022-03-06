@@ -28,10 +28,18 @@ export const TeleviziaFormReady = createVisualComponent({
     //@@viewOn:private
     function handleSave(dtoIn) {
       console.log(dtoIn.values);
-      return Calls.createReport(dtoIn.values).then((dtoOut)=>{
-        props.handleClose();
-        return dtoOut.data;
-      })
+      if (props.method === "update") {
+        dtoIn.values.id = props.data.id
+        return Calls.updateReport(dtoIn.values).then((dtoOut) => {
+          props.handleClose();
+          return dtoOut.data;
+        })
+      } else {
+        return Calls.createReport(dtoIn.values).then((dtoOut) => {
+          props.handleClose();
+          return dtoOut.data;
+        })
+      }
     };
     //@@viewOff:private
 
@@ -58,14 +66,16 @@ export const TeleviziaFormReady = createVisualComponent({
     return currentNestingLevel ? (
       <div {...attrs}>
         <UU5.Forms.Form
-          onSave={(opt) => {handleSave(opt)}}
+          onSave={(opt) => {
+            handleSave(opt)
+          }}
           header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='yellow-rich' className='font-size-m' />}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >
-          <UU5.Forms.Text name="titleOfPost" label="Názov" /*placeholder="John"*/ required />
-          <UU5.Forms.Text name="desc" label="Popis" placeholder="Text..." required />
-          <UU5.Forms.Text name="category" label="Kategória" placeholder="Text..." required />
-          <UU5.Forms.Text name="videoURL" label="URL adresa videa" placeholder="Text..." required />
+          <UU5.Forms.Text name="titleOfPost" label="Názov" value= {props.data.titleOfPost ? props.data.titleOfPost : ""} />
+          <UU5.Forms.Text name="desc" label="Popis" value= {props.data.desc ? props.data.desc : ""} />
+          <UU5.Forms.Text name="category" label="Kategória" value= {props.data.category ? props.data.category : ""} />
+          <UU5.Forms.Text name="videoURL" label="URL adresa videa" value= {props.data.videoURL ? props.data.videoURL : ""} />
           <UU5.Forms.Controls />
         </UU5.Forms.Form>
       </div>

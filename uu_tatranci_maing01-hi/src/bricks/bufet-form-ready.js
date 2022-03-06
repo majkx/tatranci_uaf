@@ -28,10 +28,18 @@ export const BufetFormReady = createVisualComponent({
     //@@viewOn:private
     function handleSave(dtoIn) {
       console.log(dtoIn.values);
-      return Calls.createItem(dtoIn.values).then((dtoOut) => {
-        props.handleClose();
-        return dtoOut.data;
-      })
+      if (props.method === "update") {
+        dtoIn.values.id = props.data.id
+        return Calls.updateItem(dtoIn.values).then((dtoOut) => {
+          props.handleClose();
+          return dtoOut.data;
+        })
+      } else {
+        return Calls.createItem(dtoIn.values).then((dtoOut) => {
+          props.handleClose();
+          return dtoOut.data;
+        })
+      }
     };
     //@@viewOff:private
 
@@ -64,24 +72,24 @@ export const BufetFormReady = createVisualComponent({
           header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='green-rich' className='font-size-m'/>}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >
-          <UU5.Forms.Text name="nameOfItem" label="Názov" /*placeholder="John"*/ required/>
-          <UU5.Forms.Text name="itemCategory" label="Popis" placeholder="Text..." required/>
-          <UU5.Forms.Text name="weight" label="Váha" placeholder="Text..." required/>
-          <UU5.Forms.Text name="numberOfPieces" label="Počet kusov" placeholder="Text..." required/>
-          <UU5.Forms.Text name="price" label="Cena" placeholder="Text..." required/>
-          <UU5.Forms.Text name="sellingPrice" label="Predajná cena" placeholder="Text..." required/>
-          <UU5.Forms.Text name="manufacturer" label="Výrobca" placeholder="Text..." required/>
-          <UU5.Forms.Text name="allergens" label="Alergény" placeholder="Text..." required/>
-          <UU5.Forms.Text name="discount" label="Zľava" placeholder="Text..." required/>
-          <UU5.Forms.Text name="expirationDate" label="Dátum spotreby" placeholder="Text..." required/>
-          <UU5.Forms.Text name="dateOfPurchase" label="Dátum nákupu" placeholder="Text..." required/>
-          <UU5.Forms.Text name="dateOfDelivery" label="Dátum dodania" placeholder="Text..." required/>
-          <UU5.Forms.Text name="bookingDate" label="Dátum rezervácie" placeholder="Text..." required/>
-          <UU5.Forms.Text name="numberOfReserved" label="Počet rezervovaných" placeholder="Text..." required/>
-          <UU5.Forms.Text name="revenue" label="Zisk" placeholder="Text..." required/>
-          <UU5.Forms.Text name="expenses" label="Náklady" placeholder="Text..." required/>
-          <UU5.Forms.Text name="profit" label="Profit" placeholder="Text..." required/>
-          <UU5.Forms.File label='Foto' placeholder="jpg/png" /*feedback="warning" message="warning message"*/ size="l" multiple/>
+          <UU5.Forms.Text name="nameOfItem" label="Názov" value= {props.data.nameOfItem ? props.data.nameOfItem : ""}/>
+          <UU5.Forms.Text name="itemCategory" label="Popis" value= {props.data.itemCategory ? props.data.itemCategory : ""}/>
+          <UU5.Forms.Text name="weight" label="Váha" value= {props.data.weight ? props.data.weight : ""}/>
+          <UU5.Forms.Text name="numberOfPieces" label="Počet kusov" value= {props.data.numberOfPieces ? props.data.numberOfPieces : ""}/>
+          <UU5.Forms.Text name="price" label="Cena" value= {props.data.price ? props.data.price : ""}/>
+          <UU5.Forms.Text name="sellingPrice" label="Predajná cena" value= {props.data.sellingPrice ? props.data.sellingPrice : ""}/>
+          <UU5.Forms.Text name="manufacturer" label="Výrobca" value= {props.data.manufacturer ? props.data.manufacturer : ""}/>
+          <UU5.Forms.Text name="allergens" label="Alergény" value= {props.data.allergens ? props.data.allergens : ""}/>
+          <UU5.Forms.Text name="discount" label="Zľava" value= {props.data.discount ? props.data.discount : ""}/>
+          <UU5.Forms.Text name="expirationDate" label="Dátum spotreby" value= {props.data.expirationDate ? props.data.expirationDate : ""}/>
+          <UU5.Forms.Text name="dateOfPurchase" label="Dátum nákupu" value= {props.data.dateOfPurchase ? props.data.dateOfPurchase : ""}/>
+          <UU5.Forms.Text name="dateOfDelivery" label="Dátum dodania" value= {props.data.dateOfDelivery ? props.data.dateOfDelivery : ""}/>
+          <UU5.Forms.Text name="bookingDate" label="Dátum rezervácie" value= {props.data.bookingDate ? props.data.bookingDate : ""}/>
+          <UU5.Forms.Text name="numberOfReserved" label="Počet rezervovaných" value= {props.data.numberOfReserved ? props.data.numberOfReserved : ""}/>
+          <UU5.Forms.Text name="revenue" label="Zisk" value= {props.data.revenue ? props.data.revenue : ""}/>
+          <UU5.Forms.Text name="expenses" label="Náklady" value= {props.data.expenses ? props.data.expenses : ""}/>
+          <UU5.Forms.Text name="profit" label="Profit" value= {props.data.profit ? props.data.profit : ""}/>
+          <UU5.Forms.File label='Foto' placeholder="jpg/png" size="l" multiple />
           <UU5.Forms.Controls/>
         </UU5.Forms.Form>
       </div>

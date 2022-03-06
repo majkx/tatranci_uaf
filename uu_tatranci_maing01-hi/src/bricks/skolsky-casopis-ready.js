@@ -1,9 +1,10 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
-import { createComponent } from "uu5g04-hooks";
+import { createComponent, useRef } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
 import Calls from "../calls";
+import CasopisFormReady from "./casopis-form-ready";
 //@@viewOff:imports
 
 const STATICS = {
@@ -54,7 +55,13 @@ export const SkolskyCasopisReady = createComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Button onClick={ ()=> handleRemove(cellProps) } className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button>
+            return (
+              <>
+                <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
+                <UU5.Bricks.Modal ref={modalRef}/>
+                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>
+              </>
+            )
           },
         }
       ];
@@ -64,6 +71,20 @@ export const SkolskyCasopisReady = createComponent({
         return dtoOut.data;
       })
       console.log(dtoIn);
+    }
+
+    let modalRef = useRef();
+    function handleUpdate(data){
+      modalRef.current.open({
+        header: " ",
+        content: (<CasopisFormReady data={data} handleClose={handleClose} method={"update"}/> ),
+      })
+      console.log(data);
+
+    }
+    function handleClose(){
+      console.log("text")
+      modalRef.current.close()
     }
     //@@viewOff:private
 

@@ -31,6 +31,7 @@ export const RadaFormReady = createVisualComponent({
       if (props.method === "update") {
         dtoIn.values.id = props.data.id
         return Calls.updateArticle(dtoIn.values).then((dtoOut) => {
+          props.handleClose();
           return dtoOut.data;
         })
       } else {
@@ -40,13 +41,6 @@ export const RadaFormReady = createVisualComponent({
         })
       }
     };
-    /*function handleUpdate(dtoIn) {
-      console.log(dtoIn.values);
-      return Calls.updateArticle(dtoIn.values).then((dtoOut)=>{
-        props.handleClose();
-        return dtoOut.data;
-      })
-    }*/
     //@@viewOff:private
 
     //@@viewOn:interface

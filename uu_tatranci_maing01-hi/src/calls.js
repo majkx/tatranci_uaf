@@ -42,7 +42,7 @@ let Calls = {
     return Calls.call("post", commandUri, dtoIn);
   },
   updateReport(dtoIn) {
-    let commandUri = Calls.getCommandUri("report/create");
+    let commandUri = Calls.getCommandUri("report/update");
     return Calls.call("post", commandUri, dtoIn);
   },
   createSchoolMagazine(dtoIn) {
@@ -74,7 +74,7 @@ let Calls = {
     return Calls.call("post", commandUri, dtoIn);
   },
   updateItem(dtoIn) {
-    let commandUri = Calls.getCommandUri("item/create");
+    let commandUri = Calls.getCommandUri("item/update");
     return Calls.call("post", commandUri, dtoIn);
   },
   listReservationsInitial(dtoIn) {
