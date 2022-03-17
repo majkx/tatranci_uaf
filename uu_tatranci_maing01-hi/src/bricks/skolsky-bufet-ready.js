@@ -5,6 +5,7 @@ import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
 import Calls from "../calls";
 import BufetFormReady from "./bufet-form-ready";
+import ReservationInitialReady from "./reservation-initial-ready";
 //@@viewOff:imports
 
 const STATICS = {
@@ -49,7 +50,7 @@ export const SkolskyBufetReady = createVisualComponent({
     },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.price} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.price} € </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Cena </UU5.Bricks.Span>
         },
@@ -69,9 +70,10 @@ export const SkolskyBufetReady = createVisualComponent({
           cell: (cellProps) => {
             return (
               <>
-                <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
+                <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať produkt </UU5.Bricks.Button> <br/> <br/>
                 <UU5.Bricks.Modal ref={modalRef}/>
-                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>
+                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať produkt </UU5.Bricks.Button>
+                <UU5.Bricks.Button onClick={() => handleReservation(cellProps)} className={CLASS_NAMES.body()}> Rezervovať </UU5.Bricks.Button>
               </>
             )
           },
@@ -98,6 +100,36 @@ export const SkolskyBufetReady = createVisualComponent({
       console.log("text")
       modalRef.current.close()
     }
+
+    function handleReservation(dtoIn){
+      return Calls.createReservation({
+        count: dtoIn.data.numberOfPieces,
+        totalPrice: dtoIn.data.price,
+        products:[{
+            priceIndividually: dtoIn.data.price,
+            productId: dtoIn.data.id,
+            productName: dtoIn.data.nameOfItem,
+            productPrice: dtoIn.data.price,
+            productCount: dtoIn.data.numberOfPieces
+          }]
+
+      }).then((dtoOut) => {
+        console.log(dtoIn);
+        return dtoOut.data;
+      })
+
+
+    }
+
+    /*(
+      ({
+        priceIndividually: dtoIn.data.price,
+        productId: dtoIn.data.id,
+        productName: dtoIn.data.nameOfItem,
+        productPrice: dtoIn.data.price,
+        productCount: dtoIn.data.numberOfPieces
+      })
+    )*/
     //@@viewOff:private
 
     //@@viewOn:interface

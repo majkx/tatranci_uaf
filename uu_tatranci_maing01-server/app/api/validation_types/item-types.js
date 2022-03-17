@@ -4,7 +4,7 @@ const createItemDtoInType = shape({
   itemCategory: string(200),
   weight: string(200).isRequired(),
   numberOfPieces: string().isRequired(),
-  price: string().isRequired(),
+  price: float().isRequired(),
   sellingPrice: string().isRequired(),
   manufacturer: string(200),
   allergens: string(),

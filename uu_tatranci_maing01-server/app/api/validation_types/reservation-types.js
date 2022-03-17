@@ -11,7 +11,7 @@ const createReservationDtoInType = shape({
       productPrice: float(),
       productCount: integer()
     })
-  ).isRequired()
+  )
 
 
 });

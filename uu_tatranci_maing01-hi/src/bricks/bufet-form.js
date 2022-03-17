@@ -75,7 +75,7 @@ export const BufetForm = createComponent({
     return (
       <>
         <UU5.Bricks.Modal ref={modalRef}/>
-        <UU5.Bricks.Button onClick={() => handleClick()} className={CLASS_NAMES.buttons()}> Vytvoriť príspevok </UU5.Bricks.Button>
+        <UU5.Bricks.Button onClick={() => handleClick()} className={CLASS_NAMES.buttons()}> Vytvoriť produkt </UU5.Bricks.Button>
       </>
     )
 

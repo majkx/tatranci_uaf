@@ -77,6 +77,10 @@ let Calls = {
     let commandUri = Calls.getCommandUri("item/update");
     return Calls.call("post", commandUri, dtoIn);
   },
+  createReservation(dtoIn) {
+    let commandUri = Calls.getCommandUri("reservation/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
   listReservationsInitial(dtoIn) {
     let commandUri = Calls.getCommandUri("reservation/listInitial");
     return Calls.call("get", commandUri, dtoIn);

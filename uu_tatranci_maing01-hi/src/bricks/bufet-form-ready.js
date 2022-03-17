@@ -66,9 +66,7 @@ export const BufetFormReady = createVisualComponent({
     return currentNestingLevel ? (
       <div {...attrs}>
         <UU5.Forms.Form
-          onSave={(opt) => {
-            handleSave(opt)
-          }}
+          onSave={(opt) => { handleSave(opt)}}
           header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='green-rich' className='font-size-m'/>}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >
