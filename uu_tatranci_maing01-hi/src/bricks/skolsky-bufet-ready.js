@@ -72,8 +72,8 @@ export const SkolskyBufetReady = createVisualComponent({
               <>
                 <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať produkt </UU5.Bricks.Button> <br/> <br/>
                 <UU5.Bricks.Modal ref={modalRef}/>
-                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať produkt </UU5.Bricks.Button>
-                <UU5.Bricks.Button onClick={() => handleReservation(cellProps)} className={CLASS_NAMES.body()}> Rezervovať </UU5.Bricks.Button>
+                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.buttons()}> Aktualizovať produkt </UU5.Bricks.Button> <br/> <br/>
+                <UU5.Bricks.Button onClick={() => handleReservation(cellProps)} className={CLASS_NAMES.buttons()}> Rezervovať </UU5.Bricks.Button>
               </>
             )
           },
