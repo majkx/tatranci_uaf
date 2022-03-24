@@ -4,6 +4,7 @@ import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
 import RouteHelper from "../route-helper";
+import Calls from "../calls";
 //@@viewOff:imports
 
 const STATICS = {
@@ -54,16 +55,40 @@ export const ReservationOpenReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Button onClick={ ()=> handleClick(cellProps.data) } className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button>
+            return (
+              <>
+                <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button>
+                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps)} className={CLASS_NAMES.buttons()}> Vybaviť </UU5.Bricks.Button>
+              </>
+            )
           },
         },
 
       ];
     }
-    function handleClick( data) {
+
+    function handleClick(data) {
       console.log(data)
-      return  RouteHelper.setRoute("kosik", { id: data.id });
+      return RouteHelper.setRoute("kosik", { id: data.id });
     }
+
+    function handleUpdate(dtoIn) {
+      dtoIn.data.id = props.data.id
+      dtoIn.data.state = props.data.state
+      dtoIn.data.count = props.data.count
+      dtoIn.data.totalPrice = props.data.totalPrice
+      dtoIn.data.products = props.data.products
+      dtoIn.data.authorUuId = props.data.authorUuId
+      dtoIn.data.authorName = props.data.authorName
+      dtoIn.data.awid = props.data.awid
+      dtoIn.data.sys = props.data.sys
+      return Calls.updateReservationUpdateShopCardClosed(dtoIn.data).then((dtoOut) => {
+        props.handleClose();
+        console.log(dtoIn);
+        return dtoOut.data;
+      })
+    }
+
     //@@viewOff:private
 
     //@@viewOn:interface

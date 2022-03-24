@@ -58,10 +58,32 @@ const updateReservationDtoInType = shape({
 const updateReservationShopCardOpenDtoInType = shape({
   id: id().isRequired(),
   state: oneOf(["open", "closed", "canceled" ]),
+  count: integer(),
+  totalPrice: float(),
+  products: array(
+    shape({
+      priceIndividually: float(),
+      productId: string(200),
+      productName: string(200),
+      productPrice: float(),
+      productCount: integer()
+    })
+  )
 });
 const updateReservationShopCardClosedDtoInType = shape({
   id: id().isRequired(),
   state: oneOf(["closed", "canceled" ]),
+  count: integer(),
+  totalPrice: float(),
+  products: array(
+    shape({
+      priceIndividually: float(),
+      productId: string(200),
+      productName: string(200),
+      productPrice: float(),
+      productCount: integer()
+    })
+  )
 });
 const updateReservationShopCardCanceledDtoInType = shape({
   id: id().isRequired(),

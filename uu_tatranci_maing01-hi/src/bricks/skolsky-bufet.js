@@ -50,6 +50,8 @@ export const SkolskyBufet = createComponent({
 
     switch(state){
       case "ready":
+        console.log(data.itemList)
+        data.itemlist = data.itemList.sort((a,b) => new Date (a.sys.cts) < new Date (b.sys.cts))
         return <SkolskyBufetReady data={data}/>
         break;
       case "pending":

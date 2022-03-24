@@ -43,11 +43,11 @@ export const SkolskyBufetReady = createVisualComponent({
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Váha </UU5.Bricks.Span>
         },
         {
-        cell: (cellProps) => {
-        return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.numberOfPieces} </UU5.Bricks.Span>
-      },
-        header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Počet kusov </UU5.Bricks.Span>
-    },
+          cell: (cellProps) => {
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.numberOfPieces} </UU5.Bricks.Span>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Počet kusov </UU5.Bricks.Span>
+        },
         {
           cell: (cellProps) => {
             return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.price} € </UU5.Bricks.Span>
@@ -73,6 +73,7 @@ export const SkolskyBufetReady = createVisualComponent({
                 <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať produkt </UU5.Bricks.Button> <br/> <br/>
                 <UU5.Bricks.Modal ref={modalRef}/>
                 <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.buttons()}> Aktualizovať produkt </UU5.Bricks.Button> <br/> <br/>
+                <UU5.Bricks.Button onClick={() => handleDetail(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button> <br/> <br/>
                 <UU5.Bricks.Button onClick={() => handleReservation(cellProps)} className={CLASS_NAMES.buttons()}> Rezervovať </UU5.Bricks.Button>
               </>
             )
@@ -80,6 +81,7 @@ export const SkolskyBufetReady = createVisualComponent({
         }
       ];
     }
+
     function handleRemove(dtoIn) {
       return Calls.deleteItem({ id: dtoIn.data.id }).then((dtoOut) => {
         return dtoOut.data;
@@ -88,36 +90,46 @@ export const SkolskyBufetReady = createVisualComponent({
     }
 
     let modalRef = useRef();
-    function handleUpdate(data){
+
+    function handleUpdate(data) {
       modalRef.current.open({
         header: " ",
-        content: (<BufetFormReady data={data} handleClose={handleClose} method={"update"}/> ),
+        content: (<BufetFormReady data={data} handleClose={handleClose} method={"update"}/>),
       })
       console.log(data);
 
     }
-    function handleClose(){
+
+    function handleDetail(data) {
+      modalRef.current.open({
+        header: " ",
+        content: (<SkolskyBufetReady data={data} handleClose={handleClose} />),
+      })
+      console.log(data);
+
+    }
+
+    function handleClose() {
       console.log("text")
       modalRef.current.close()
     }
 
-    function handleReservation(dtoIn){
+    function handleReservation(dtoIn) {
       return Calls.createReservation({
         count: dtoIn.data.numberOfPieces,
         totalPrice: dtoIn.data.price,
-        products:[{
-            priceIndividually: dtoIn.data.price,
-            productId: dtoIn.data.id,
-            productName: dtoIn.data.nameOfItem,
-            productPrice: dtoIn.data.price,
-            productCount: dtoIn.data.numberOfPieces
-          }]
+        products: [{
+          priceIndividually: dtoIn.data.price,
+          productId: dtoIn.data.id,
+          productName: dtoIn.data.nameOfItem,
+          productPrice: dtoIn.data.price,
+          productCount: dtoIn.data.numberOfPieces
+        }]
 
       }).then((dtoOut) => {
         console.log(dtoIn);
         return dtoOut.data;
       })
-
 
     }
 
