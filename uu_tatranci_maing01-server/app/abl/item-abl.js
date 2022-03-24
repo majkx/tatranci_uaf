@@ -180,7 +180,7 @@ class ItemAbl {
     return dtoOut;
   }
 
-  async create(awid, dtoIn, session, uuAppErrorMap = {}) {
+  async create(awid, dtoIn, session, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("createItemDtoInType", dtoIn);
@@ -208,6 +208,7 @@ class ItemAbl {
 
     // HDS 4 - Return object
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
