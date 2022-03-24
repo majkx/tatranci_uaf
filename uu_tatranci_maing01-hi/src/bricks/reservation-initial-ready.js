@@ -40,7 +40,7 @@ export const ReservationInitialReady = createVisualComponent({
           cell: (cellProps) => {
             return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.sys.cts} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> id </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Čas vytvorenia </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
@@ -58,8 +58,9 @@ export const ReservationInitialReady = createVisualComponent({
           cell: (cellProps) => {
             return (
               <>
-                <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button>
-                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Spracovať </UU5.Bricks.Button>
+                <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button> <br/><br/>
+                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Spracovať </UU5.Bricks.Button> <br/><br/>
+                <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Zrušiť </UU5.Bricks.Button>
               </>
             )
           },
@@ -77,6 +78,14 @@ export const ReservationInitialReady = createVisualComponent({
     function handleUpdate(dtoIn){
       console.log(dtoIn)
       return Calls.updateReservationUpdateShopCardOpen({ id:dtoIn}).then((dtoOut) => {
+        props.handleClose();
+        console.log(dtoIn);
+        return dtoOut.data;
+      })
+    }
+    function handleDelete(dtoIn){
+      console.log(dtoIn)
+      return Calls.updateReservationUpdateShopCardCanceled({ id:dtoIn}).then((dtoOut) => {
         props.handleClose();
         console.log(dtoIn);
         return dtoOut.data;

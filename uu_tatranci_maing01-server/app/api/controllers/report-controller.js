@@ -24,7 +24,7 @@ class ReportController {
   }
 
   create(ucEnv) {
-    return ReportAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession());
+    return ReportAbl.create(ucEnv.getUri().getAwid(), ucEnv.getDtoIn(), ucEnv.getSession(), ucEnv.getAuthorizationResult());
   }
 
 }

@@ -37,9 +37,9 @@ export const ReservationOpenReady = createVisualComponent({
         },*/
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.id} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.sys.cts} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> id </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Čas vytvorenia </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
@@ -57,8 +57,9 @@ export const ReservationOpenReady = createVisualComponent({
           cell: (cellProps) => {
             return (
               <>
-                <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button>
-                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps)} className={CLASS_NAMES.buttons()}> Vybaviť </UU5.Bricks.Button>
+                <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button> <br/><br/>
+                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Spracovať </UU5.Bricks.Button> <br/><br/>
+                <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Zrušiť </UU5.Bricks.Button>
               </>
             )
           },
@@ -73,16 +74,16 @@ export const ReservationOpenReady = createVisualComponent({
     }
 
     function handleUpdate(dtoIn) {
-      dtoIn.data.id = props.data.id
-      dtoIn.data.state = props.data.state
-      dtoIn.data.count = props.data.count
-      dtoIn.data.totalPrice = props.data.totalPrice
-      dtoIn.data.products = props.data.products
-      dtoIn.data.authorUuId = props.data.authorUuId
-      dtoIn.data.authorName = props.data.authorName
-      dtoIn.data.awid = props.data.awid
-      dtoIn.data.sys = props.data.sys
-      return Calls.updateReservationUpdateShopCardClosed(dtoIn.data).then((dtoOut) => {
+      return Calls.updateReservationUpdateShopCardClosed({ id:dtoIn}).then((dtoOut) => {
+        props.handleClose();
+        console.log(dtoIn);
+        return dtoOut.data;
+      })
+    }
+
+    function handleDelete(dtoIn){
+      console.log(dtoIn)
+      return Calls.updateReservationUpdateShopCardCanceled({ id:dtoIn}).then((dtoOut) => {
         props.handleClose();
         console.log(dtoIn);
         return dtoOut.data;

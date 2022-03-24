@@ -97,6 +97,10 @@ let Calls = {
     let commandUri = Calls.getCommandUri("reservation/updateShopCardClosed");
     return Calls.call("post", commandUri, dtoIn);
   },
+  updateReservationUpdateShopCardCanceled(dtoIn) {
+    let commandUri = Calls.getCommandUri("reservation/updateShopCardCanceled");
+    return Calls.call("post", commandUri, dtoIn);
+  },
   listReservationsOpen(dtoIn) {
     let commandUri = Calls.getCommandUri("reservation/listOpen");
     return Calls.call("get", commandUri, dtoIn);

@@ -45,7 +45,7 @@ class ArticleAbl {
     }
 
     //HDS 4 - Return dtoOut
-    dtoOut.uuAppErrorMap = uuAppErrorMap
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
     return dtoOut;
   }
 
@@ -161,7 +161,7 @@ class ArticleAbl {
     return dtoOut;
   }
 
-  async create(awid, dtoIn, session, uuAppErrorMap = {}) {
+  async create(awid, dtoIn, session, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("createArticleDtoInType", dtoIn);
@@ -190,6 +190,7 @@ class ArticleAbl {
 
     // HDS 4 - Return object
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 

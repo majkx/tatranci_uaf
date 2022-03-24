@@ -36,9 +36,9 @@ export const ReservationClosedReady = createVisualComponent({
         },*/
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.id} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.sys.cts} </UU5.Bricks.Span>
           },
-          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> id </UU5.Bricks.Span>
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Čas vytvorenia </UU5.Bricks.Span>
         },
         {
           cell: (cellProps) => {
