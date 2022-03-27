@@ -373,6 +373,36 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.CasopisFormReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.BufetDetail",
+        "name": "BufetDetail",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "BufetDetail"
+        ],
+        "docCode": "UuTatranciBricksBufetDetail",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.BufetDetail />"
+      },
+      {
+        "code": "UuTatranci.Bricks.BufetDetailReady",
+        "name": "BufetDetailReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "BufetDetailReady"
+        ],
+        "docCode": "UuTatranciBricksBufetDetailReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.BufetDetailReady />"
       }
     ]
   },
