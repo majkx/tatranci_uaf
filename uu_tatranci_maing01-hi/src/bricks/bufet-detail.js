@@ -1,7 +1,9 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
-import { createComponent } from "uu5g04-hooks";
+import { createComponent, useDataObject, useRef } from "uu5g04-hooks";
 import Config from "./config/config";
+import Calls from "../calls";
+import BufetDetailReady from "./bufet-detail-ready";
 //@@viewOff:imports
 
 const STATICS = {
@@ -22,26 +24,58 @@ export const BufetDetail = createComponent({
   //@@viewOff:defaultProps
 
   render(props) {
+    //@@viewOn:hooks
+    let modalRef = useRef();
+    let dataResult = useDataObject({
+      handlerMap: {
+        load: loadItems
+      }
+    })
+    //@@viewOff:hooks
+
     //@@viewOn:private
+    function loadItems() {
+      return Calls.listItems();
+    }
+
+    let { state, data } = dataResult;
     //@@viewOff:private
 
     //@@viewOn:interface
     //@@viewOff:interface
 
     //@@viewOn:render
-    const className = Config.Css.css``;
-    const attrs = UU5.Common.VisualComponent.getAttrs(props, className);
+    const CLASS_NAMES = {
+      main: () => Config.Css.css`
+      padding-left: 12px;
+      padding-right: 12px;
+      `,
+      buttons: () => Config.Css.css`
+       margin-left: 12px;
+       margin-right: 12px;
+      `,
+    };
+    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     const currentNestingLevel = UU5.Utils.NestingLevel.getNestingLevel(
       props,
       STATICS
     );
 
-    return currentNestingLevel ? (
-      <div {...attrs}>
-        <div>Component {STATICS.displayName}</div>
-        {UU5.Utils.Content.getChildren(props.children, props, STATICS)}
-      </div>
-    ) : null;
+    switch (state) {
+      case "ready":
+        return (
+          <>
+            <UU5.Bricks.Modal ref={modalRef}/>
+            <BufetDetailReady data={props.data}/>
+          </>
+        )
+        break;
+      case "pending":
+      case "pendingNoData":
+      default:
+        return <UU5.Bricks.Loading/>
+        break;
+    }
     //@@viewOff:render
   },
 });

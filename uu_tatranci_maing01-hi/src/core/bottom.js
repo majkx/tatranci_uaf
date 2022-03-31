@@ -42,7 +42,7 @@ export const Bottom = createVisualComponent({
     const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     return (
       <div {...attrs}>
-        uuTatranciMaing01-{process.env.VERSION} © Unicorn,{" "}
+        {/*uuTatranciMaing01-{process.env.VERSION}*/} SPŠka do vrecka © Unicorn,{" "}
         <UU5.Bricks.Link target="_blank" href="TODO">
           <UU5.Bricks.Lsi lsi={Lsi.bottom.termsOfUse} />
         </UU5.Bricks.Link>

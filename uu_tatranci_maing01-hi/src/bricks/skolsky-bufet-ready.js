@@ -5,6 +5,7 @@ import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
 import Calls from "../calls";
 import BufetFormReady from "./bufet-form-ready";
+import BufetDetailReady from "./bufet-detail-ready";
 import ReservationInitialReady from "./reservation-initial-ready";
 //@@viewOff:imports
 
@@ -38,7 +39,7 @@ export const SkolskyBufetReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.weight} </UU5.Bricks.Span>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.weight} g </UU5.Bricks.Span>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Váha </UU5.Bricks.Span>
         },
@@ -68,24 +69,17 @@ export const SkolskyBufetReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            if (cellProps.data.profileList.includes("Authorities")) {
-              return (
-                <>
-                  <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať produkt </UU5.Bricks.Button> <br/> <br/>
-                  <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.buttons()}> Aktualizovať produkt </UU5.Bricks.Button> <br/> <br/>
-                </>
-              )
-            } else {
               return (
                 <>
                   <UU5.Bricks.Modal ref={modalRef}/>
+                  <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať produkt </UU5.Bricks.Button> <br/> <br/>
+                  <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.buttons()}> Aktualizovať produkt </UU5.Bricks.Button> <br/> <br/>
                   <UU5.Bricks.Button onClick={() => handleDetail(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button> <br/> <br/>
                   <UU5.Bricks.Button onClick={() => handleReservation(cellProps)} className={CLASS_NAMES.buttons()}> Rezervovať </UU5.Bricks.Button>
                 </>
               )
             }
           },
-        }
       ];
     }
 
@@ -101,7 +95,7 @@ export const SkolskyBufetReady = createVisualComponent({
     function handleUpdate(data) {
       modalRef.current.open({
         header: " ",
-        content: (<BufetFormReady data={data} handleClose={handleClose} method={"update"}/>),
+        content: (<BufetFormReady data={data} handleClose={handleClose} method = "update"/>),
       })
       console.log(data);
 
@@ -110,7 +104,7 @@ export const SkolskyBufetReady = createVisualComponent({
     function handleDetail(data) {
       modalRef.current.open({
         header: " ",
-        content: (<SkolskyBufetReady data={data} handleClose={handleClose}/>),
+        content: (<BufetDetailReady data={data} handleClose={handleClose}/>),
       })
       console.log(data);
 

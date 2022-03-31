@@ -58,10 +58,10 @@ export const Home = createVisualComponent({
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
     return (
       <div {...attrs}>
-        <SkolskaRada/>
-        <SkolskyBufet/>
-        <SkolskaTelevizia/>
-        <SkolskyCasopis/>
+        <SkolskaRada showOnlyOne ={true}/>
+        <SkolskyBufet showOnlyOne ={true}/>
+        <SkolskaTelevizia showOnlyOne ={true}/>
+        <SkolskyCasopis showOnlyOne ={true}/>
       </div>
     );
 

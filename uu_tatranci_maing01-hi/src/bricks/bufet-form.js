@@ -4,7 +4,6 @@ import { createComponent, useDataObject, useRef } from "uu5g04-hooks";
 import Config from "./config/config";
 import Calls from "../calls";
 import BufetFormReady from "./bufet-form-ready";
-import RadaFormReady from "./rada-form-ready";
 //@@viewOff:imports
 
 const STATICS = {

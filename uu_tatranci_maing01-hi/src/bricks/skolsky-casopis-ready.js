@@ -43,7 +43,13 @@ export const SkolskyCasopisReady = createComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Link href={cellProps.data.content} className={CLASS_NAMES.body()} target={"_blank"}> Časopis </UU5.Bricks.Link>
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.magazineNumber} </UU5.Bricks.Span>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Číslo časopisu </UU5.Bricks.Span>
+        },
+        {
+          cell: (cellProps) => {
+            return <UU5.Bricks.Link className={CLASS_NAMES.body()} href={cellProps.data.content}  target={"_blank"}> Časopis </UU5.Bricks.Link>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Obsah </UU5.Bricks.Span>
         },

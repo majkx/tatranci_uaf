@@ -403,6 +403,36 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.BufetDetailReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.RadaDetail",
+        "name": "RadaDetail",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "RadaDetail"
+        ],
+        "docCode": "UuTatranciBricksRadaDetail",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.RadaDetail />"
+      },
+      {
+        "code": "UuTatranci.Bricks.RadaDetailReady",
+        "name": "RadaDetailReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "RadaDetailReady"
+        ],
+        "docCode": "UuTatranciBricksRadaDetailReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.RadaDetailReady />"
       }
     ]
   },

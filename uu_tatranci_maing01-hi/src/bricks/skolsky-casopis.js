@@ -53,7 +53,14 @@ export const SkolskyCasopis = createComponent({
 
     switch(state){
       case "ready":
-        return <SkolskyCasopisReady data={data}/>
+        console.log(data.itemList);
+        data.itemlist = data.itemList.sort((a, b) => new Date(b.sys.cts) - new Date(a.sys.cts));
+        let datalist
+        if (props.showOnlyOne == true){
+          datalist = {itemList: [data.itemList[0]]}
+        } else
+          datalist = {itemList: data.itemList}
+        return <SkolskyCasopisReady data={datalist}/>
         break;
       case "pending":
       case "pendingNoData":
