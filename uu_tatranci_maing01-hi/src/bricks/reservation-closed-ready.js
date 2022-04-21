@@ -52,6 +52,12 @@ export const ReservationClosedReady = createVisualComponent({
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Cena </UU5.Bricks.Span>
         },
+        {
+          cell: (cellProps) => {
+            return <UU5.Bricks.Span className={CLASS_NAMES.body()}> {cellProps.data.authorName} </UU5.Bricks.Span>
+          },
+          header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Meno kupujúceho </UU5.Bricks.Span>
+        },
 
         {
           cell: (cellProps) => {
