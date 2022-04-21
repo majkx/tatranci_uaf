@@ -4,7 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/seller-error.js");
-
+const { Permission } = require("uu_appg01_workspace");
 const Warnings = {
   createSellerUnsuportedKeys : {
     code:"createSellerUnsuportedKeys",
@@ -161,6 +161,7 @@ class SellerAbl {
     // HDS 3 - Database entry
     dtoIn.awid = awid;
     try {
+      await Permission.create(awid, "", [dtoIn.uuId] );
       dtoOut = await this.dao.create(dtoIn)
     } catch(e){
       throw e;

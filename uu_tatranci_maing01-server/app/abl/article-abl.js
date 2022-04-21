@@ -128,12 +128,13 @@ class ArticleAbl {
       Warnings.getArticleUnsuportedKeys.code,
       Errors.List.InvalidDtoIn
     );
-
+    let profileList =  dtoIn.profileList
     //HDS 2 Get itemList of articles
     let dtoOut = await this.dao.list(awid)
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = profileList
     return dtoOut;
   }
 
@@ -146,7 +147,9 @@ class ArticleAbl {
       validationResult,
       Warnings.getArticleUnsuportedKeys.code,
       Errors.Get.InvalidDtoIn
+
     );
+    let profileList =  dtoIn.profileList
 
     // HDS 2 - get article from DB
     let dtoOut = {}
@@ -158,7 +161,7 @@ class ArticleAbl {
 
     // HDS 3 - Return object from DB
     dtoOut.uuAppErrorMap = uuAppErrorMap
-    dtoOut.profileList = article.profileList
+    dtoOut.profileList = profileList
     return dtoOut;
   }
 

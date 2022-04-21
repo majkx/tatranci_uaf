@@ -4,7 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/editor-error.js");
-
+const { Permission } = require("uu_appg01_workspace");
 const Warnings = {
   createEditorUnsuportedKeys : {
     code:"createEditorUnsuportedKeys",
@@ -181,6 +181,7 @@ class EditorAbl {
     // HDS 3 - Database entry
     dtoIn.awid = awid;
     try {
+      await Permission.create(awid, "Executives", [dtoIn.uuId] );
       dtoOut = await this.dao.create(dtoIn)
     } catch(e){
       throw e;

@@ -5,6 +5,7 @@ const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/user-error.js");
 const { ObjectId } = require("mongodb");
+const { Permission } = require("uu_appg01_workspace");
 
 const Warnings = {
   createUserUnsuportedKeys : {
@@ -155,6 +156,7 @@ class UserAbl {
     dtoIn.awid = awid;
     dtoIn.id = new ObjectId();
     try {
+      await Permission.create(awid, "Public", [dtoIn.uuId] );
       dtoOut = await this.dao.create(dtoIn)
     } catch(e){
       throw e;
