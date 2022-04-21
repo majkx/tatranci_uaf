@@ -137,7 +137,7 @@ class ArticleAbl {
     return dtoOut;
   }
 
-  async get(awid, dtoIn, uuAppErrorMap = {}) {
+  async get(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("getArticleDtoInType", dtoIn);
@@ -158,6 +158,7 @@ class ArticleAbl {
 
     // HDS 3 - Return object from DB
     dtoOut.uuAppErrorMap = uuAppErrorMap
+    dtoOut.profileList = article.profileList
     return dtoOut;
   }
 

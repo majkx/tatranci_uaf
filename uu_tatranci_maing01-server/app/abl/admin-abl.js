@@ -4,7 +4,7 @@ const { Validator } = require("uu_appg01_server").Validation;
 const { DaoFactory } = require("uu_appg01_server").ObjectStore;
 const { ValidationHelper } = require("uu_appg01_server").AppServer;
 const Errors = require("../api/errors/admin-error.js");
-
+const { Permission } = require("uu_appg01_workspace");
 const Warnings = {
   createAdminUnsuportedKeys : {
     code:"createAdminUnsuportedKeys",
@@ -162,8 +162,8 @@ class AdminAbl {
     let dtoOut = {};
 
     // HDS 3 - Database entry
-    dtoIn.awid = awid;
     try {
+      await Permission.create(awid, "Authorities", [dtoIn.uuId] );
       dtoOut = await this.dao.create(dtoIn)
     } catch(e){
       throw e;
