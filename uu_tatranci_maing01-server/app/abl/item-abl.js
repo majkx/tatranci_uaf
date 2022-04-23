@@ -25,7 +25,7 @@ class ItemAbl {
     this.userDao = DaoFactory.getDao("user")
   }
 
-  async listByUuId(awid, dtoIn, uuAppErrorMap = {}) {
+  async listByUuId(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("listItemByUuIdDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -46,11 +46,12 @@ class ItemAbl {
     }
 
     //HDS 4 - Return dtoOut
-    dtoOut.uuAppErrorMap = uuAppErrorMap
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async update(awid, dtoIn, uuAppErrorMap = {}) {
+  async update(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("updateItemDtoInType", dtoIn);
@@ -86,10 +87,11 @@ class ItemAbl {
 
     //HDS 5 - Return filled dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async delete(awid, dtoIn, uuAppErrorMap = {}) {
+  async delete(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("deleteItemDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -117,10 +119,11 @@ class ItemAbl {
 
     //HDS 4 return properly filled out dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async list(awid, dtoIn, uuAppErrorMap = {}) {
+  async list(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("listItemDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -135,9 +138,10 @@ class ItemAbl {
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
-  async listZlavnene(awid, dtoIn, uuAppErrorMap = {}) {
+  async listZlavnene(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("listItemDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -153,10 +157,11 @@ class ItemAbl {
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async get(awid, dtoIn, uuAppErrorMap = {}) {
+  async get(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("getItemDtoInType", dtoIn);
@@ -176,7 +181,8 @@ class ItemAbl {
     }
 
     // HDS 3 - Return object from DB
-    dtoOut.uuAppErrorMap = uuAppErrorMap
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 

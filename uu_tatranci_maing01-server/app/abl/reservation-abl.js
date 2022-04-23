@@ -24,7 +24,7 @@ class ReservationAbl {
     this.dao = DaoFactory.getDao("reservation");
   }
 
-  async listByUuId(awid, dtoIn, uuAppErrorMap = {}) {
+  async listByUuId(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("listReservationByUuIdDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -45,11 +45,12 @@ class ReservationAbl {
     }
 
     //HDS 4 - Return dtoOut
-    dtoOut.uuAppErrorMap = uuAppErrorMap
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async update(awid, dtoIn, uuAppErrorMap = {}) {
+  async update(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("updateReservationDtoInType", dtoIn);
@@ -85,10 +86,11 @@ class ReservationAbl {
 
     //HDS 5 - Return filled dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async updateShopCardOpen(awid, dtoIn, uuAppErrorMap = {}) {
+  async updateShopCardOpen(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("updateReservationShopCardOpenDtoInType", dtoIn);
@@ -126,10 +128,11 @@ class ReservationAbl {
 
     //HDS 5 - Return filled dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async updateShopCardClosed(awid, dtoIn, uuAppErrorMap = {}) {
+  async updateShopCardClosed(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("updateReservationShopCardClosedDtoInType", dtoIn);
@@ -167,10 +170,11 @@ class ReservationAbl {
 
     //HDS 5 - Return filled dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async updateShopCardCanceled(awid, dtoIn, uuAppErrorMap = {}) {
+  async updateShopCardCanceled(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("updateReservationShopCardCanceledDtoInType", dtoIn);
@@ -208,10 +212,11 @@ class ReservationAbl {
 
     //HDS 5 - Return filled dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async delete(awid, dtoIn, uuAppErrorMap = {}) {
+  async delete(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("deleteReservationDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -241,10 +246,11 @@ class ReservationAbl {
 
     //HDS 4 return properly filled out dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async list(awid, dtoIn, uuAppErrorMap = {}) {
+  async list(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("listReservationDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -259,10 +265,11 @@ class ReservationAbl {
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async listInitial(awid, dtoIn, uuAppErrorMap = {}) {
+  async listInitial(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("listReservationInitialDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -278,10 +285,11 @@ class ReservationAbl {
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async listOpen(awid, dtoIn, uuAppErrorMap = {}) {
+  async listOpen(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("listReservationOpenDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -297,10 +305,11 @@ class ReservationAbl {
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async listClosed(awid, dtoIn, uuAppErrorMap = {}) {
+  async listClosed(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("listReservationClosedDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -316,10 +325,11 @@ class ReservationAbl {
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async listCanceled(awid, dtoIn, uuAppErrorMap = {}) {
+  async listCanceled(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("listReservationCanceledDtoInType", dtoIn);
     uuAppErrorMap = ValidationHelper.processValidationResult(
@@ -335,10 +345,11 @@ class ReservationAbl {
 
     //HDS 3 - Return dtoOut
     dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async get(awid, dtoIn, uuAppErrorMap = {}) {
+  async get(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("getReservationDtoInType", dtoIn);
@@ -358,11 +369,12 @@ class ReservationAbl {
     }
 
     // HDS 3 - Return object from DB
-    dtoOut.uuAppErrorMap = uuAppErrorMap
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
-  async getInitial(awid, dtoIn, uuAppErrorMap = {}) {
+  async getInitial(awid, dtoIn, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("getReservationInitialDtoInType", dtoIn);
@@ -383,7 +395,8 @@ class ReservationAbl {
     }
 
     // HDS 3 - Return object from DB
-    dtoOut.uuAppErrorMap = uuAppErrorMap
+    dtoOut.uuAppErrorMap = uuAppErrorMap;
+    dtoOut.profileList = authorizationResult.getAuthorizedProfiles();
     return dtoOut;
   }
 
