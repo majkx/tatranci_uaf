@@ -60,7 +60,7 @@ export const SkolskyCasopis = createComponent({
           datalist = {itemList: [data.itemList[0]]}
         } else
           datalist = {itemList: data.itemList}
-        return <SkolskyCasopisReady data={datalist}/>
+        return <SkolskyCasopisReady data={datalist} profileList={data.profileList}/>
         break;
       case "pending":
       case "pendingNoData":
