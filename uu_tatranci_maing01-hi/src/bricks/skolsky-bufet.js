@@ -54,7 +54,7 @@ export const SkolskyBufet = createComponent({
           datalist = {itemList: [data.itemList[0]]}
         } else
           datalist = {itemList: data.itemList}
-        return <SkolskyBufetReady data={datalist} />;
+        return <SkolskyBufetReady data={datalist} profileList={data.profileList}/>;
         break;
       case "pending":
       case "pendingNoData":

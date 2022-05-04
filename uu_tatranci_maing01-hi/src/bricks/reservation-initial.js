@@ -54,7 +54,7 @@ export const ReservationInitial = createComponent({
 
     switch(state){
       case "ready":
-        return <ReservationInitialReady data={data}/>
+        return <ReservationInitialReady data={data} profileList={data.profileList}/>
         break;
       case "pending":
       case "pendingNoData":

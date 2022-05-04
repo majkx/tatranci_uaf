@@ -43,7 +43,7 @@ export const SkolskaTeleviziaReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.YoutubeVideo src={cellProps.data.videoURL} size = "sm" className={CLASS_NAMES.body()}/>
+            return <UU5.Bricks.YoutubeVideo src={cellProps.data.videoURL} size="sm" className={CLASS_NAMES.body()}/>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Video </UU5.Bricks.Span>
         },
@@ -55,17 +55,22 @@ export const SkolskaTeleviziaReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return (
-              <>
-                <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
-                <UU5.Bricks.Modal ref={modalRef}/>
-                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>
-              </>
-            )
+            if (props.profileList.includes("Executives")) {
+              return (
+                <>
+                  <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
+                  <UU5.Bricks.Modal ref={modalRef}/>
+                  <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>
+                </>
+              )
+            } else {
+              return null
+            }
           },
         }
       ];
     }
+
     function handleRemove(dtoIn) {
       return Calls.deleteReport({ id: dtoIn.data.id }).then((dtoOut) => {
         return dtoOut.data;
@@ -74,18 +79,21 @@ export const SkolskaTeleviziaReady = createVisualComponent({
     }
 
     let modalRef = useRef();
-    function handleUpdate(data){
+
+    function handleUpdate(data) {
       modalRef.current.open({
         header: " ",
-        content: (<TeleviziaFormReady data={data} handleClose={handleClose} method={"update"}/> ),
+        content: (<TeleviziaFormReady data={data} handleClose={handleClose} method={"update"}/>),
       })
       console.log(data);
 
     }
-    function handleClose(){
+
+    function handleClose() {
       console.log("text")
       modalRef.current.close()
     }
+
     //@@viewOff:private
 
     //@@viewOn:interface

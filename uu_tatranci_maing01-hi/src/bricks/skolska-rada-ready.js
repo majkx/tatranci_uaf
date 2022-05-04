@@ -1,6 +1,6 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
-import { createVisualComponent, useRef  } from "uu5g04-hooks";
+import { createVisualComponent, useRef } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
 import RouteHelper from "../route-helper";
@@ -50,13 +50,17 @@ export const SkolskaRadaReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return (
-            <>
-              <UU5.Bricks.Modal ref={modalRef}/>
-              <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
-              <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>
-            </>
-            )
+            if (props.profileList.includes("Executives")) {
+              return (
+                <>
+                  <UU5.Bricks.Modal ref={modalRef}/>
+                  <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
+                  <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>
+                </>
+              )
+            } else {
+              return null
+            }
           },
         },
       ];
@@ -70,14 +74,16 @@ export const SkolskaRadaReady = createVisualComponent({
     }
 
     let modalRef = useRef();
-    function handleUpdate(data){
+
+    function handleUpdate(data) {
       modalRef.current.open({
         header: " ",
-        content: (<RadaFormReady data={data} handleClose={handleClose} method={"update"}/> ),
+        content: (<RadaFormReady data={data} handleClose={handleClose} method={"update"}/>),
       })
       console.log(data);
     }
-    function handleClose(){
+
+    function handleClose() {
       console.log("text")
       modalRef.current.close()
     }

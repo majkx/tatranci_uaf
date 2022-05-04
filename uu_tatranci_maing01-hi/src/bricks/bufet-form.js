@@ -34,21 +34,24 @@ export const BufetForm = createComponent({
     //@@viewOff:hooks
 
     //@@viewOn:private
-    function loadItems(){
+    function loadItems() {
       return Calls.listItems();
     }
 
-    let {state, data} = dataResult;
-    function handleClick(){
+    let { state, data } = dataResult;
+
+    function handleClick() {
       modalRef.current.open({
         header: " ",
-        content: (<BufetFormReady data={data} handleClose={handleClose}/> ),
+        content: (<BufetFormReady data={data} handleClose={handleClose}/>),
       })
     }
-    function handleClose(){
+
+    function handleClose() {
       console.log("text")
       modalRef.current.close()
     }
+
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -70,7 +73,6 @@ export const BufetForm = createComponent({
       props,
       STATICS
     );
-
     return (
       <>
         <UU5.Bricks.Modal ref={modalRef}/>

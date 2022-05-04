@@ -54,12 +54,20 @@ export const StrankaSkolskaTelevizia = createVisualComponent({
 
     //@@viewOn:render
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
+    if (props.profileList === "Executives") {
     return (
       <div {...attrs}>
         <SkolskaTelevizia />
         <TeleviziaForm />
       </div>
     );
+    } else {
+      return (
+        <div {...attrs}>
+          <SkolskaTelevizia />
+        </div>
+      );
+    }
 
     //@@viewOff:render
   },

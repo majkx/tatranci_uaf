@@ -54,12 +54,20 @@ export const StrankaSkolskaRada = createVisualComponent({
 
     //@@viewOn:render
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
-    return (
-      <div {...attrs}>
-        <SkolskaRada/>
-        <RadaForm />
-    </div>
-    );
+    if (props.profileList === "Executives") {
+      return (
+        <div {...attrs}>
+          <SkolskaRada/>
+          <RadaForm/>
+        </div>
+      );
+    } else {
+      return (
+        <div {...attrs}>
+          <SkolskaRada/>
+        </div>
+      );
+    }
 
     //@@viewOff:render
   },

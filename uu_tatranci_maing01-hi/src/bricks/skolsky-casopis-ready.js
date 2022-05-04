@@ -49,7 +49,7 @@ export const SkolskyCasopisReady = createComponent({
         },
         {
           cell: (cellProps) => {
-            return <UU5.Bricks.Link className={CLASS_NAMES.body()} href={cellProps.data.content}  target={"_blank"}> Časopis </UU5.Bricks.Link>
+            return <UU5.Bricks.Link className={CLASS_NAMES.body()} href={cellProps.data.content} target={"_blank"}> Časopis </UU5.Bricks.Link>
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Obsah </UU5.Bricks.Span>
         },
@@ -62,17 +62,21 @@ export const SkolskyCasopisReady = createComponent({
         {
           cell: (cellProps) => {
             if (props.profileList.includes("Executives")) {
-            return (
-              <>
-                <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
-                <UU5.Bricks.Modal ref={modalRef}/>
-                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>
-              </>
-            )} else return null
+              return (
+                <>
+                  <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
+                  <UU5.Bricks.Modal ref={modalRef}/>
+                  <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>
+                </>
+              )
+            } else {
+              return null
+            }
           },
         }
       ];
     }
+
     function handleRemove(dtoIn) {
       return Calls.deleteSchoolMagazine({ id: dtoIn.data.id }).then((dtoOut) => {
         return dtoOut.data;
@@ -81,18 +85,21 @@ export const SkolskyCasopisReady = createComponent({
     }
 
     let modalRef = useRef();
-    function handleUpdate(data){
+
+    function handleUpdate(data) {
       modalRef.current.open({
         header: " ",
-        content: (<CasopisFormReady data={data} handleClose={handleClose} method={"update"}/> ),
+        content: (<CasopisFormReady data={data} handleClose={handleClose} method={"update"}/>),
       })
       console.log(data);
 
     }
-    function handleClose(){
+
+    function handleClose() {
       console.log("text")
       modalRef.current.close()
     }
+
     //@@viewOff:private
 
     //@@viewOn:interface

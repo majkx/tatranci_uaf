@@ -60,7 +60,7 @@ export const SkolskaRada = createComponent({
           datalist = {itemList: [data.itemList[0]]}
         } else
           datalist = {itemList: data.itemList}
-        return <SkolskaRadaReady data={datalist}/>
+        return <SkolskaRadaReady data={datalist} profileList={data.profileList}/>
         break;
       case "pending":
       case "pendingNoData":

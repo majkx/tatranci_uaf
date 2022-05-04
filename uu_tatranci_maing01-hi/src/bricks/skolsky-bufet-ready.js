@@ -69,6 +69,7 @@ export const SkolskyBufetReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
+            if (props.profileList.includes("Executives")) {
               return (
                 <>
                   <UU5.Bricks.Modal ref={modalRef}/>
@@ -78,8 +79,17 @@ export const SkolskyBufetReady = createVisualComponent({
                   <UU5.Bricks.Button onClick={() => handleReservation(cellProps)} className={CLASS_NAMES.buttons()}> Rezervovať </UU5.Bricks.Button>
                 </>
               )
+            } else {
+              return (
+                <>
+                  <UU5.Bricks.Modal ref={modalRef}/>
+                  <UU5.Bricks.Button onClick={() => handleDetail(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button> <br/> <br/>
+                  <UU5.Bricks.Button onClick={() => handleReservation(cellProps)} className={CLASS_NAMES.buttons()}> Rezervovať </UU5.Bricks.Button>
+                </>
+              )
             }
-          },
+          }
+        },
       ];
     }
 
@@ -95,7 +105,7 @@ export const SkolskyBufetReady = createVisualComponent({
     function handleUpdate(data) {
       modalRef.current.open({
         header: " ",
-        content: (<BufetFormReady data={data} handleClose={handleClose} method = "update"/>),
+        content: (<BufetFormReady data={data} handleClose={handleClose} method="update"/>),
       })
       console.log(data);
 

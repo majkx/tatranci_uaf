@@ -61,13 +61,19 @@ export const ReservationOpenReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            return (
-              <>
-                <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button> <br/><br/>
-                <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Spracovať </UU5.Bricks.Button> <br/><br/>
-                <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Zrušiť </UU5.Bricks.Button>
-              </>
-            )
+            if (props.profileList === "Executives") {
+              return (
+                <>
+                  <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button> <br/><br/>
+                  <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Spracovať </UU5.Bricks.Button> <br/><br/>
+                  <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Zrušiť </UU5.Bricks.Button>
+                </>
+              )
+            } else {
+              return (
+                <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button>
+              )
+            }
           },
         },
 
@@ -80,16 +86,16 @@ export const ReservationOpenReady = createVisualComponent({
     }
 
     function handleUpdate(dtoIn) {
-      return Calls.updateReservationUpdateShopCardClosed({ id:dtoIn}).then((dtoOut) => {
+      return Calls.updateReservationUpdateShopCardClosed({ id: dtoIn }).then((dtoOut) => {
         props.handleClose();
         console.log(dtoIn);
         return dtoOut.data;
       })
     }
 
-    function handleDelete(dtoIn){
+    function handleDelete(dtoIn) {
       console.log(dtoIn)
-      return Calls.updateReservationUpdateShopCardCanceled({ id:dtoIn}).then((dtoOut) => {
+      return Calls.updateReservationUpdateShopCardCanceled({ id: dtoIn }).then((dtoOut) => {
         props.handleClose();
         console.log(dtoIn);
         return dtoOut.data;

@@ -47,7 +47,7 @@ export const StrankaSkolskyCasopis = createVisualComponent({
   //@@viewOn:defaultProps
   //@@viewOff:defaultProps
 
-  render(props ) {
+  render(props) {
     //@@viewOn:private
     //@@viewOff:private
 
@@ -56,12 +56,20 @@ export const StrankaSkolskyCasopis = createVisualComponent({
 
     //@@viewOn:render
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
-    return (
-      <div {...attrs}>
-        <SkolskyCasopis/>
-        <CasopisForm />
-      </div>
-    );
+    if (props.profileList === "Executives") {
+      return (
+        <div {...attrs}>
+          <SkolskyCasopis/>
+          <CasopisForm/>
+        </div>
+      );
+    } else {
+      return (
+        <div {...attrs}>
+          <SkolskyCasopis/>
+        </div>
+      );
+    }
 
     //@@viewOff:render
   },
