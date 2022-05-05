@@ -17,6 +17,18 @@ let Calls = {
     let commandUri = Calls.getCommandUri("user/list");
     return Calls.call("get", commandUri, dtoIn);
   },
+  listAdmins(dtoIn) {
+    let commandUri = Calls.getCommandUri("admin/list");
+    return Calls.call("get", commandUri, dtoIn);
+  },
+  listEditors(dtoIn) {
+    let commandUri = Calls.getCommandUri("editor/list");
+    return Calls.call("get", commandUri, dtoIn);
+  },
+  listSellers(dtoIn) {
+    let commandUri = Calls.getCommandUri("seller/list");
+    return Calls.call("get", commandUri, dtoIn);
+  },
   listArticles(dtoIn) {
     let commandUri = Calls.getCommandUri("article/list");
     return Calls.call("get", commandUri, dtoIn);

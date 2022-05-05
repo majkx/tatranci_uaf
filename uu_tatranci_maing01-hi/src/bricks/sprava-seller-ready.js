@@ -2,19 +2,17 @@
 import UU5 from "uu5g04";
 import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
-import Calls from "../calls";
 import Uu5Tiles from "uu5tilesg02";
-import RouteHelper from "../route-helper";
 //@@viewOff:imports
 
 const STATICS = {
   //@@viewOn:statics
-  displayName: Config.TAG + "SpravaUserReady",
+  displayName: Config.TAG + "SpravaSellerReady",
   nestingLevel: "bigBoxCollection",
   //@@viewOff:statics
 };
 
-export const SpravaUserReady = createVisualComponent({
+export const SpravaSellerReady = createVisualComponent({
   ...STATICS,
 
   //@@viewOn:propTypes
@@ -56,29 +54,6 @@ export const SpravaUserReady = createVisualComponent({
       ];
 
     }
-    /*
-    function handleClick(data) {
-      console.log(data)
-      return RouteHelper.setRoute("kosik", { id: data.id });
-    }
-
-    function handleUpdate(dtoIn) {
-      console.log(dtoIn)
-      return Calls.updateReservationUpdateShopCardOpen({ id: dtoIn }).then((dtoOut) => {
-        props.handleClose();
-        console.log(dtoIn);
-        return dtoOut.data;
-      })
-    }
-
-    function handleDelete(dtoIn) {
-      console.log(dtoIn)
-      return Calls.updateReservationUpdateShopCardCanceled({ id: dtoIn }).then((dtoOut) => {
-        props.handleClose();
-        console.log(dtoIn);
-        return dtoOut.data;
-      })
-    }*/
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -107,7 +82,7 @@ export const SpravaUserReady = createVisualComponent({
        margin-right: 12px;
       `,
     };
-    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
+    const attrs = UU5.Common.VisualComponent.getAttrs(props,  CLASS_NAMES.main());
     const currentNestingLevel = UU5.Utils.NestingLevel.getNestingLevel(
       props,
       STATICS
@@ -131,4 +106,4 @@ export const SpravaUserReady = createVisualComponent({
   },
 });
 
-export default SpravaUserReady;
+export default SpravaSellerReady;

@@ -491,6 +491,96 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.SpravaUserReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SpravaAdmin",
+        "name": "SpravaAdmin",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SpravaAdmin"
+        ],
+        "docCode": "UuTatranciBricksSpravaAdmin",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SpravaAdmin />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SpravaAdminReady",
+        "name": "SpravaAdminReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SpravaAdminReady"
+        ],
+        "docCode": "UuTatranciBricksSpravaAdminReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SpravaAdminReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SpravaEditor",
+        "name": "SpravaEditor",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SpravaEditor"
+        ],
+        "docCode": "UuTatranciBricksSpravaEditor",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SpravaEditor />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SpravaEditorReady",
+        "name": "SpravaEditorReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SpravaEditorReady"
+        ],
+        "docCode": "UuTatranciBricksSpravaEditorReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SpravaEditorReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SpravaSeller",
+        "name": "SpravaSeller",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SpravaSeller"
+        ],
+        "docCode": "UuTatranciBricksSpravaSeller",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SpravaSeller />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SpravaSellerReady",
+        "name": "SpravaSellerReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SpravaSellerReady"
+        ],
+        "docCode": "UuTatranciBricksSpravaSellerReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SpravaSellerReady />"
       }
     ]
   },

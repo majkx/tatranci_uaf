@@ -6,6 +6,9 @@ import "uu_plus4u5g01-bricks";
 
 import Config from "./config/config.js";
 import SpravaUser from "../bricks/sprava-user";
+import SpravaAdmin from "../bricks/sprava-admin";
+import SpravaEditor from "../bricks/sprava-editor";
+import SpravaSeller from "../bricks/sprava-seller";
 
 //@@viewOff:imports
 
@@ -60,6 +63,12 @@ export const StrankaVsetkyObjedenavky = createVisualComponent({
       <div {...attrs}>
         <UU5.Bricks.Heading content = { "Users"} className={CLASS_NAMES.header()}/>
         <SpravaUser/>
+        <UU5.Bricks.Heading content = { "Admins"} className={CLASS_NAMES.header()}/>
+        <SpravaAdmin/>
+        <UU5.Bricks.Heading content = { "Editors"} className={CLASS_NAMES.header()}/>
+        <SpravaEditor/>
+        <UU5.Bricks.Heading content = { "Sellers"} className={CLASS_NAMES.header()}/>
+        <SpravaSeller/>
       </div>
     );
 
