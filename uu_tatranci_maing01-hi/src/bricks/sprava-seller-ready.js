@@ -3,6 +3,7 @@ import UU5 from "uu5g04";
 import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
+import Calls from "../calls";
 //@@viewOff:imports
 
 const STATICS = {
@@ -51,9 +52,26 @@ export const SpravaSellerReady = createVisualComponent({
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Mobil </UU5.Bricks.Span>
         },
+        {
+          cell: (cellProps) => {
+            return (
+              <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Odstrániť používateľa </UU5.Bricks.Button>
+            )
+          },
+        },
       ];
 
     }
+
+    function handleDelete(dtoIn) {
+      console.log(dtoIn)
+      return Calls.deleteSeller({ id: dtoIn }).then((dtoOut) => {
+        props.handleClose();
+        console.log(dtoIn);
+        return dtoOut.data;
+      })
+    }
+
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -82,7 +100,7 @@ export const SpravaSellerReady = createVisualComponent({
        margin-right: 12px;
       `,
     };
-    const attrs = UU5.Common.VisualComponent.getAttrs(props,  CLASS_NAMES.main());
+    const attrs = UU5.Common.VisualComponent.getAttrs(props, CLASS_NAMES.main());
     const currentNestingLevel = UU5.Utils.NestingLevel.getNestingLevel(
       props,
       STATICS

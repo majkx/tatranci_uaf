@@ -1,6 +1,11 @@
 /* eslint-disable */
 const createAdminDtoInType = shape({
-  uuId: uuIdentity().isRequired()
+  uuId: uuIdentity().isRequired(),
+  firstName: string(200),
+  lastName: string(),
+  email: string(200),
+  telephoneNumber: string(200),
+  rfidNumber: string(200)
 });
 const getAdminDtoInType = shape({
   id: id().isRequired()

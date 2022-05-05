@@ -53,18 +53,70 @@ export const SpravaUserReady = createVisualComponent({
           },
           header: <UU5.Bricks.Span className={CLASS_NAMES.header()}> Mobil </UU5.Bricks.Span>
         },
+        {
+          cell: (cellProps) => {
+            return (
+              <>
+                <UU5.Bricks.Button onClick={() => handleCreateA(cellProps)} className={CLASS_NAMES.buttons()}> Admin </UU5.Bricks.Button> <br/><br/>
+                <UU5.Bricks.Button onClick={() => handleCreateE(cellProps)} className={CLASS_NAMES.buttons()}> Editor </UU5.Bricks.Button> <br/><br/>
+                <UU5.Bricks.Button onClick={() => handleCreateS(cellProps)} className={CLASS_NAMES.buttons()}> Seller </UU5.Bricks.Button> <br/><br/>
+                <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Odstrániť používateľa </UU5.Bricks.Button>
+              </>
+            )
+          },
+        },
       ];
 
     }
-    /*
-    function handleClick(data) {
-      console.log(data)
-      return RouteHelper.setRoute("kosik", { id: data.id });
+
+    function handleCreateA(dtoIn) {
+      console.log(dtoIn)
+      return Calls.createAdmin({
+        uuId: dtoIn.data.uuId,
+        email: dtoIn.data.email,
+        firstName: dtoIn.data.firstName,
+        lastName: dtoIn.data.lastName,
+        telephoneNumber: dtoIn.data.telephoneNumber,
+        credit: dtoIn.data.credit,
+        penalties: dtoIn.data.penalties,
+        rfidNumber: dtoIn.data.rfidNumber,
+      }).then((dtoOut) => {
+        props.handleClose();
+        console.log(dtoIn);
+        return dtoOut.data;
+      })
     }
 
-    function handleUpdate(dtoIn) {
+    function handleCreateE(dtoIn) {
       console.log(dtoIn)
-      return Calls.updateReservationUpdateShopCardOpen({ id: dtoIn }).then((dtoOut) => {
+      return Calls.createEditor({
+        uuId: dtoIn.data.uuId,
+        email: dtoIn.data.email,
+        firstName: dtoIn.data.firstName,
+        lastName: dtoIn.data.lastName,
+        telephoneNumber: dtoIn.data.telephoneNumber,
+        credit: dtoIn.data.credit,
+        penalties: dtoIn.data.penalties,
+        rfidNumber: dtoIn.data.rfidNumber,
+      }).then((dtoOut) => {
+        props.handleClose();
+        console.log(dtoIn);
+        return dtoOut.data;
+      })
+    }
+
+    function handleCreateS(dtoIn) {
+      console.log(dtoIn)
+      return Calls.createSeller({
+        uuId: dtoIn.data.uuId,
+        email: dtoIn.data.email,
+        firstName: dtoIn.data.firstName,
+        lastName: dtoIn.data.lastName,
+        telephoneNumber: dtoIn.data.telephoneNumber,
+        credit: dtoIn.data.credit,
+        penalties: dtoIn.data.penalties,
+        rfidNumber: dtoIn.data.rfidNumber,
+      }).then((dtoOut) => {
         props.handleClose();
         console.log(dtoIn);
         return dtoOut.data;
@@ -73,12 +125,13 @@ export const SpravaUserReady = createVisualComponent({
 
     function handleDelete(dtoIn) {
       console.log(dtoIn)
-      return Calls.updateReservationUpdateShopCardCanceled({ id: dtoIn }).then((dtoOut) => {
+      return Calls.deleteUser({ id: dtoIn }).then((dtoOut) => {
         props.handleClose();
         console.log(dtoIn);
         return dtoOut.data;
       })
-    }*/
+    }
+
     //@@viewOff:private
 
     //@@viewOn:interface

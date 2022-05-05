@@ -17,17 +17,45 @@ let Calls = {
     let commandUri = Calls.getCommandUri("user/list");
     return Calls.call("get", commandUri, dtoIn);
   },
+  deleteUser(dtoIn) {
+    let commandUri = Calls.getCommandUri("user/delete");
+    return Calls.call("get", commandUri, dtoIn);
+  },
   listAdmins(dtoIn) {
     let commandUri = Calls.getCommandUri("admin/list");
     return Calls.call("get", commandUri, dtoIn);
+  },
+  createAdmin(dtoIn) {
+    let commandUri = Calls.getCommandUri("admin/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  deleteAdmin(dtoIn) {
+    let commandUri = Calls.getCommandUri("admin/delete");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  createEditor(dtoIn) {
+    let commandUri = Calls.getCommandUri("editor/create");
+    return Calls.call("post", commandUri, dtoIn);
   },
   listEditors(dtoIn) {
     let commandUri = Calls.getCommandUri("editor/list");
     return Calls.call("get", commandUri, dtoIn);
   },
+  deleteEditor(dtoIn) {
+    let commandUri = Calls.getCommandUri("editor/delete");
+    return Calls.call("post", commandUri, dtoIn);
+  },
+  createSeller(dtoIn) {
+    let commandUri = Calls.getCommandUri("seller/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
   listSellers(dtoIn) {
     let commandUri = Calls.getCommandUri("seller/list");
     return Calls.call("get", commandUri, dtoIn);
+  },
+  deleteSeller(dtoIn) {
+    let commandUri = Calls.getCommandUri("seller/delete");
+    return Calls.call("post", commandUri, dtoIn);
   },
   listArticles(dtoIn) {
     let commandUri = Calls.getCommandUri("article/list");
