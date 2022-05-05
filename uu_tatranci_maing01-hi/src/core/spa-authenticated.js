@@ -14,8 +14,8 @@ import StrankaSkolskaTelevizia from "../routes/skolskaTelevizia";
 import StrankaSkolskyBufet from "../routes/skolskyBufet";
 import StrankaSkolskyCasopis from "../routes/skolskyCasopis";
 import StrankaKosik from "../routes/kosik";
-import StrankaVsetkyObjdnavky from "../routes/vsetkyObjednavky";
-import StrankaVsetkyObjedenavky from "../routes/vsetkyObjednavky";
+import StrankaVsetkyObjednavky from "../routes/vsetkyObjednavky";
+import StrankaSpravaPouzivatelov from "../routes/spravaPouzivatelov";
 
 //@@viewOff:imports
 
@@ -39,7 +39,8 @@ const ROUTES = {
   skolskaTelevizia: { component: <StrankaSkolskaTelevizia /> },
   skolskyCasopis: { component: <StrankaSkolskyCasopis /> },
   kosik: { component: <StrankaKosik /> },
-  vsetkyObjednavky: { component: <StrankaVsetkyObjedenavky /> },
+  vsetkyObjednavky: { component: <StrankaVsetkyObjednavky /> },
+  spravaPouzivatelov: { component: <StrankaSpravaPouzivatelov /> },
 };
 
 export const SpaAuthenticated = createVisualComponent({

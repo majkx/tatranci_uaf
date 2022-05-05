@@ -4,7 +4,6 @@ import { createVisualComponent } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
 import RouteHelper from "../route-helper";
-import BufetFormReady from "./bufet-form-ready";
 import Calls from "../calls";
 //@@viewOff:imports
 

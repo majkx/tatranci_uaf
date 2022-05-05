@@ -60,6 +60,7 @@ export const  Left = createVisualComponent({
             { id: "skolskatelevizia", href: "skolskaTelevizia", content: "Školská televízia"},
             { id: "skolskycasopis", href: "skolskyCasopis", content: "Školský časopis"},
             { id: "vsetkyObjednavky", href: "vsetkyObjednavky", content: "Všetky objednávky"},
+            { id: "spravaPouzivatelov", href: "spravaPouzivatelov", content: "Správa používateľov"},
           ]}
         />
       </Plus4U5.App.Left>

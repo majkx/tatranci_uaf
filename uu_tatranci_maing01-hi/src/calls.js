@@ -13,6 +13,10 @@ let Calls = {
     return response.data;
   },
 
+  listUsers(dtoIn) {
+    let commandUri = Calls.getCommandUri("user/list");
+    return Calls.call("get", commandUri, dtoIn);
+  },
   listArticles(dtoIn) {
     let commandUri = Calls.getCommandUri("article/list");
     return Calls.call("get", commandUri, dtoIn);

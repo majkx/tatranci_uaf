@@ -433,6 +433,64 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.RadaDetailReady />"
+      },
+      {
+        "code": "UuTatranci.SpravaUser",
+        "name": "SpravaUser",
+        "tagList": [
+          "UuTatranci",
+          "SpravaUser"
+        ],
+        "docCode": "UuTatranciSpravaUser",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.SpravaUser />"
+      },
+      {
+        "code": "UuTatranci.SpravaUserReady",
+        "name": "SpravaUserReady",
+        "tagList": [
+          "UuTatranci",
+          "SpravaUserReady"
+        ],
+        "docCode": "UuTatranciSpravaUserReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.SpravaUserReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SpravaUser",
+        "name": "SpravaUser",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SpravaUser"
+        ],
+        "docCode": "UuTatranciBricksSpravaUser",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SpravaUser />"
+      },
+      {
+        "code": "UuTatranci.Bricks.SpravaUserReady",
+        "name": "SpravaUserReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "SpravaUserReady"
+        ],
+        "docCode": "UuTatranciBricksSpravaUserReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.SpravaUserReady />"
       }
     ]
   },
