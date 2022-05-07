@@ -1,9 +1,11 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
-import { createVisualComponent } from "uu5g04-hooks";
+import { createVisualComponent, useRef } from "uu5g04-hooks";
 import Config from "./config/config";
 import Uu5Tiles from "uu5tilesg02";
 import Calls from "../calls";
+import BufetFormReady from "./bufet-form-ready";
+import DeleteEditorFormReady from "./delete-editor-form-ready";
 //@@viewOff:imports
 
 const STATICS = {
@@ -55,7 +57,10 @@ export const SpravaEditorReady = createVisualComponent({
         {
           cell: (cellProps) => {
             return (
-              <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Odstrániť používateľa </UU5.Bricks.Button>
+              <>
+              <UU5.Bricks.Modal ref={modalRef}/>
+              <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data)} className={CLASS_NAMES.buttons()}> Odstrániť používateľa </UU5.Bricks.Button>
+              </>
             )
           },
         },
@@ -63,13 +68,19 @@ export const SpravaEditorReady = createVisualComponent({
 
     }
 
-    function handleDelete(dtoIn) {
-      console.log(dtoIn)
-      return Calls.deleteEditor({ id: dtoIn }).then((dtoOut) => {
-        props.handleClose();
-        console.log(dtoIn);
-        return dtoOut.data;
+    let modalRef = useRef();
+
+    function handleDelete(data) {
+      modalRef.current.open({
+        header: " ",
+        content: (<DeleteEditorFormReady data={data} handleClose={handleClose} />),
       })
+      console.log(data);
+    }
+
+    function handleClose() {
+      console.log("text")
+      modalRef.current.close()
     }
 
     //@@viewOff:private

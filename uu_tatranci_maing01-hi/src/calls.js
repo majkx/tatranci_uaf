@@ -12,14 +12,17 @@ let Calls = {
     let response = await Plus4U5.Common.Calls.call(method, url, dtoIn, clientOptions);
     return response.data;
   },
-
+  createUser(dtoIn) {
+    let commandUri = Calls.getCommandUri("user/create");
+    return Calls.call("post", commandUri, dtoIn);
+  },
   listUsers(dtoIn) {
     let commandUri = Calls.getCommandUri("user/list");
     return Calls.call("get", commandUri, dtoIn);
   },
   deleteUser(dtoIn) {
     let commandUri = Calls.getCommandUri("user/delete");
-    return Calls.call("get", commandUri, dtoIn);
+    return Calls.call("post", commandUri, dtoIn);
   },
   listAdmins(dtoIn) {
     let commandUri = Calls.getCommandUri("admin/list");

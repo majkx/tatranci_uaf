@@ -581,6 +581,81 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuTatranci.Bricks.SpravaSellerReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.CreateUser",
+        "name": "CreateUser",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "CreateUser"
+        ],
+        "docCode": "UuTatranciBricksCreateUser",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.CreateUser />"
+      },
+      {
+        "code": "UuTatranci.Bricks.CreateUserReady",
+        "name": "CreateUserReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "CreateUserReady"
+        ],
+        "docCode": "UuTatranciBricksCreateUserReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.CreateUserReady />"
+      },
+      {
+        "code": "UuTatranci.Bricks.DeleteEditor",
+        "name": "DeleteEditor",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "DeleteEditor"
+        ],
+        "docCode": "UuTatranciBricksDeleteEditor",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.DeleteEditor />"
+      },
+      {
+        "code": "UuTatranci.Bricks.DeleteEditorForm",
+        "name": "DeleteEditorForm",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "DeleteEditorForm"
+        ],
+        "docCode": "UuTatranciBricksDeleteEditorForm",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.DeleteEditorForm />"
+      },
+      {
+        "code": "UuTatranci.Bricks.DeleteEditorFormReady",
+        "name": "DeleteEditorFormReady",
+        "tagList": [
+          "UuTatranci",
+          "Bricks",
+          "DeleteEditorFormReady"
+        ],
+        "docCode": "UuTatranciBricksDeleteEditorFormReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuTatranci.Bricks.DeleteEditorFormReady />"
       }
     ]
   },

@@ -9,6 +9,7 @@ import SpravaUser from "../bricks/sprava-user";
 import SpravaAdmin from "../bricks/sprava-admin";
 import SpravaEditor from "../bricks/sprava-editor";
 import SpravaSeller from "../bricks/sprava-seller";
+import CreateUserForm from "../bricks/create-user-form";
 
 //@@viewOff:imports
 
@@ -69,6 +70,7 @@ export const StrankaVsetkyObjedenavky = createVisualComponent({
         <SpravaEditor/>
         <UU5.Bricks.Heading content = { "Sellers"} className={CLASS_NAMES.header()}/>
         <SpravaSeller/>
+        <CreateUserForm/>
       </div>
     );
 

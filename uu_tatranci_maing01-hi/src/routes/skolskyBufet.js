@@ -54,20 +54,12 @@ export const StrankaSkolskyBufet = createVisualComponent({
 
     //@@viewOn:render
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
-    if (props.profileList === "Executives") {
-      return (
-        <div {...attrs}>
-          <SkolskyBufet/>
-          <BufetForm/>
-        </div>
-      );
-    } else {
-      return (
-        <div {...attrs}>
-          <SkolskyBufet/>
-        </div>
-      );
-    }
+    return (
+      <div {...attrs}>
+        <SkolskyBufet/>
+        <BufetForm />
+      </div>
+    );
 
     //@@viewOff:render
   },
