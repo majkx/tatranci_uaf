@@ -56,20 +56,20 @@ export const StrankaSkolskyCasopis = createVisualComponent({
 
     //@@viewOn:render
     const attrs = UU5.Common.VisualComponent.getAttrs(props);
-    if (props.profileList === "Executives") {
+    //if (props.profileList === "Executives") {
       return (
         <div {...attrs}>
           <SkolskyCasopis/>
           <CasopisForm/>
         </div>
       );
-    } else {
+    /*} else {
       return (
         <div {...attrs}>
           <SkolskyCasopis/>
         </div>
       );
-    }
+    }*/
 
     //@@viewOff:render
   },

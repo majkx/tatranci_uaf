@@ -155,7 +155,7 @@
       },
       "user/create": {
         "sysStateList": ["active"],
-        "profileList": ["Authorities","Executives"]
+        "profileList": ["Authorities","Executives", "Public"]
       },
       "user/get": {
         "sysStateList": ["active"],

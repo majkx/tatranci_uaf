@@ -62,14 +62,14 @@ export const CreateUserFormReady = createVisualComponent({
           header={<UU5.Bricks.Box content='Vytvorenie nového používateľa' colorSchema='grey-rich' className='font-size-m'/>}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >
-          <UU5.Forms.Text name="uuId" label="uuId" />
-          <UU5.Forms.Text name="firstName" label="Meno" />
-          <UU5.Forms.Text name="lastName" label="Priezvisko" />
-          <UU5.Forms.Text name="email" label="E-mail" />
-          <UU5.Forms.Text name="telephoneNumber" label="Mobil" />
-          <UU5.Forms.Text name="credit" label="Kredit" />
-          <UU5.Forms.Text name="penalties" label="Penále" />
-          <UU5.Forms.Text name="rfidNumber" label="RFID číslo" />
+          <UU5.Forms.Text name="uuId" label="uuId" value= {props.data.uuId ? props.data.uuId : ""} />
+          <UU5.Forms.Text name="firstName" label="Meno" value= {props.data.firstName ? props.data.firstName: ""} />
+          <UU5.Forms.Text name="lastName" label="Priezvisko" value= {props.data.lastName ? props.data.lastName : ""} />
+          <UU5.Forms.Text name="email" label="E-mail" value= {props.data.email ? props.data.email : ""} />
+          <UU5.Forms.Text name="telephoneNumber" label="Mobil" value= {props.data.telephoneNumber ? props.data.telephoneNumber : ""} />
+          <UU5.Forms.Text name="credit" label="Kredit" value= {props.data.credit ? props.data.credit : ""} />
+          <UU5.Forms.Text name="penalties" label="Penále" value= {props.data.penalties ? props.data.penalties : ""} />
+          <UU5.Forms.Text name="rfidNumber" label="RFID číslo" value= {props.data.rfidNumber ? props.data.rfidNumber : ""} />
           <UU5.Forms.Controls/>
         </UU5.Forms.Form>
       </div>

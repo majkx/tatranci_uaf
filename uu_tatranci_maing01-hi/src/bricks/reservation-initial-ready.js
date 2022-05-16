@@ -61,7 +61,7 @@ export const ReservationInitialReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            if (props.profileList === "Executives") {
+            //if (props.profileList.includes("Executives")) {
               return (
                 <>
                   <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button> <br/><br/>
@@ -69,14 +69,14 @@ export const ReservationInitialReady = createVisualComponent({
                   <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Zrušiť </UU5.Bricks.Button>
                 </>
               )
-            } else {
+            /*} else {
               return (
                 <>
                   <UU5.Bricks.Button onClick={() => handleClick(cellProps.data)} className={CLASS_NAMES.buttons()}> Detail </UU5.Bricks.Button> <br/><br/>
                   <UU5.Bricks.Button onClick={() => handleDelete(cellProps.data.id)} className={CLASS_NAMES.buttons()}> Zrušiť </UU5.Bricks.Button>
                 </>
               )
-            }
+            }*/
           },
         },
 

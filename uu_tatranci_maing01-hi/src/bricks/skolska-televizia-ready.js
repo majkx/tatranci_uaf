@@ -55,7 +55,7 @@ export const SkolskaTeleviziaReady = createVisualComponent({
         },
         {
           cell: (cellProps) => {
-            if (props.profileList.includes("Executives")) {
+            //if (props.profileList.includes("Executives")) {
               return (
                 <>
                   <UU5.Bricks.Button onClick={() => handleRemove(cellProps)} className={CLASS_NAMES.buttons()}> Zmazať príspevok </UU5.Bricks.Button> <br/> <br/>
@@ -63,9 +63,9 @@ export const SkolskaTeleviziaReady = createVisualComponent({
                   <UU5.Bricks.Button onClick={() => handleUpdate(cellProps.data)} className={CLASS_NAMES.body()}> Aktualizovať príspevok </UU5.Bricks.Button>
                 </>
               )
-            } else {
+           /*} else {
               return null
-            }
+            }*/
           },
         }
       ];
