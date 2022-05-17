@@ -23,25 +23,25 @@ const Lsi = {
       sk: "O aplikácií SPŠka do vrecka",
     },
     creatorsHeader: {
-      cs: "Tvůrci aplikace",
+      sk: "Tvorcovia aplikácie",
       en: "Application creators",
     },
     termsOfUse: {
-      cs: "Podmínky užívání",
+      sk: "Podmienky používania",
       en: "Terms of use",
     },
   },
 
   bottom: {
     termsOfUse: {
-      cs: "Podmínky užívání",
+      sk: "Podmienky používania",
       en: "Terms of use",
     },
   },
 
   auth: {
     welcome: {
-      cs: "Vítejte",
+      sk: "Vítajte",
       en: "Welcome",
     },
 

@@ -4,7 +4,7 @@
   "private": true,
   "description": "",
   "license": "License Commercial",
-  "namespace": "UuTatranci",
+  "namespace": "SPŠka do vrecka",
   "spec": "uu5-app; uu_appg01_devkit@4.2.2",
   "dependencies": {
     "systemjs": "0.19.47",

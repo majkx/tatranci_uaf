@@ -161,7 +161,7 @@ class SellerAbl {
     // HDS 3 - Database entry
     dtoIn.awid = awid;
     try {
-      await Permission.create(awid, "", [dtoIn.uuId] );
+      await Permission.create(awid, "Executives", [dtoIn.uuId] );
       dtoOut = await this.dao.create(dtoIn)
     } catch(e){
       throw e;

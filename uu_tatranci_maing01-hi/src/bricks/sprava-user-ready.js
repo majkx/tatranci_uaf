@@ -109,13 +109,15 @@ export const SpravaUserReady = createVisualComponent({
       console.log(dtoIn)
       return Calls.createSeller({
         uuId: dtoIn.data.uuId,
+        sellerNumber: dtoIn.data.sellerNumber,
         email: dtoIn.data.email,
         firstName: dtoIn.data.firstName,
         lastName: dtoIn.data.lastName,
         telephoneNumber: dtoIn.data.telephoneNumber,
-        credit: dtoIn.data.credit,
         penalties: dtoIn.data.penalties,
         rfidNumber: dtoIn.data.rfidNumber,
+        position: dtoIn.data.position,
+        timeWorked: dtoIn.data.timeWorked,
       }).then((dtoOut) => {
         props.handleClose();
         console.log(dtoIn);

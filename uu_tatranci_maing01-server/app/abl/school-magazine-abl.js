@@ -167,7 +167,7 @@ class SchoolMagazineAbl {
     return dtoOut;
   }
 
-  async create(awid, dtoIn, authorizationResult, session, uuAppErrorMap = {}) {
+  async create(awid, dtoIn, session, authorizationResult, uuAppErrorMap = {}) {
 
     // HDS 1 - validation of dtoIn
     let validationResult = this.validator.validate("createSchoolMagazineDtoInType", dtoIn);
@@ -177,6 +177,7 @@ class SchoolMagazineAbl {
       Warnings.createSchoolMagazineUnsuportedKeys.code,
       Errors.Create.InvalidDtoIn
     );
+
 
     // HDS 2 - get author uuId and Name and add it to dtoIn
     let uuIdentity = session.getIdentity().getUuIdentity();
