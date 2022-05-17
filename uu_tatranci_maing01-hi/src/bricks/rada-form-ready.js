@@ -72,9 +72,9 @@ export const RadaFormReady = createVisualComponent({
           header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='red-rich' className='font-size-m'/>}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >
-          <UU5.Forms.Text name="name" label="Názov" value= {props.data.name ? props.data.name : ""} />
-          <UU5.Forms.Text name="desc" label="Popis" value= {props.data.desc ? props.data.desc : ""} />
-          <UU5.Forms.Text name="content" label="Obsah" value= {props.data.content ? props.data.content : ""} />
+          <UU5.Forms.Text name="name" label="Názov *" value= {props.data.name ? props.data.name : ""} />
+          <UU5.Forms.Text name="desc" label="Popis *" value= {props.data.desc ? props.data.desc : ""} />
+          <UU5.Forms.Text name="content" label="Obsah *" value= {props.data.content ? props.data.content : ""} />
           <UU5.Forms.Controls/>
         </UU5.Forms.Form>
       </div>

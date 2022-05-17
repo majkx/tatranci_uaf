@@ -70,13 +70,13 @@ export const CasopisFormReady = createVisualComponent({
           header={<UU5.Bricks.Box content='Vytvorenie nového príspevku' colorSchema='blue-rich' className='font-size-m' />}
           //footer={<UU5.Bricks.Box content='Unicorn 2018' colorSchema='grey' className='font-size-xs' />}
         >
-          <UU5.Forms.Text name="name" label="Názov" value= {props.data.name ? props.data.name : ""} />
-          <UU5.Forms.Text name="magazineNumber" label="Číslo časopisu" value= {props.data.magazineNumber ? props.data.magazineNumber : ""} />
-          <UU5.Forms.Text name="numbersOfPages" label="Počet strán" value= {props.data.numbersOfPages ? props.data.numbersOfPages : ""} />
-          <UU5.Forms.Text name="titleOfPost" label="Titulok" value= {props.data.titleOfPost ? props.data.titleOfPost : ""} />
+          <UU5.Forms.Text name="name" label="Názov *" value= {props.data.name ? props.data.name : ""} />
+          <UU5.Forms.Text name="magazineNumber" label="Číslo časopisu *" value= {props.data.magazineNumber ? props.data.magazineNumber : ""} />
+          <UU5.Forms.Text name="numbersOfPages" label="Počet strán *" value= {props.data.numbersOfPages ? props.data.numbersOfPages : ""} />
+          <UU5.Forms.Text name="titleOfPost" label="Titulok *" value= {props.data.titleOfPost ? props.data.titleOfPost : ""} />
           <UU5.Forms.Text name="category" label="Kategória" value= {props.data.category ? props.data.category : ""} />
-          <UU5.Forms.Text name="content" label="Url adresa časopisu" value= {props.data.content ? props.data.content : ""} />
-          <UU5.Forms.File label='Súbor' placeholder="pdf" size="l" multiple />
+          <UU5.Forms.Text name="content" label="Url adresa časopisu *" value= {props.data.content ? props.data.content : ""} />
+          {/*<UU5.Forms.File label='Súbor' placeholder="pdf" size="l" multiple />*/}
           <UU5.Forms.Controls />
         </UU5.Forms.Form>
       </div>

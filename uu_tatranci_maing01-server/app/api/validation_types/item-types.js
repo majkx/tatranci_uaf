@@ -34,7 +34,7 @@ const updateItemDtoInType = shape({
   itemCategory: string(200),
   weight: string(200),
   numberOfPieces: string(),
-  price: string().isRequired(),
+  price: float().isRequired(),
   sellingPrice: string(),
   manufacturer: string(200),
   allergens: string(),

@@ -2,8 +2,7 @@ import UU5 from "uu5g04";
 
 export const About = {
   about: {
-    cs: "Demo aplikace je šablona pro vývoj nových aplikací.",
-    en: "Demo application is a template for developing new applications.",
+    sk: "Aplikácia SPŠka do vrecka je určená pre žiakov SPŠ techniky a dizajnu v Poprade, ktorý tu nájdu informácie z diania na škole.",
   },
   licence: {
     termsOfUse: "https://unicorn.com/tou/your_product",
@@ -17,7 +16,7 @@ export const About = {
         uri: "https://www.unicorn.com/",
       },
     },
-    authorities: {
+    /*authorities: {
       cs: [
         {
           name: "Name Surname",
@@ -30,25 +29,21 @@ export const About = {
           uri: "https://www.unicorn.com/",
         },
       ],
-    },
+    },*/
   },
   leadingAuthors: [
     {
       name: "Marek Želonka",
-      uuIdentity: "",
-      role: {
-        en: "Chief Business Architect & Stakeholder",
-      },
+      uuIdentity: "3207-4267-1",
+
     },
     {
       name: "Matúš Mlynár",
       uuIdentity: "5321-2603-1",
-      role: {
-        en: "Head of Development",
-      },
+
     },
   ],
-  otherAuthors: [
+  /*otherAuthors: [
     {
       name: "Your Name",
       uuIdentity: "4-4-1",
@@ -63,7 +58,7 @@ export const About = {
         en: "Developer",
       },
     },
-  ],
+  ],*/
   usedTechnologies: {
     technologies: {
       en: [
@@ -82,7 +77,7 @@ export const About = {
         <UU5.Bricks.LinkUuCloud key="uucloud" />,
       ],
     },
-    content: {
+    /*content: {
       cs: [
         `<uu5string/>Dále byly použity technologie: <UU5.Bricks.LinkHTML5/>, <UU5.Bricks.LinkCSS/>, <UU5.Bricks.LinkJavaScript/>, <UU5.Bricks.LinkBootstrap/>,
         <UU5.Bricks.LinkReact/>, <UU5.Bricks.LinkRuby/>, <UU5.Bricks.LinkPuma/> a <UU5.Bricks.LinkDocker/>.
@@ -97,7 +92,7 @@ export const About = {
         The application user guide is located in <UU5.Bricks.Link href="" target="_blank" content='"Documentation link put here"' />.
         Technical documentation can be found in <UU5.Bricks.Link href="" target="_blank" content='"Documentation link put here"' />.`,
       ],
-    },
+    },*/
   },
 };
 
